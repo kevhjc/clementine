@@ -24,7 +24,7 @@ export default function Intro() {
       <div className='max-w-7xl mx-auto px-10'>
         <div className='text-center'>
           <p className='mt-2 text-3xl leading-8 font-medium tracking-tight text-gray-900 sm:text-5xl'>
-            Say hello to <span className='font-black'>Canvas.</span>
+            Say 👋 to <span className='font-black'>Canvas.</span>
           </p>
           <p className='mt-4 max-w-2xl text-xl text-gray-500 mx-auto'>
             A place to save your thoughts and ideas
@@ -52,17 +52,24 @@ export default function Intro() {
         </div>
 
         <div className='flex justify-center text-center mt-24 leading-8 font-medium tracking-tight text-gray-900'>
-          <a
-            href='/'
-            className='flex w-52 items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm font-medium text-white bg-red-500 hover:bg-red-600'
-          >
-            Sign up
-          </a>
+          <div className='inline-flex relative w-fit'>
+            <button
+              type='button'
+              data-mdb-ripple='true'
+              data-mdb-ripple-color='light'
+              className='animate-bounce bg-red-500 hover:bg-red-600 justify-center px-12 py-3 mb-2 text-white font-medium leading-tight rounded focus:outline-none focus:ring-0 transition duration-150 ease-in-out flex items-center'
+            >
+              Sign up
+            </button>
+          </div>
         </div>
         <div className='flex justify-center text-center leading-8 font-medium tracking-tight text-gray-900'>
           <p className='mt-6 text-center font-medium text-gray-500'>
             Already have an account?{' '}
-            <a href='/' className='text-red-500 hover:underline'>
+            <a
+              href='/'
+              className='text-red-500 underline decoration-transparent hover:decoration-inherit transition duration-200 ease-in-out'
+            >
               Log in
             </a>
           </p>

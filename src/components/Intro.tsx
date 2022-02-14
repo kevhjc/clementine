@@ -57,7 +57,7 @@ export default function Intro() {
               type='button'
               data-mdb-ripple='true'
               data-mdb-ripple-color='light'
-              className='animate-bounce bg-red-500 dark:bg-red-700 hover:bg-red-600 justify-center px-16 py-3 pb-4 mb-2 text-white font-medium leading-tight rounded focus:outline-none focus:ring-0 transition duration-150 ease-in-out flex items-center'
+              className='animate-bounce bg-red-500 dark:bg-red-700 hover:bg-red-600 justify-center px-16 py-3 pb-3 mb-2 text-white font-medium leading-tight rounded focus:outline-none focus:ring-0 transition duration-150 ease-in-out flex items-center'
             >
               Sign up
             </button>

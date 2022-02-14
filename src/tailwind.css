@@ -18,12 +18,9 @@
   }
 }
 
-html {
+html,
+body {
   font-size: 13px;
   min-width: 320px;
   scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
 }

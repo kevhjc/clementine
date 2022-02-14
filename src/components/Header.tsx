@@ -17,21 +17,21 @@ function Header() {
     <Popover className='font-mono'>
       {({ open }) => (
         <>
-          <div className='mx-auto px-8'>
-            <div className='fixed top-0 left-6 right-6 flex justify-between items-center border-b border-gray-100 py-6 bg-opacity-5 backdrop-filter backdrop-blur-lg'>
-              <div className='flex justify-start lg:w-0 lg:flex-1'>
-                <a href='/'>
-                  <span className='header-link font-bold text-xl'>Canvas</span>
-                </a>
-              </div>
-              <Popover.Button className='rounded-md p-2 inline-flex items-center justify-center hover:text-gray-900 hover:bg-gray-100'>
-                <span className='sr-only'>Open menu</span>
-                <MenuAlt3Icon className='h-6 w-6' aria-hidden='true' />
-              </Popover.Button>
-              <Popover.Overlay
-                className={`${open ? 'fixed inset-0' : 'opacity-0'}`}
-              />
+          <div className='z-10 bg-white fixed top-0 left-0 right-0 flex justify-between items-center border-b border-gray-100 py-6 bg-opacity-70 backdrop-filter backdrop-blur-lg'>
+            <div className='flex justify-start lg:w-0 lg:flex-1'>
+              <a href='/'>
+                <span className='ml-6 header-link font-black text-xl'>
+                  Canvas
+                </span>
+              </a>
             </div>
+            <Popover.Button className='mr-6 rounded-md p-2 flex items-center justify-center hover:text-gray-900 hover:bg-gray-100'>
+              <span className='sr-only'>Open menu</span>
+              <MenuAlt3Icon className='h-6 w-6' aria-hidden='true' />
+            </Popover.Button>
+            <Popover.Overlay
+              className={`${open ? 'fixed inset-0' : 'opacity-0'}`}
+            />
           </div>
 
           <Transition
@@ -79,7 +79,10 @@ function Header() {
                     </a>
                     <p className='mt-6 text-center text-sm font-medium text-gray-500'>
                       Already have an account?{' '}
-                      <a href='/' className='text-red-500 hover:underline'>
+                      <a
+                        href='/'
+                        className='text-red-500 underline decoration-transparent hover:decoration-inherit transition duration-200 ease-in-out'
+                      >
                         Log in
                       </a>
                     </p>

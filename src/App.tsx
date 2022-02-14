@@ -1,12 +1,12 @@
 import Header from './components/Header';
-import Example from './components/Example';
+import Intro from './components/Intro';
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      <Example />
-    </div>
+      <Intro />
+    </>
   );
 }
 

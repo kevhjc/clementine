@@ -11,6 +11,10 @@ module.exports = {
       screens: {
         dark: { raw: '(prefers-color-scheme: dark)' },
       },
+      animation: {
+        bounce: 'bounce 4s ease-in-out infinite',
+        pulse: 'pulse 4s ease-in-out infinite ',
+      },
     },
   },
   variants: {

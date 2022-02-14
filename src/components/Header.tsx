@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuAlt3Icon } from '@heroicons/react/outline';
-import { InfoCircledIcon, SunIcon } from '@radix-ui/react-icons';
+import { InfoCircledIcon } from '@radix-ui/react-icons';
 
 export default function Header() {
   return (

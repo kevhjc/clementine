@@ -8,20 +8,60 @@ function classNames(...classes: string[]) {
 
 export default function Home() {
   let [categories] = useState({
-    Text: [
+    All: [
       {
         id: 1,
         title: 'Does drinking coffee make you smarter?',
         date: '5h ago',
-        commentCount: 5,
+        category: 'Code snippet',
         shareCount: 2,
       },
       {
         id: 2,
         title: "So you've bought coffee... now what?",
         date: '2h ago',
-        commentCount: 3,
+        category: 'Url',
         shareCount: 2,
+      },
+      {
+        id: 3,
+        title: 'Ask Me Anything: 10 answers to your questions about coffee',
+        date: '2d ago',
+        category: 'Video',
+        shareCount: 5,
+      },
+      {
+        id: 4,
+        title: "The worst advice we've ever heard about coffee",
+        date: '4d ago',
+        category: 'Image',
+        shareCount: 2,
+      },
+      {
+        id: 5,
+        title: 'Is tech making coffee better or worse?',
+        date: 'Jan 7',
+        category: 'Todo',
+      },
+      {
+        id: 6,
+        title: 'The most innovative things happening in coffee',
+        date: 'Mar 19',
+        category: 'Rich text',
+      },
+    ],
+    Text: [
+      {
+        id: 1,
+        title: 'Does drinking coffee make you smarter?',
+        date: '5h ago',
+        category: 5,
+      },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: '2h ago',
+        category: 3,
       },
     ],
     Link: [
@@ -29,15 +69,13 @@ export default function Home() {
         id: 1,
         title: 'Is tech making coffee better or worse?',
         date: 'Jan 7',
-        commentCount: 29,
-        shareCount: 16,
+        category: 29,
       },
       {
         id: 2,
         title: 'The most innovative things happening in coffee',
         date: 'Mar 19',
-        commentCount: 24,
-        shareCount: 12,
+        category: 24,
       },
     ],
     Image: [
@@ -45,15 +83,13 @@ export default function Home() {
         id: 1,
         title: 'Ask Me Anything: 10 answers to your questions about coffee',
         date: '2d ago',
-        commentCount: 9,
-        shareCount: 5,
+        category: 9,
       },
       {
         id: 2,
         title: "The worst advice we've ever heard about coffee",
         date: '4d ago',
-        commentCount: 1,
-        shareCount: 2,
+        category: 1,
       },
     ],
     Video: [
@@ -61,22 +97,20 @@ export default function Home() {
         id: 2,
         title: "The worst advice we've ever heard about coffee",
         date: '4d ago',
-        commentCount: 1,
-        shareCount: 2,
+        category: 1,
       },
       {
         id: 1,
         title: 'Ask Me Anything: 10 answers to your questions about coffee',
         date: '2d ago',
-        commentCount: 9,
-        shareCount: 5,
+        category: 9,
       },
     ],
   });
 
   return (
     <div className='flex justify-center'>
-      <div className='w-full max-w-xl px-2 py-16 sm:px-0 font-mono mt-24'>
+      <div className='w-full max-w-5xl px-2 py-16 sm:px-0 font-mono mt-24'>
         <Tab.Group>
           <Tab.List className='mb-6 flex p-1 space-x-1 bg-neutral-100 dark:bg-neutral-600 rounded-xl'>
             {Object.keys(categories).map((category) => (
@@ -109,12 +143,10 @@ export default function Home() {
                     >
                       <h3 className='font-medium leading-5'>{post.title}</h3>
 
-                      <ul className='flex text-sm mt-1 space-x-1 font-normal leading-4 text-neutral-500 dark:text-neutral-400'>
+                      <ul className='flex text-sm mt-1 space-x-2 font-normal leading-4 text-neutral-500 dark:text-neutral-400'>
                         <li>{post.date}</li>
                         <li>&middot;</li>
-                        <li>{post.commentCount} comments</li>
-                        <li>&middot;</li>
-                        <li>{post.shareCount} shares</li>
+                        <li>{post.category}</li>
                       </ul>
 
                       <a href='/' className='absolute inset-0 rounded-md' />

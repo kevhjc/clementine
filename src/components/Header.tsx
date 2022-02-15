@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuAlt3Icon } from '@heroicons/react/outline';
-import { InfoCircledIcon } from '@radix-ui/react-icons';
+import { HomeIcon, InfoCircledIcon } from '@radix-ui/react-icons';
 
 export default function Header() {
   return (
@@ -41,6 +41,20 @@ export default function Header() {
                 <div className='pb-6 px-6'>
                   <div className='mt-6'>
                     <nav className='grid gap-y-6'>
+                      <Popover.Button>
+                        <Link
+                          to='/home'
+                          className='-m-3 p-3 flex items-center rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600'
+                        >
+                          <HomeIcon
+                            className='flex-shrink-0 h-6 w-6 text-neutral-600 dark:text-neutral-100'
+                            aria-hidden='true'
+                          />
+                          <span className='ml-3 font-medium text-neutral-900 dark:text-neutral-300'>
+                            Home
+                          </span>
+                        </Link>
+                      </Popover.Button>
                       <Popover.Button>
                         <Link
                           to='/learn-more'

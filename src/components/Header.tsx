@@ -37,15 +37,16 @@ export default function Header() {
               focus
               className='absolute right-0 top-20 transition transform origin-top-right z-10 w-auto max-w-sm pr-6'
             >
-              <div className='overflow-hidden rounded-lg shadow-md ring-1 ring-neutral-200 dark:ring-neutral-700 bg-white dark:bg-neutral-800 divide-y-2 divide-neutral-50 dark:divide-neutral-700'>
-                <div className='pb-6 px-6'>
+              <div className='overflow-hidden rounded-lg shadow-md ring-1 ring-neutral-200 dark:ring-neutral-700 bg-white dark:bg-neutral-800 divide-y-2 divide-neutral-100 dark:divide-neutral-700'>
+                <div className='pb-6 px-5'>
                   <div className='mt-6'>
-                    <nav className='grid gap-y-6'>
+                    <nav className='grid gap-y-2'>
                       <Popover.Button>
                         <Link
                           to='/home'
-                          className='-m-3 p-3 flex items-center rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600'
+                          className='p-2 flex items-center rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600'
                         >
+                          <span className='sr-only'>Go home</span>
                           <HomeIcon
                             className='flex-shrink-0 h-6 w-6 text-neutral-600 dark:text-neutral-100'
                             aria-hidden='true'
@@ -58,8 +59,9 @@ export default function Header() {
                       <Popover.Button>
                         <Link
                           to='/learn-more'
-                          className='-m-3 p-3 flex items-center rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600'
+                          className='p-2 flex items-center rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-600'
                         >
+                          <span className='sr-only'>Learn more</span>
                           <InfoCircledIcon
                             className='flex-shrink-0 h-6 w-6 text-neutral-600 dark:text-neutral-100'
                             aria-hidden='true'

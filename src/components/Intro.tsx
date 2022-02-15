@@ -20,13 +20,13 @@ const features = [
 
 export default function Intro() {
   return (
-    <div className='px-4 font-mono mt-36'>
+    <div className='px-4 font-mono mt-40'>
       <div className='max-w-7xl mx-auto px-10'>
         <div className='text-center'>
           <p className='mt-2 text-3xl leading-8 font-medium tracking-tight sm:text-5xl'>
             Say 👋 to <span className='font-black'>Canvas.</span>
           </p>
-          <p className='mt-4 max-w-2xl text-xl text-gray-500 dark:text-gray-300 mx-auto'>
+          <p className='mt-4 max-w-2xl text-xl text-neutral-500 dark:text-neutral-300 mx-auto'>
             A place to save your thoughts and ideas
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function Intro() {
                     {feature.name}
                   </p>
                 </dt>
-                <dd className='mt-2 ml-16 font-sans text-base text-gray-500 dark:text-gray-300'>
+                <dd className='mt-2 ml-16 font-sans text-base text-neutral-500 dark:text-neutral-300'>
                   {feature.description}
                 </dd>
               </div>
@@ -51,7 +51,7 @@ export default function Intro() {
           </dl>
         </div>
 
-        <div className='flex justify-center text-center mt-24 leading-8 font-medium tracking-tight text-gray-900'>
+        <div className='flex justify-center text-center mt-24 leading-8 font-medium tracking-tight text-neutral-900'>
           <div className='inline-flex relative w-fit'>
             <button
               type='button'
@@ -63,8 +63,8 @@ export default function Intro() {
             </button>
           </div>
         </div>
-        <div className='flex justify-center text-center leading-8 font-medium tracking-tight text-gray-900'>
-          <p className='mt-6 text-center font-medium text-gray-500 dark:text-gray-300'>
+        <div className='flex justify-center text-center leading-8 font-medium tracking-tight text-neutral-900'>
+          <p className='mt-6 text-center font-medium text-neutral-500 dark:text-neutral-300'>
             Already have an account?{' '}
             <a
               href='/'

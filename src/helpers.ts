@@ -15,7 +15,7 @@ export const reorder = <T>(
 export const getItems = (count: number) =>
   Array.from({ length: count }, (v, k) => k).map((k) => ({
     id: `Item ${k + 1}`,
-    primary: faker.commerce.productName(),
-    secondary: faker.company.catchPhrase(),
-    department: faker.name.firstName(),
+    primary: faker.commerce.productDescription(),
+    secondary: faker.date.past().toString(),
+    department: faker.commerce.productMaterial(),
   }));

@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import * as React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { format } from 'date-fns';
 import { CaretSortIcon } from '@radix-ui/react-icons';
@@ -18,19 +17,17 @@ const EntryListItem = ({ item, index }: IDraggableListItemProps) => {
         <li
           ref={provided.innerRef}
           {...provided.draggableProps}
+          {...provided.dragHandleProps}
           className={
             snapshot.isDragging
-              ? 'group relative rounded-md bg-red-50 p-3 dark:bg-red-300'
+              ? 'group relative rounded-md bg-red-50 p-3 opacity-40 dark:bg-red-300'
               : 'group relative rounded-md p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700'
           }
         >
           <div className="flex flex-col justify-center">
-            <div
-              className="absolute -ml-16 w-full py-12"
-              {...provided.dragHandleProps}
-            >
+            <div className="absolute -ml-14 w-full py-12">
               <CaretSortIcon
-                className="hidden h-6 w-6 flex-shrink-0 rounded bg-neutral-100 group-hover:block dark:bg-neutral-600"
+                className="hidden h-6 w-6 flex-shrink-0 rounded bg-neutral-100 group-hover:block dark:bg-neutral-800"
                 aria-hidden="true"
               />
             </div>
@@ -62,13 +59,13 @@ const EntryListItem = ({ item, index }: IDraggableListItemProps) => {
               </li>
               <li
                 className={
-                  snapshot.isDragging ? 'text-red-700' : 'text-red-400'
+                  snapshot.isDragging ? 'text-red-600' : 'text-red-400'
                 }
               >
                 {item.department}
               </li>
             </ul>
-            <a href="/" className="absolute inset-0 rounded-md" />{' '}
+            <a href="/" className="absolute inset-0 rounded-md" />
           </div>
         </li>
       )}

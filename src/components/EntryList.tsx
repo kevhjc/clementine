@@ -23,11 +23,7 @@ const EntryList = React.memo(
             <div
               ref={provided.innerRef}
               {...provided.droppableProps}
-              className={
-                snapshot.isDraggingOver
-                  ? 'rounded-md bg-neutral-100 transition-colors duration-150 ease-in-out dark:bg-neutral-700'
-                  : 'rounded-md transition-colors duration-150 ease-in-out'
-              }
+              className={'rounded-md'}
             >
               {category !== 'all'
                 ? Object.values(items)

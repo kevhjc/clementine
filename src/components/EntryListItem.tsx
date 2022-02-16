@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 import * as React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
+import { format, formatDistance, formatRelative, subDays } from 'date-fns';
 import { CaretSortIcon } from '@radix-ui/react-icons';
 
 import { Item } from '../typings';
@@ -26,15 +28,17 @@ const EntryListItem = ({ item, index }: IDraggableListItemProps) => {
                 aria-hidden='true'
               />
             </div>
-
-            <span className='font-medium text-lg leading-5'>
+            <span className='font-medium text-lg leading-6'>
               {item.primary}
             </span>
-            <ul className='flex text-md mt-1 space-x-2 font-normal leading-4 text-neutral-500 dark:text-neutral-400'>
-              <li className='text-gray-500'>{item.secondary}</li>
-              <li>&middot;</li>
+            <ul className='flex flex-wrap text-sm mt-1 font-normal leading-6 text-neutral-500 dark:text-neutral-400'>
+              <li className='text-gray-500'>
+                {format(new Date(item.secondary), "MMM d, yyyy '–' h:mm bb")}
+              </li>
+              <li className='mx-2 md:visible'>&middot;</li>
               <li className='text-red-400'>{item.department}</li>
             </ul>
+            <a href='/' className='absolute inset-0 rounded-md' />{' '}
           </div>
         </li>
       )}

@@ -26,7 +26,7 @@ const EntryListItem = ({ item, index }: IDraggableListItemProps) => {
         >
           <div className="flex flex-col justify-center">
             <div
-              className="absolute -ml-16 w-screen py-12"
+              className="absolute -ml-16 w-full py-12"
               {...provided.dragHandleProps}
             >
               <CaretSortIcon

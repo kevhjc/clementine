@@ -1,12 +1,12 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   DragDropContext,
   Droppable,
   OnDragEndResponder,
-} from 'react-beautiful-dnd';
+} from "react-beautiful-dnd";
 
-import { Item } from '../typings';
-import EntryListItem from './EntryListItem';
+import { Item } from "../typings";
+import EntryListItem from "./EntryListItem";
 
 interface IDraggableListProps {
   items: Item[];
@@ -18,10 +18,10 @@ const EntryList = React.memo(
   ({ items, category, onDragEnd }: IDraggableListProps) => {
     return (
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId='droppable-list'>
+        <Droppable droppableId="droppable-list">
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
-              {category !== 'all'
+              {category !== "all"
                 ? Object.values(items)
                     .filter((item) => item.department === category)
                     .map((item, index) => (

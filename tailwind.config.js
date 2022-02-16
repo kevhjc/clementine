@@ -3,29 +3,29 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  mode: 'jit',
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: 'class',
+  mode: "jit",
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       screens: {
-        dark: { raw: '(prefers-color-scheme: dark)' },
+        dark: { raw: "(prefers-color-scheme: dark)" },
       },
       animation: {
-        bounce: 'bounce 4s ease-in-out infinite',
-        pulse: 'pulse 4s ease-in-out infinite ',
+        bounce: "bounce 4s ease-in-out infinite",
+        pulse: "pulse 4s ease-in-out infinite ",
       },
     },
   },
   variants: {
     extend: {
-      display: ['group-hover'],
+      display: ["group-hover"],
     },
   },
   fontFamily: {
-    sans: ['Inter', 'sans-serif'],
-    serif: ['Newsreader', 'serif'],
-    mono: ['JetBrains Mono', 'monospace'],
+    sans: ["Inter", "sans-serif"],
+    serif: ["Newsreader", "serif"],
+    mono: ["JetBrains Mono", "monospace"],
   },
   plugins: [],
 };

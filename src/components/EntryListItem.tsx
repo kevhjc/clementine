@@ -14,24 +14,24 @@ interface IDraggableListItemProps {
 const EntryListItem = ({ item, index }: IDraggableListItemProps) => {
   return (
     <Draggable draggableId={item.id} index={index} key={index}>
-      {(provided) => (
+      {(provided, snapshot) => (
         <li
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className='group relative p-3 rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-700'
+          className='group relative rounded-md p-3 hover:bg-neutral-200 dark:hover:bg-neutral-700'
         >
           <div className='flex flex-col justify-center'>
-            <div className='-ml-14 absolute'>
+            <div className='absolute -ml-14'>
               <CaretSortIcon
-                className='hidden group-hover:block flex-shrink-0 h-6 w-6'
+                className='hidden h-6 w-6 flex-shrink-0 group-hover:block'
                 aria-hidden='true'
               />
             </div>
-            <span className='font-medium text-lg leading-6'>
+            <span className='text-lg font-medium leading-6'>
               {item.primary}
             </span>
-            <ul className='flex flex-wrap text-sm mt-1 font-normal leading-6 text-neutral-500 dark:text-neutral-400'>
+            <ul className='mt-1 flex flex-wrap text-sm font-normal leading-6 text-neutral-500 dark:text-neutral-400'>
               <li className='text-gray-500'>
                 {format(new Date(item.secondary), "MMM d, yyyy '–' h:mm bb")}
               </li>

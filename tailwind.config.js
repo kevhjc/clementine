@@ -18,7 +18,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      display: ['group-hover'],
+    },
   },
   fontFamily: {
     sans: ['Inter', 'sans-serif'],

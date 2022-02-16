@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import * as React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import { format, formatDistance, formatRelative, subDays } from 'date-fns';
+import { format } from 'date-fns';
 import { CaretSortIcon } from '@radix-ui/react-icons';
 
 import { Item } from '../typings';

@@ -18,17 +18,19 @@ const EntryListItem = ({ item, index }: IDraggableListItemProps) => {
         <li
           ref={provided.innerRef}
           {...provided.draggableProps}
-          {...provided.dragHandleProps}
           className={
             snapshot.isDragging
               ? 'group relative rounded-md bg-red-50 p-3 dark:bg-red-300'
-              : 'group relative rounded-md p-3 hover:bg-neutral-200 dark:hover:bg-neutral-700'
+              : 'group relative rounded-md p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700'
           }
         >
           <div className="flex flex-col justify-center">
-            <div className="absolute -ml-14">
+            <div
+              className="absolute -ml-16 w-screen py-12"
+              {...provided.dragHandleProps}
+            >
               <CaretSortIcon
-                className="hidden h-6 w-6 flex-shrink-0 group-hover:block"
+                className="hidden h-6 w-6 flex-shrink-0 rounded bg-neutral-100 group-hover:block dark:bg-neutral-600"
                 aria-hidden="true"
               />
             </div>

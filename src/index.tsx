@@ -5,9 +5,11 @@ import { BrowserRouter } from 'react-router-dom';
 import './tailwind.css';
 import App from './App';
 
+const rootElement = document.getElementById('root');
+
 ReactDOM.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>,
-  document.getElementById('root')
+  rootElement
 );

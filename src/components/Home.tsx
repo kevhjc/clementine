@@ -20,7 +20,6 @@ const Home = () => {
   };
 
   const handleAllTabs = (index: number) => {
-    console.log('index of this tab is', index);
     if (index > 0) {
       setAllTab(false);
     }
@@ -47,21 +46,23 @@ const Home = () => {
             >
               {'All'}
             </Tab>
-            {Object.values(items).map((item) => (
-              <Tab
-                key={item.id}
-                className={({ selected }) =>
-                  classNames(
-                    'w-full py-3 font-sans leading-5 font-medium rounded-md',
-                    selected
-                      ? 'bg-white text-neutral-900 dark:text-neutral-100 dark:bg-neutral-600 shadow-sm'
-                      : ' text-neutral-600 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-700'
-                  )
-                }
-              >
-                {item.department}
-              </Tab>
-            ))}
+            {Object.values(items)
+              .slice(0, 4)
+              .map((item) => (
+                <Tab
+                  key={item.id}
+                  className={({ selected }) =>
+                    classNames(
+                      'w-full py-3 font-sans leading-5 font-medium rounded-md',
+                      selected
+                        ? 'bg-white text-neutral-900 dark:text-neutral-100 dark:bg-neutral-600 shadow-sm'
+                        : ' text-neutral-600 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-700'
+                    )
+                  }
+                >
+                  {item.department}
+                </Tab>
+              ))}
           </Tab.List>
           <Tab.Panels className='mt-2'>
             <Tab.Panel

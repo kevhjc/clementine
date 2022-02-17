@@ -12,14 +12,13 @@ function App() {
     <div>
       {/* <Header /> */}
       <Routes>
-        <Route path='/' element={<Header />}>
+        <Route path="/" element={<Header />}>
           <Route index element={<Intro />} />
-          <Route path='home' element={<Home />} />
-          <Route path='learn-more' element={<LearnMore />} />
+          <Route path="home" element={<Home />} />
+          <Route path="learn-more" element={<LearnMore />} />
           {/* <Container /> */}
         </Route>
       </Routes>
-
       <Footer />
     </div>
   );

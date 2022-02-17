@@ -6,7 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "commit": "cz"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
@@ -17,6 +18,7 @@
     "@types/react-dom": "^17.0.11",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
+    "kbar": "^0.1.0-beta.27",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^17.0.2",
@@ -28,6 +30,7 @@
     "@faker-js/faker": "^6.0.0-alpha.6",
     "@types/react-beautiful-dnd": "^13.1.2",
     "autoprefixer": "^10.4.2",
+    "cz-conventional-changelog": "^3.3.0",
     "postcss": "^8.4.6",
     "postcss-cli": "^9.1.0",
     "prettier": "^2.5.1",
@@ -51,5 +54,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

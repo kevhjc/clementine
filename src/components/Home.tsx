@@ -32,10 +32,10 @@ const Home = () => {
   return (
     <>
       <Input />
-      <div className="flex justify-center">
-        <div className="w-5/6 max-w-7xl py-16 font-mono">
+      <div className='flex justify-center'>
+        <div className='w-5/6 max-w-7xl py-16 font-mono'>
           <Tab.Group onChange={(index) => handleAllTabs(index)}>
-            <Tab.List className="mb-6 flex space-x-1 rounded-md bg-neutral-100 p-1 dark:bg-neutral-800">
+            <Tab.List className='mb-6 flex space-x-1 rounded-md bg-neutral-100 p-1 dark:bg-neutral-800'>
               <Tab
                 key={0}
                 className={({ selected }) =>
@@ -67,10 +67,10 @@ const Home = () => {
                   </Tab>
                 ))}
             </Tab.List>
-            <Tab.Panels className="mt-2">
+            <Tab.Panels className='mt-2'>
               <Tab.Panel
                 key={0}
-                className="rounded-md bg-neutral-50 p-3 dark:bg-neutral-800"
+                className='rounded-md bg-neutral-50 p-3 dark:bg-neutral-800'
               >
                 <ul>
                   <EntryList
@@ -84,7 +84,7 @@ const Home = () => {
               {Object.values(items).map((categories, idx) => (
                 <Tab.Panel
                   key={idx}
-                  className="rounded-md bg-neutral-50 p-3 dark:bg-neutral-800"
+                  className='rounded-md bg-neutral-50 p-3 dark:bg-neutral-800'
                 >
                   <ul>
                     <EntryList

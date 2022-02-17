@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
+import CommandPalette from './components/CommandPalette';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Intro from './components/Intro';
@@ -9,7 +10,7 @@ import LearnMore from './components/LearnMore';
 
 function App() {
   return (
-    <div>
+    <CommandPalette>
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Header />}>
@@ -20,7 +21,7 @@ function App() {
         </Route>
       </Routes>
       <Footer />
-    </div>
+    </CommandPalette>
   );
 }
 

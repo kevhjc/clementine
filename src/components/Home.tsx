@@ -1,65 +1,19 @@
 import * as React from 'react';
+import { useKBar } from 'kbar';
 import { DropResult } from 'react-beautiful-dnd';
 import { Tab } from '@headlessui/react';
-import {
-  KBarProvider,
-  KBarPortal,
-  KBarPositioner,
-  KBarAnimator,
-  KBarSearch,
-  KBarResults,
-  useMatches,
-} from 'kbar';
-import {
-  ImageIcon,
-  Link1Icon,
-  TextIcon,
-  VideoIcon,
-} from '@radix-ui/react-icons';
+import { PlusIcon } from '@radix-ui/react-icons';
 
 import { getItems, reorder } from '../helpers';
 import EntryList from './EntryList';
-
-const actions = [
-  {
-    id: 'Text',
-    name: 'Text',
-    shortcut: ['t'],
-    keywords: 'text',
-    icon: TextIcon,
-    perform: () => (window.location.pathname = 'text'),
-  },
-  {
-    id: 'url',
-    name: 'URL',
-    shortcut: ['u'],
-    keywords: 'hyperlink',
-    icon: Link1Icon,
-    perform: () => (window.location.pathname = 'url'),
-  },
-  {
-    id: 'image',
-    name: 'Image',
-    shortcut: ['i'],
-    keywords: 'image',
-    icon: ImageIcon,
-    perform: () => (window.location.pathname = 'image'),
-  },
-  {
-    id: 'video',
-    name: 'Video',
-    shortcut: ['v'],
-    keywords: 'video',
-    icon: VideoIcon,
-    perform: () => (window.location.pathname = 'video'),
-  },
-];
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
 const Home = () => {
+  const { query } = useKBar();
+
   const [items, setItems] = React.useState(getItems(15));
   const [allTab, setAllTab] = React.useState(true);
 
@@ -79,18 +33,16 @@ const Home = () => {
   };
 
   return (
-    <KBarProvider actions={actions}>
-      <KBarPortal>
-        <KBarPositioner className="bg-neutral-800/75">
-          <KBarAnimator className="min-h-[204px] w-1/2 min-w-[320px] overflow-scroll rounded border bg-neutral-100 p-2 shadow-xl">
-            <KBarSearch
-              className="mb-2 w-full rounded bg-white px-4 py-2 text-lg"
-              defaultPlaceholder="Type or select an entry category"
-            />
-            <RenderResults />
-          </KBarAnimator>
-        </KBarPositioner>
-      </KBarPortal>
+    <>
+      <div className="fixed bottom-0 right-0 pb-8 pr-8">
+        <button
+          title="⌘K"
+          className=" rounded bg-neutral-100/70 p-1.5 transition-colors duration-150 ease-in-out hover:bg-neutral-200/70 dark:bg-neutral-700/50 dark:hover:bg-neutral-600/50"
+          onClick={query.toggle}
+        >
+          <PlusIcon className="h-8 w-8 opacity-75" />
+        </button>
+      </div>
       <div className="flex justify-center">
         <div className="mt-24 w-5/6 max-w-7xl py-16 font-mono">
           <Tab.Group onChange={(index) => handleAllTabs(index)}>
@@ -143,7 +95,7 @@ const Home = () => {
               {Object.values(items).map((categories, idx) => (
                 <Tab.Panel
                   key={idx}
-                  className="rounded-md bg-neutral-50 p-3 dark:bg-neutral-800"
+                  className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50"
                 >
                   <ul>
                     <EntryList
@@ -159,33 +111,8 @@ const Home = () => {
           </Tab.Group>
         </div>
       </div>
-    </KBarProvider>
+    </>
   );
 };
-
-function RenderResults() {
-  const { results } = useMatches();
-
-  return (
-    <KBarResults
-      items={results}
-      onRender={({ item, active }) =>
-        typeof item === 'string' ? (
-          <div className="text-xl">{item}</div>
-        ) : (
-          <div
-            className={
-              active
-                ? 'text-md flex cursor-copy gap-y-2 rounded bg-neutral-200 py-2 px-4 font-mono text-lg'
-                : 'text-md flex cursor-pointer gap-y-2 rounded bg-neutral-100 py-2 px-4 font-mono text-lg'
-            }
-          >
-            {item.name}
-          </div>
-        )
-      }
-    />
-  );
-}
 
 export default Home;

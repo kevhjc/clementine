@@ -18,7 +18,7 @@ const EntryList = React.memo(
   ({ items, category, onDragEnd }: IDraggableListProps) => {
     return (
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId='droppable-list'>
+        <Droppable droppableId="droppable-list">
           {(provided, snapshot) => (
             <div
               ref={provided.innerRef}

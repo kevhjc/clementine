@@ -9,7 +9,6 @@ import {
   KBarSearch,
   KBarResults,
   useMatches,
-  NO_GROUP,
 } from 'kbar';
 import {
   ImageIcon,
@@ -80,93 +79,91 @@ const Home = () => {
   };
 
   return (
-    <>
-      <KBarProvider actions={actions}>
-        <KBarPortal>
-          <KBarPositioner className="bg-neutral-800/75">
-            <KBarAnimator className="min-h-[204px] w-1/2 min-w-[320px] overflow-scroll rounded border bg-neutral-100 p-2 shadow-xl">
-              <KBarSearch
-                className="mb-2 w-full rounded bg-white px-4 py-2 text-lg"
-                defaultPlaceholder="Type or select an entry category"
-              />
-              <RenderResults actions={actions} />
-            </KBarAnimator>
-          </KBarPositioner>
-        </KBarPortal>
-        <div className="flex justify-center">
-          <div className="mt-24 w-5/6 max-w-7xl py-16 font-mono">
-            <Tab.Group onChange={(index) => handleAllTabs(index)}>
-              <Tab.List className="mb-6 flex space-x-1 rounded-md bg-neutral-100 p-1 dark:bg-neutral-800">
-                <Tab
-                  key={0}
-                  className={({ selected }) =>
-                    classNames(
-                      'w-full rounded-md py-3 font-sans font-medium leading-5',
-                      selected
-                        ? 'bg-white text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
-                        : ' text-neutral-600 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-700'
-                    )
-                  }
-                >
-                  {'All'}
-                </Tab>
-                {Object.values(items)
-                  .slice(0, 4)
-                  .map((item) => (
-                    <Tab
-                      key={item.id}
-                      className={({ selected }) =>
-                        classNames(
-                          'w-full rounded-md py-3 font-sans font-medium leading-5',
-                          selected
-                            ? 'bg-white text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
-                            : ' text-neutral-600 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-700'
-                        )
-                      }
-                    >
-                      {item.department}
-                    </Tab>
-                  ))}
-              </Tab.List>
-              <Tab.Panels className="mt-2">
+    <KBarProvider actions={actions}>
+      <KBarPortal>
+        <KBarPositioner className="bg-neutral-800/75">
+          <KBarAnimator className="min-h-[204px] w-1/2 min-w-[320px] overflow-scroll rounded border bg-neutral-100 p-2 shadow-xl">
+            <KBarSearch
+              className="mb-2 w-full rounded bg-white px-4 py-2 text-lg"
+              defaultPlaceholder="Type or select an entry category"
+            />
+            <RenderResults />
+          </KBarAnimator>
+        </KBarPositioner>
+      </KBarPortal>
+      <div className="flex justify-center">
+        <div className="mt-24 w-5/6 max-w-7xl py-16 font-mono">
+          <Tab.Group onChange={(index) => handleAllTabs(index)}>
+            <Tab.List className="mb-6 flex space-x-1 rounded-md bg-neutral-100 p-1 dark:bg-neutral-800">
+              <Tab
+                key={0}
+                className={({ selected }) =>
+                  classNames(
+                    'w-full rounded-md py-3 font-sans font-medium leading-5',
+                    selected
+                      ? 'bg-white text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
+                      : ' text-neutral-600 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-700'
+                  )
+                }
+              >
+                {'All'}
+              </Tab>
+              {Object.values(items)
+                .slice(0, 4)
+                .map((item) => (
+                  <Tab
+                    key={item.id}
+                    className={({ selected }) =>
+                      classNames(
+                        'w-full rounded-md py-3 font-sans font-medium leading-5',
+                        selected
+                          ? 'bg-white text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
+                          : ' text-neutral-600 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-700'
+                      )
+                    }
+                  >
+                    {item.department}
+                  </Tab>
+                ))}
+            </Tab.List>
+            <Tab.Panels className="mt-2">
+              <Tab.Panel
+                key={0}
+                className="rounded-md bg-neutral-50 p-3 dark:bg-neutral-800"
+              >
+                <ul>
+                  <EntryList
+                    items={items}
+                    onDragEnd={onDragEnd}
+                    key={0}
+                    category={'all'}
+                  />
+                </ul>
+              </Tab.Panel>
+              {Object.values(items).map((categories, idx) => (
                 <Tab.Panel
-                  key={0}
+                  key={idx}
                   className="rounded-md bg-neutral-50 p-3 dark:bg-neutral-800"
                 >
                   <ul>
                     <EntryList
                       items={items}
                       onDragEnd={onDragEnd}
-                      key={0}
-                      category={'all'}
+                      key={idx}
+                      category={!allTab ? categories.department : 'all'}
                     />
                   </ul>
                 </Tab.Panel>
-                {Object.values(items).map((categories, idx) => (
-                  <Tab.Panel
-                    key={idx}
-                    className="rounded-md bg-neutral-50 p-3 dark:bg-neutral-800"
-                  >
-                    <ul>
-                      <EntryList
-                        items={items}
-                        onDragEnd={onDragEnd}
-                        key={idx}
-                        category={!allTab ? categories.department : 'all'}
-                      />
-                    </ul>
-                  </Tab.Panel>
-                ))}
-              </Tab.Panels>
-            </Tab.Group>
-          </div>
+              ))}
+            </Tab.Panels>
+          </Tab.Group>
         </div>
-      </KBarProvider>
-    </>
+      </div>
+    </KBarProvider>
   );
 };
 
-function RenderResults(actions: any) {
+function RenderResults() {
   const { results } = useMatches();
 
   return (

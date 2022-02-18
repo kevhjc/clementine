@@ -13,12 +13,12 @@ export default function Auth() {
       const { error } = await supabase.auth.signIn({ email });
       setHelperText({
         error: false,
-        text: 'Success! Check your email for a Magic Link',
+        text: 'Success! Check your email to sign in',
       });
       if (error)
         setHelperText({
           error: true,
-          text: 'Uh oh! Please enter a valid email address',
+          text: 'Please enter a valid email address',
         });
     } catch (error) {
       console.log(

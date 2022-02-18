@@ -4,7 +4,7 @@ export default function LearnMore() {
       <div className="mx-auto max-w-7xl px-10">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
-            What's <span className="font-black">Canvas?</span>
+            What's <span className="font-black">Lerret?</span>
           </p>
           <p className="mx-auto mt-4 max-w-2xl font-sans text-xl text-neutral-500 dark:text-neutral-300">
             A place to save your thoughts and ideas. Save your notes, links, or

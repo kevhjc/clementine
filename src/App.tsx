@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import CommandPalette from './components/CommandPalette';
 import Header from './components/Header';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Intro from './components/Intro';
 import Home from './components/Home';
 import LearnMore from './components/LearnMore';
@@ -20,7 +20,7 @@ function App() {
           {/* <Container /> */}
         </Route>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </CommandPalette>
   );
 }

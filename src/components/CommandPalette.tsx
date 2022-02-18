@@ -13,25 +13,57 @@ import {
 } from 'kbar';
 import {
   ImageIcon,
+  InfoCircledIcon,
+  HomeIcon,
   Link1Icon,
   TextIcon,
+  TwitterLogoIcon,
   VideoIcon,
 } from '@radix-ui/react-icons';
 
 /* eslint-disable no-unused-vars */
 enum Sections {
-  Post = 'new post',
+  Account = 'account',
+  Navigation = 'navigation',
+  Entry = 'new entry',
 }
 
 /* eslint-enable */
 export default function CommandPalette({ children }: { children: ReactNode }) {
   const actions = [
     {
+      id: 'signin',
+      name: 'Sign in with Twitter',
+      icon: <TwitterLogoIcon />,
+      shortcut: ['s'],
+      section: Sections.Account,
+      keywords: 'signin',
+      perform: () => (window.location.pathname = 'signin'),
+    },
+    {
+      id: 'home',
+      name: 'Home',
+      icon: <HomeIcon />,
+      shortcut: ['h'],
+      section: Sections.Navigation,
+      keywords: 'home',
+      perform: () => (window.location.pathname = 'home'),
+    },
+    {
+      id: 'learnmore',
+      name: 'Learn more',
+      icon: <InfoCircledIcon />,
+      shortcut: ['?'],
+      section: Sections.Navigation,
+      keywords: 'learnmore',
+      perform: () => (window.location.pathname = 'learn-more'),
+    },
+    {
       id: 'text',
       name: 'Text',
       icon: <TextIcon />,
       shortcut: ['t'],
-      section: Sections.Post,
+      section: Sections.Entry,
       keywords: 'text',
       perform: () => (window.location.pathname = 'text'),
     },
@@ -39,6 +71,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
       id: 'url',
       name: 'URL',
       shortcut: ['u'],
+      section: Sections.Entry,
       keywords: 'url',
       icon: <Link1Icon />,
       perform: () => (window.location.pathname = 'url'),
@@ -47,6 +80,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
       id: 'image',
       name: 'Image',
       shortcut: ['i'],
+      section: Sections.Entry,
       keywords: 'image',
       icon: <ImageIcon />,
       perform: () => (window.location.pathname = 'image'),
@@ -55,6 +89,7 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
       id: 'video',
       name: 'Video',
       shortcut: ['v'],
+      section: Sections.Entry,
       keywords: 'video',
       icon: <VideoIcon />,
       perform: () => (window.location.pathname = 'video'),
@@ -73,12 +108,12 @@ function CommandMenu() {
   return (
     <KBarPortal>
       <KBarPositioner
-        className="bg-white/80 dark:bg-black/80"
-        style={{ padding: '10vh 16px 16px' }}
+        className="bg-neutral-100/50 backdrop-blur-sm dark:bg-black/50"
+        style={{ padding: '8vh 16px 16px' }}
       >
-        <KBarAnimator className="z-10 w-full max-w-2xl overflow-hidden rounded-lg border bg-white shadow-2xl dark:border-neutral-700 dark:bg-neutral-800 dark:text-white">
+        <KBarAnimator className="z-10 w-full max-w-2xl overflow-hidden rounded-lg border border-neutral-300 bg-white/80 shadow-2xl backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-800/80 dark:text-white">
           <div>
-            <KBarSearch className="mb-2 box-border w-full border-b-[1px] px-4 pt-4 pb-4 outline-none dark:border-neutral-500/40 dark:bg-neutral-800 dark:placeholder:text-neutral-100/60" />
+            <KBarSearch className="mb-2 box-border w-full border-b-[1px] bg-white/70 px-4 pt-4 pb-4 outline-none backdrop-blur-sm dark:border-neutral-500/80 dark:bg-neutral-800/80 dark:placeholder:text-neutral-100/60" />
           </div>
           <div className="pb-2">
             <Results />
@@ -99,7 +134,7 @@ function Results() {
         items={results.filter((i) => i !== NO_GROUP)}
         onRender={({ item, active }) =>
           typeof item === 'string' ? (
-            <p className="pb-2 pl-3 pt-3 text-xs uppercase dark:text-neutral-100/60">
+            <p className="pb-2 pl-3 pt-3 text-xs uppercase text-neutral-500 dark:text-neutral-100">
               {item}
             </p>
           ) : (
@@ -143,13 +178,13 @@ const ResultItem = React.forwardRef(
         className={`
 					mx-1.5 flex
 					cursor-pointer items-center justify-between rounded-md py-2 px-3
-					${active && 'bg-gray-100 dark:bg-neutral-600/30'}
+					${active && 'bg-gray-200/70 dark:bg-neutral-600/30'}
 					font-mono transition-colors delay-[0]
 					duration-[.15s] dark:text-neutral-100/80
 				`}
       >
         <div className="text-md flex items-center gap-3">
-          <span className="h-4 w-5 opacity-70">
+          <span className="h-4 w-5 opacity-80">
             {action.icon && action.icon}
           </span>
 
@@ -176,7 +211,7 @@ const ResultItem = React.forwardRef(
             {action.shortcut.map((sc) => (
               <kbd
                 key={sc}
-                className="text-md rounded-md bg-neutral-200 px-2 dark:bg-neutral-700"
+                className="text-md rounded-md bg-neutral-300/70 px-2 dark:bg-neutral-600/70"
               >
                 {sc}
               </kbd>

@@ -2,9 +2,8 @@ import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { Popover, Transition } from '@headlessui/react';
 import { useKBar } from 'kbar';
-
 import { MenuAlt3Icon } from '@heroicons/react/outline';
-import { HomeIcon, InfoCircledIcon, PlusIcon } from '@radix-ui/react-icons';
+import { HomeIcon, InfoCircledIcon } from '@radix-ui/react-icons';
 
 export default function Header() {
   const { query } = useKBar();
@@ -14,7 +13,7 @@ export default function Header() {
       <Popover className="font-mono">
         {({ open }) => (
           <>
-            <div className="fixed top-0 left-0 right-0 z-10 flex min-w-[360px] items-center border-b border-neutral-100 bg-neutral-50 py-6 dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="fixed top-0 left-0 right-0 z-10 flex min-w-[360px] items-center border-b border-neutral-200/60 bg-neutral-50/60 py-6 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/60">
               <div className="ml-6 flex basis-1/12">
                 <a href="/" className="header-link mr-4 text-xl font-black">
                   Canvas
@@ -23,18 +22,18 @@ export default function Header() {
               <div className="flex basis-11/12 justify-end">
                 <button
                   title="Add entry"
-                  className="mr-6 rounded-md p-2 transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
+                  className="mr-6 rounded-md p-2 outline-none transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
                   onClick={query.toggle}
                 >
-                  <PlusIcon className="h-6 w-6" />
+                  <MenuAlt3Icon className="h-6 w-6" />
                 </button>
-                <Popover.Button
+                {/* <Popover.Button
                   title="Open menu"
-                  className="mr-6 rounded-md p-2 transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
+                  className="mr-6 rounded-md p-2 outline-none transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
                 >
                   <span className="sr-only">Open menu</span>
                   <MenuAlt3Icon className="h-6 w-6" aria-hidden="true" />
-                </Popover.Button>
+                </Popover.Button> */}
               </div>
             </div>
             <Popover.Overlay
@@ -58,7 +57,7 @@ export default function Header() {
                   <div className="px-5 pb-6">
                     <div className="mt-6">
                       <nav className="grid gap-y-2">
-                        <Popover.Button>
+                        <Popover.Button className="outline-none">
                           <Link
                             to="/home"
                             className="flex items-center rounded-lg p-2 hover:bg-neutral-100 dark:hover:bg-neutral-600"
@@ -73,7 +72,7 @@ export default function Header() {
                             </span>
                           </Link>
                         </Popover.Button>
-                        <Popover.Button>
+                        <Popover.Button className="outline-none">
                           <Link
                             to="/learn-more"
                             className="flex items-center rounded-lg p-2 hover:bg-neutral-100 dark:hover:bg-neutral-600"

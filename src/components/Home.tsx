@@ -10,7 +10,7 @@ function classNames(...classes: string[]) {
 }
 
 const Home = () => {
-  const [items, setItems] = React.useState(getItems(15));
+  const [items, setItems] = React.useState(getItems(25));
   const [allTab, setAllTab] = React.useState(true);
 
   const onDragEnd = ({ destination, source }: DropResult) => {

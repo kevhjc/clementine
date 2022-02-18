@@ -15,14 +15,12 @@ export default function Header() {
         {({ open }) => (
           <>
             <div className="fixed top-0 left-0 right-0 z-10 flex min-w-[360px] items-center border-b border-neutral-100 bg-neutral-50 py-6 dark:border-neutral-800 dark:bg-neutral-900">
-              <div className="ml-6 basis-3/4">
-                <a href="/">
-                  <span className="header-link mr-4 text-xl font-black">
-                    Canvas
-                  </span>
+              <div className="ml-6 flex basis-1/12">
+                <a href="/" className="header-link mr-4 text-xl font-black">
+                  Canvas
                 </a>
               </div>
-              <div className="flex basis-1/4 justify-end">
+              <div className="flex basis-11/12 justify-end">
                 <button
                   title="Add entry"
                   className="mr-6 rounded-md p-2 transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"

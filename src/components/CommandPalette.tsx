@@ -38,47 +38,7 @@ enum Sections {
 
 /* eslint-enable */
 export default function CommandPalette({ children }: ICommandPaletteProps) {
-  // const [loading, setLoading] = useState(false);
-  // const [email, setEmail] = useState('');
   const session = useContext(UserContext);
-
-  // TODO: fix session check and user login via kbar
-  // useEffect(() => {
-  //   getProfile();
-  // }, [session]);
-
-  // const handleLogin = async (email: string) => {
-  //   try {
-  //     setLoading(true);
-  //     const { error } = await supabase.auth.signIn({ email });
-  //     if (error) throw error;
-  //   } catch (error) {
-  //     console.log('Error logging in: ', error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
-  // async function getProfile() {
-  //   try {
-  //     setLoading(true);
-  //     const user = supabase.auth.user();
-
-  //     let { error, status } = await supabase
-  //       .from('profiles')
-  //       .select(`id`)
-  //       .eq('id', user?.id)
-  //       .single();
-
-  //     if (error && status !== 406) {
-  //       throw error;
-  //     }
-  //   } catch (error) {
-  //     console.log('Error retrieving profile: ', error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
 
   const sessionActions = [
     {
@@ -154,16 +114,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: [''],
       section: Sections.Account,
       keywords: 'sign in',
-    },
-    {
-      id: 'email',
-      name: 'Sign in with Magic Link',
-      icon: <MagicWandIcon />,
-      shortcut: [''],
-      section: Sections.Account,
-      keywords: 'enter email',
-      parent: 'signin',
-      // perform: () => handleLogin(email),
+      perform: () => (window.location.pathname = 'signin'),
     },
     {
       id: 'more',
@@ -179,12 +130,12 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
   return (
     <>
       {session ? (
-        <KBarProvider actions={noSessionActions}>
+        <KBarProvider actions={sessionActions}>
           <CommandMenu />
           {children}
         </KBarProvider>
       ) : (
-        <KBarProvider actions={sessionActions}>
+        <KBarProvider actions={noSessionActions}>
           <CommandMenu />
           {children}
         </KBarProvider>

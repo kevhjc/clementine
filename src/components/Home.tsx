@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DropResult } from 'react-beautiful-dnd';
 import { Tab } from '@headlessui/react';
 
-import { getItems, reorder } from '../helpers';
+import { getItems, reorder } from '../utils/helpers';
 import EntryList from './EntryList';
 
 function classNames(...classes: string[]) {

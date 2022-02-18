@@ -1,4 +1,4 @@
-import { useKBar } from 'kbar';
+import { Link } from 'react-router-dom';
 import { CodeIcon, ImageIcon, Link1Icon } from '@radix-ui/react-icons';
 
 const features = [
@@ -20,8 +20,6 @@ const features = [
 ];
 
 export default function Intro() {
-  const { query } = useKBar();
-
   return (
     <div className="mt-40 px-4 font-mono">
       <div className="mx-auto max-w-7xl px-10">
@@ -56,13 +54,14 @@ export default function Intro() {
 
         <div className="mt-24 flex justify-center text-center font-medium leading-8 tracking-tight text-neutral-900">
           <div className="relative inline-flex w-fit">
-            <button
-              type="button"
-              className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-medium leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
-              onClick={query.toggle}
-            >
-              Get started
-            </button>
+            <Link to="/signin">
+              <button
+                type="button"
+                className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-medium leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
+              >
+                Get started
+              </button>
+            </Link>
           </div>
         </div>
       </div>

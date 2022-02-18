@@ -1,4 +1,11 @@
-import React, { ReactNode, useRef } from 'react';
+import React, {
+  ReactNode,
+  useState,
+  useEffect,
+  useRef,
+  useContext,
+} from 'react';
+import { supabase } from '../supabaseClient';
 import {
   ActionId,
   ActionImpl,
@@ -12,52 +19,74 @@ import {
   useMatches,
 } from 'kbar';
 import {
+  ExitIcon,
   ImageIcon,
   InfoCircledIcon,
   HomeIcon,
   Link1Icon,
+  MagicWandIcon,
   TextIcon,
-  TwitterLogoIcon,
   VideoIcon,
 } from '@radix-ui/react-icons';
 
+import { UserContext } from '../context/UserContext';
+
+interface ICommandPaletteProps {
+  children: ReactNode;
+}
+
 /* eslint-disable no-unused-vars */
 enum Sections {
-  Account = 'account',
-  Navigation = 'navigation',
-  Entry = 'new entry',
+  Account = 'Account',
+  Navigation = 'Navigation',
+  Entry = 'New Entry',
 }
 
 /* eslint-enable */
-export default function CommandPalette({ children }: { children: ReactNode }) {
-  const actions = [
-    {
-      id: 'signin',
-      name: 'Sign in with Twitter',
-      icon: <TwitterLogoIcon />,
-      shortcut: ['s'],
-      section: Sections.Account,
-      keywords: 'signin',
-      perform: () => (window.location.pathname = 'signin'),
-    },
-    {
-      id: 'home',
-      name: 'Home',
-      icon: <HomeIcon />,
-      shortcut: ['h'],
-      section: Sections.Navigation,
-      keywords: 'home',
-      perform: () => (window.location.pathname = 'home'),
-    },
-    {
-      id: 'learnmore',
-      name: 'Learn more',
-      icon: <InfoCircledIcon />,
-      shortcut: ['?'],
-      section: Sections.Navigation,
-      keywords: 'learnmore',
-      perform: () => (window.location.pathname = 'learn-more'),
-    },
+export default function CommandPalette({ children }: ICommandPaletteProps) {
+  // const [loading, setLoading] = useState(false);
+  // const [email, setEmail] = useState('');
+  const session = useContext(UserContext);
+
+  // TODO: fix session check and user login via kbar
+  // useEffect(() => {
+  //   getProfile();
+  // }, [session]);
+
+  // const handleLogin = async (email: string) => {
+  //   try {
+  //     setLoading(true);
+  //     const { error } = await supabase.auth.signIn({ email });
+  //     if (error) throw error;
+  //   } catch (error) {
+  //     console.log('Error logging in: ', error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  // async function getProfile() {
+  //   try {
+  //     setLoading(true);
+  //     const user = supabase.auth.user();
+
+  //     let { error, status } = await supabase
+  //       .from('profiles')
+  //       .select(`id`)
+  //       .eq('id', user?.id)
+  //       .single();
+
+  //     if (error && status !== 406) {
+  //       throw error;
+  //     }
+  //   } catch (error) {
+  //     console.log('Error retrieving profile: ', error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // }
+
+  const sessionActions = [
     {
       id: 'text',
       name: 'Text',
@@ -94,13 +123,79 @@ export default function CommandPalette({ children }: { children: ReactNode }) {
       icon: <VideoIcon />,
       perform: () => (window.location.pathname = 'video'),
     },
+    {
+      id: 'home',
+      name: 'Home',
+      icon: <HomeIcon />,
+      shortcut: ['h'],
+      section: Sections.Navigation,
+      keywords: 'home',
+      perform: () => (window.location.pathname = 'home'),
+    },
+    {
+      id: 'more',
+      name: 'Learn more',
+      icon: <InfoCircledIcon />,
+      shortcut: ['?'],
+      section: Sections.Navigation,
+      keywords: 'learn more',
+      perform: () => (window.location.pathname = 'learn-more'),
+    },
+    {
+      id: 'signout',
+      name: 'Sign out',
+      icon: <ExitIcon />,
+      shortcut: [''],
+      section: Sections.Account,
+      keywords: 'sign out',
+      perform: () => supabase.auth.signOut(),
+    },
+  ];
+
+  const noSessionActions = [
+    {
+      id: 'signin',
+      name: 'Sign in with Magic Link',
+      icon: <MagicWandIcon />,
+      shortcut: [''],
+      section: Sections.Account,
+      keywords: 'sign in',
+    },
+    {
+      id: 'email',
+      name: 'Sign in with Magic Link',
+      icon: <MagicWandIcon />,
+      shortcut: [''],
+      section: Sections.Account,
+      keywords: 'enter email',
+      parent: 'signin',
+      // perform: () => handleLogin(email),
+    },
+    {
+      id: 'more',
+      name: 'Learn more',
+      icon: <InfoCircledIcon />,
+      shortcut: ['?'],
+      section: Sections.Navigation,
+      keywords: 'learn more',
+      perform: () => (window.location.pathname = 'learn-more'),
+    },
   ];
 
   return (
-    <KBarProvider actions={actions}>
-      <CommandMenu />
-      {children}
-    </KBarProvider>
+    <>
+      {session ? (
+        <KBarProvider actions={noSessionActions}>
+          <CommandMenu />
+          {children}
+        </KBarProvider>
+      ) : (
+        <KBarProvider actions={sessionActions}>
+          <CommandMenu />
+          {children}
+        </KBarProvider>
+      )}
+    </>
   );
 }
 
@@ -109,11 +204,11 @@ function CommandMenu() {
     <KBarPortal>
       <KBarPositioner
         className="bg-neutral-100/50 backdrop-blur-sm dark:bg-black/50"
-        style={{ padding: '8vh 16px 16px' }}
+        style={{ padding: '10vh 16px 16px' }}
       >
         <KBarAnimator className="z-10 w-full max-w-2xl overflow-hidden rounded-lg border border-neutral-300 bg-white/80 shadow-2xl backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-800/80 dark:text-white">
           <div>
-            <KBarSearch className="mb-2 box-border w-full border-b-[1px] bg-white/70 px-4 pt-4 pb-4 outline-none backdrop-blur-sm dark:border-neutral-500/80 dark:bg-neutral-800/80 dark:placeholder:text-neutral-100/60" />
+            <KBarSearch className="mb-2 box-border w-full border-b-[1px] bg-white/70 px-4 pt-4 pb-4 outline-none backdrop-blur-sm dark:border-neutral-700/80 dark:bg-neutral-800/80 dark:placeholder:text-neutral-100/60" />
           </div>
           <div className="pb-2">
             <Results />
@@ -176,9 +271,19 @@ const ResultItem = React.forwardRef(
       <div
         ref={ref}
         className={`
-					mx-1.5 flex
-					cursor-pointer items-center justify-between rounded-md py-2 px-3
+					mx-1.5 flex cursor-pointer
+					items-center justify-between rounded-md py-2 px-3
 					${active && 'bg-gray-200/70 dark:bg-neutral-600/30'}
+          ${
+            active &&
+            action.id === 'signin' &&
+            'bg-sky-200/30 dark:bg-sky-600/20'
+          }
+          ${
+            active &&
+            action.id === 'signout' &&
+            'bg-red-200/30 dark:bg-red-600/20'
+          }
 					font-mono transition-colors delay-[0]
 					duration-[.15s] dark:text-neutral-100/80
 				`}

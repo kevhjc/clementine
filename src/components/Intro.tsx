@@ -1,5 +1,8 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CodeIcon, ImageIcon, Link1Icon } from '@radix-ui/react-icons';
+
+import { UserContext } from '../context/UserContext';
 
 const features = [
   {
@@ -20,6 +23,8 @@ const features = [
 ];
 
 export default function Intro() {
+  const session = useContext(UserContext);
+
   return (
     <div className="mt-40 px-4 font-mono">
       <div className="mx-auto max-w-7xl px-10">
@@ -53,16 +58,27 @@ export default function Intro() {
         </div>
 
         <div className="mt-24 flex justify-center text-center font-medium leading-8 tracking-tight text-neutral-900">
-          <div className="relative inline-flex w-fit">
-            <Link to="/signin">
+          {!session ? (
+            <div className="relative inline-flex w-fit">
+              <Link to="/signin">
+                <button
+                  type="button"
+                  className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-medium leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
+                >
+                  Get started &rarr;
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <Link to="/home">
               <button
                 type="button"
                 className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-medium leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
               >
-                Get started
+                Go to your Canvas &rarr;
               </button>
             </Link>
-          </div>
+          )}
         </div>
       </div>
     </div>

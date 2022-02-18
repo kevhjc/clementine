@@ -1,29 +1,45 @@
 import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { Popover, Transition } from '@headlessui/react';
+import { useKBar } from 'kbar';
+
 import { MenuAlt3Icon } from '@heroicons/react/outline';
-import { HomeIcon, InfoCircledIcon } from '@radix-ui/react-icons';
+import { HomeIcon, InfoCircledIcon, PlusIcon } from '@radix-ui/react-icons';
 
 export default function Header() {
+  const { query } = useKBar();
+
   return (
     <>
       <Popover className="font-mono">
         {({ open }) => (
           <>
-            <div className="fixed top-0 left-0 right-0 z-10 flex items-center justify-between border-b border-neutral-100 bg-neutral-50 py-6 dark:border-neutral-800 dark:bg-neutral-900">
-              <div className="flex justify-start pl-6 lg:w-0 lg:flex-1">
+            <div className="fixed top-0 left-0 right-0 z-10 flex items-center border-b border-neutral-100 bg-neutral-50 py-6 dark:border-neutral-800 dark:bg-neutral-900">
+              <div className="flex-1 pl-6 lg:w-0">
                 <a href="/">
-                  <span className="header-link text-xl font-black">Canvas</span>
+                  <span className="header-link mr-4 text-xl font-black">
+                    Canvas
+                  </span>
                 </a>
               </div>
-              <Popover.Button className="mr-6 flex items-center justify-center rounded-md p-2 hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-700 dark:hover:text-neutral-100">
+              <button
+                title="Add entry"
+                className="mr-4 rounded-md p-2 transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
+                onClick={query.toggle}
+              >
+                <PlusIcon className="h-6 w-6 opacity-75" />
+              </button>
+              <Popover.Button
+                title="Open menu"
+                className="mr-6 rounded-md p-2 transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
+              >
                 <span className="sr-only">Open menu</span>
                 <MenuAlt3Icon className="h-6 w-6" aria-hidden="true" />
               </Popover.Button>
-              <Popover.Overlay
-                className={`${open ? 'fixed inset-0' : 'opacity-0'}`}
-              />
             </div>
+            <Popover.Overlay
+              className={`${open ? 'fixed inset-0' : 'opacity-0'}`}
+            />
 
             <Transition
               as={Fragment}

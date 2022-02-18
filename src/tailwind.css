@@ -67,6 +67,12 @@ h6 {
   overflow-wrap: break-word;
 }
 
+::selection {
+  text-shadow: none;
+  background: rgba(255, 200, 0, 1);
+  color: black;
+}
+
 #root {
   isolation: isolate;
 }

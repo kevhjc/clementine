@@ -57,13 +57,13 @@ export default function Intro() {
           </dl>
         </div>
 
-        <div className="mt-24 flex justify-center text-center font-medium leading-8 tracking-tight text-neutral-900">
+        <div className="mt-24 flex flex-col items-center justify-center font-medium leading-8 tracking-tight text-neutral-900">
           {!session ? (
             <div className="relative inline-flex w-fit">
               <Link to="/signin">
                 <button
                   type="button"
-                  className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-medium leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
+                  className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
                 >
                   Get started &rarr;
                 </button>
@@ -73,12 +73,17 @@ export default function Intro() {
             <Link to="/home">
               <button
                 type="button"
-                className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-medium leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
+                className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
               >
                 Go to your Canvas &rarr;
               </button>
             </Link>
           )}
+          <div className="mt-28 rounded-lg bg-yellow-100/20 px-8 py-2 text-center text-sm font-medium leading-8 tracking-tight text-black dark:bg-yellow-600/20 dark:text-white">
+            <span>
+              <strong>Tip:</strong> Use cmd/ctrl + K to access the command bar
+            </span>
+          </div>
         </div>
       </div>
     </div>

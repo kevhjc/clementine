@@ -10,6 +10,7 @@ import Auth from './components/Auth';
 import Home from './components/Home';
 import LearnMore from './components/LearnMore';
 // import Footer from './components/Footer';
+import NotFound from './components/NotFound';
 
 function App() {
   const [session, setSession] = useState(supabase.auth.session());
@@ -29,6 +30,7 @@ function App() {
             <Route path="signin" element={<Auth />} />
             <Route path="home" element={<Home />} />
             <Route path="learn-more" element={<LearnMore />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
         {/* <Footer /> */}

@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply max-h-screen bg-white font-sans text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200;
+    @apply bg-white font-sans text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200;
   }
 }
 
@@ -27,12 +27,11 @@
 html,
 body {
   font-size: 13px;
-  min-width: 320px;
-  height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
+  min-width: 320px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -65,7 +64,7 @@ h6 {
 
 ::selection {
   text-shadow: none;
-  background: rgba(255, 200, 0, 1);
+  background: rgba(255, 200, 0, 0.55);
   color: black;
 }
 

@@ -1,14 +1,14 @@
 export default function LearnMore() {
   return (
-    <div className="mt-40 px-4 font-mono">
+    <div className="h-screen px-4 pt-40 font-mono">
       <div className="mx-auto max-w-7xl px-10">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
             What's <span className="font-black">Lerret?</span>
           </p>
           <p className="mx-auto mt-4 max-w-2xl font-sans text-xl text-neutral-500 dark:text-neutral-300">
-            A place to save your thoughts and ideas. Save your notes, links, or
-            images/videos to your Canvas.
+            A place to save your thoughts and ideas. Save notes, links, or
+            images/videos to your Lerret.
           </p>
           <p className="mt-20 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
             What's the stack?

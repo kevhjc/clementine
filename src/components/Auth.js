@@ -15,6 +15,7 @@ export default function Auth() {
         error: false,
         text: 'Success! Check your email to sign in',
       });
+      document.getElementById('email').value = '';
       if (error)
         setHelperText({
           error: true,
@@ -38,13 +39,14 @@ export default function Auth() {
             Let's get started 👍
           </p>
           <p className="mx-auto mt-4 max-w-2xl font-sans text-xl text-neutral-500 dark:text-neutral-300">
-            Sign in via Magic Link with your email below
+            Sign in via Magic Link with your email
           </p>
         </div>
         <div className="flex justify-center">
           <div className="mt-12 rounded-lg border border-red-100 bg-red-50 p-4 duration-300 hover:shadow-lg md:w-3/4 dark:border-neutral-700 dark:bg-neutral-800">
             <form className="relative my-1" action="#">
               <input
+                id="email"
                 ref={input}
                 type={'email'}
                 aria-label="Enter your email to be sent a Magic Link to login"

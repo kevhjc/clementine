@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useContext } from 'react';
+import React, { ReactNode, useRef, useContext, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
 import {
   ActionId,
@@ -39,6 +39,8 @@ enum Sections {
 /* eslint-enable */
 export default function CommandPalette({ children }: ICommandPaletteProps) {
   const session = useContext(UserContext);
+
+  console.log('session', session);
 
   const sessionActions = [
     {

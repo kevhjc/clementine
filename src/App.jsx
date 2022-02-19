@@ -9,7 +9,6 @@ import Intro from './components/Intro';
 import Auth from './components/Auth';
 import Home from './components/Home';
 import LearnMore from './components/LearnMore';
-// import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 
 function App() {
@@ -33,7 +32,6 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-        {/* <Footer /> */}
       </CommandPalette>
     </UserContext.Provider>
   );

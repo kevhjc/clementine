@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom';
 import { useKBar } from 'kbar';
 import { MenuAlt3Icon } from '@heroicons/react/outline';
 
+import Logo from '../assets/logo.svg';
+
 export default function Navigation() {
   const { query } = useKBar();
 
@@ -9,8 +11,8 @@ export default function Navigation() {
     <>
       <div className="fixed top-0 left-0 right-0 z-10 flex min-w-[360px] items-center border-b border-neutral-200/60 bg-neutral-50/60 py-6 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/60">
         <div className="ml-6 flex basis-1/12">
-          <a href="/" className="header-link mr-4 text-xl font-black">
-            Lerret
+          <a href="/">
+            <img src={Logo} alt="Lerret Logo" width={28} height={28} />
           </a>
         </div>
         <div className="flex basis-11/12 justify-end">

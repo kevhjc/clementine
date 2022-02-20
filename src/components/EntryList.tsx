@@ -4,11 +4,11 @@ import format from 'date-fns/format';
 
 import { Item } from '../typings';
 
-interface IDraggableListProps {
+interface IEntryProps {
   items: Item[];
 }
 
-const EntryList = memo(({ items }: IDraggableListProps) => {
+const EntryList = memo(({ items }: IEntryProps) => {
   return (
     <div className={'rounded-md'}>
       {Object.values(items).map((item, index) => (

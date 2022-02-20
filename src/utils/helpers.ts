@@ -1,5 +1,3 @@
-import faker from '@faker-js/faker';
-
 export const reorder = <T>(
   list: T[],
   startIndex: number,
@@ -11,11 +9,3 @@ export const reorder = <T>(
 
   return result;
 };
-
-export const getItems = (count: number) =>
-  Array.from({ length: count }, (v, k) => k).map((k) => ({
-    id: `Item ${k + 1}`,
-    primary: faker.commerce.productDescription(),
-    secondary: faker.date.past().toString(),
-    department: faker.commerce.productMaterial(),
-  }));

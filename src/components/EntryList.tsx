@@ -27,7 +27,7 @@ const EntryList = React.memo(
             >
               {category !== 'all'
                 ? Object.values(items)
-                    .filter((item) => item.department === category)
+                    .filter((item) => item.category === category)
                     .map((item, index) => (
                       <EntryListItem item={item} index={index} key={item.id} />
                     ))

@@ -1,6 +1,6 @@
 export type Item = {
   id: string;
-  primary: string;
-  secondary: string;
-  department: string;
+  category: string;
+  content: string;
+  createdAt: string;
 };

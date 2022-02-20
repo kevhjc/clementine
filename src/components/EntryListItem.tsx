@@ -24,11 +24,11 @@ const EntryListItem = ({ item, index }: IDraggableListItemProps) => {
               : 'group relative rounded-md p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700'
           }
         >
-          <div className='flex flex-col justify-center'>
-            <div className='absolute -ml-14 w-full py-12'>
+          <div className="flex flex-col justify-center">
+            <div className="absolute -ml-14 w-full py-12">
               <CaretSortIcon
-                className='hidden h-6 w-6 flex-shrink-0 rounded bg-neutral-100 group-hover:block dark:bg-neutral-800'
-                aria-hidden='true'
+                className="hidden h-6 w-6 flex-shrink-0 rounded bg-neutral-100 group-hover:block dark:bg-neutral-800"
+                aria-hidden="true"
               />
             </div>
             <span
@@ -38,15 +38,15 @@ const EntryListItem = ({ item, index }: IDraggableListItemProps) => {
                   : 'text-lg font-medium leading-6'
               }
             >
-              {item.primary}
+              {item.content}
             </span>
-            <ul className='mt-1 flex flex-wrap text-sm font-normal leading-6 text-neutral-500 dark:text-neutral-400'>
+            <ul className="mt-1 flex flex-wrap text-sm font-normal leading-6 text-neutral-500 dark:text-neutral-400">
               <li
                 className={
                   snapshot.isDragging ? 'text-neutral-800' : 'text-neutral-500'
                 }
               >
-                {format(new Date(item.secondary), "MMM d, yyyy '–' h:mm bb")}
+                {format(new Date(item.createdAt), "MMM d, yyyy '–' h:mm bb")}
               </li>
               <li
                 className={
@@ -62,10 +62,10 @@ const EntryListItem = ({ item, index }: IDraggableListItemProps) => {
                   snapshot.isDragging ? 'text-red-600' : 'text-red-400'
                 }
               >
-                {item.department}
+                {item.category}
               </li>
             </ul>
-            <a href='/' className='absolute inset-0 rounded-md' />
+            <a href="/" className="absolute inset-0 rounded-md" />
           </div>
         </li>
       )}

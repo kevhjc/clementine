@@ -2,16 +2,40 @@ import * as React from 'react';
 import { DropResult } from 'react-beautiful-dnd';
 import { Tab } from '@headlessui/react';
 
-import { getItems, reorder } from '../utils/helpers';
+import { reorder } from '../utils/helpers';
 import EntryList from './EntryList';
-import Footer from './Footer';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
 const Home = () => {
-  const [items, setItems] = React.useState(getItems(25));
+  const [items, setItems] = React.useState([
+    {
+      id: 'Item 1',
+      category: 'Text',
+      content: 'this is the first item in the items array',
+      createdAt: 'Fri Nov 19 2021 16:08:53 GMT-0800 (Pacific Standard Time)',
+    },
+    {
+      id: 'Item 2',
+      category: 'Bookmark',
+      content: 'this is the first bookmark entry',
+      createdAt: 'Fri Nov 08 2021 12:41:23 GMT-0800 (Pacific Standard Time)',
+    },
+    {
+      id: 'Item 3',
+      category: 'Text',
+      content: 'this is the second text entry',
+      createdAt: 'Fri Nov 19 2021 16:08:53 GMT-0800 (Pacific Standard Time)',
+    },
+    {
+      id: 'Item 4',
+      category: 'Code',
+      content: 'this is the first code snippit entry',
+      createdAt: 'Fri Nov 08 2021 12:41:23 GMT-0800 (Pacific Standard Time)',
+    },
+  ]);
   const [allTab, setAllTab] = React.useState(true);
 
   const onDragEnd = ({ destination, source }: DropResult) => {
@@ -48,23 +72,21 @@ const Home = () => {
               >
                 {'All'}
               </Tab>
-              {Object.values(items)
-                .slice(0, 4)
-                .map((item) => (
-                  <Tab
-                    key={item.id}
-                    className={({ selected }) =>
-                      classNames(
-                        'w-full rounded-md py-3 font-sans font-medium leading-5',
-                        selected
-                          ? 'bg-white text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
-                          : ' text-neutral-600 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-700'
-                      )
-                    }
-                  >
-                    {item.department}
-                  </Tab>
-                ))}
+              {Object.values(items).map((item) => (
+                <Tab
+                  key={item.id}
+                  className={({ selected }) =>
+                    classNames(
+                      'w-full rounded-md py-3 font-sans font-medium leading-5',
+                      selected
+                        ? 'bg-white text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
+                        : ' text-neutral-600 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-700'
+                    )
+                  }
+                >
+                  {item.category}
+                </Tab>
+              ))}
             </Tab.List>
             <Tab.Panels className="mt-2">
               <Tab.Panel
@@ -80,17 +102,17 @@ const Home = () => {
                   />
                 </ul>
               </Tab.Panel>
-              {Object.values(items).map((categories, idx) => (
+              {Object.values(items).map((ele, index) => (
                 <Tab.Panel
-                  key={idx}
+                  key={index}
                   className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50"
                 >
                   <ul>
                     <EntryList
                       items={items}
                       onDragEnd={onDragEnd}
-                      key={idx}
-                      category={!allTab ? categories.department : 'all'}
+                      key={index}
+                      category={!allTab ? ele.category : 'all'}
                     />
                   </ul>
                 </Tab.Panel>
@@ -99,7 +121,6 @@ const Home = () => {
           </Tab.Group>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

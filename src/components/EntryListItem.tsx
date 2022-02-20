@@ -1,28 +1,30 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-import { format } from 'date-fns';
+import { useParams } from 'react-router-dom';
+import { getEntryById } from '../utils/data';
 
-import { Item } from '../typings';
+export default function EntryListItem() {
+  let { id } = useParams<'id'>();
+  console.log('id', id);
 
-interface IDraggableListItemProps {
-  item: Item;
-}
+  if (!id) {
+    return <></>;
+  }
 
-const EntryListItem = ({ item }: IDraggableListItemProps) => {
+  let item = getEntryById(id);
+  console.log(item);
+
+  if (!item) {
+    return <></>;
+  }
+
+  let name = `${item.content} ${item.category} ${item.createdAt}`;
+
   return (
-    <li className="group relative rounded-md p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700">
-      <div className="flex flex-col justify-center">
-        <span className="text-lg font-medium leading-6">{item.content}</span>
-        <ul className="mt-1 flex flex-wrap text-sm font-normal leading-6 text-neutral-500 dark:text-neutral-400">
-          <li className="text-neutral-500">
-            {format(new Date(item.createdAt), "MMM d, yyyy '–' h:mm bb")}
-          </li>
-          <li className="mx-2 md:visible">&middot;</li>
-          <li className="text-red-400">{item.category}</li>
-        </ul>
-        <a href="/" className="absolute inset-0 rounded-md" />
+    <div className="h-screen px-4 pt-40">
+      <div className="mx-auto max-w-7xl px-10">
+        <div className="text-center">
+          <h2>{name}</h2>
+        </div>
       </div>
-    </li>
+    </div>
   );
-};
-
-export default EntryListItem;
+}

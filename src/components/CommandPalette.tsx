@@ -13,14 +13,14 @@ import {
   useMatches,
 } from 'kbar';
 import {
+  CodeIcon,
+  FileTextIcon,
   ExitIcon,
-  ImageIcon,
   InfoCircledIcon,
   HomeIcon,
-  Link1Icon,
+  Link2Icon,
+  Pencil2Icon,
   MagicWandIcon,
-  TextIcon,
-  VideoIcon,
 } from '@radix-ui/react-icons';
 
 import { UserContext } from '../context/UserContext';
@@ -42,40 +42,40 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
 
   const sessionActions = [
     {
-      id: 'text',
-      name: 'Text',
-      icon: <TextIcon />,
+      id: 'note',
+      name: 'Quick note',
+      icon: <FileTextIcon />,
+      shortcut: ['n'],
+      section: Sections.Entry,
+      keywords: 'note',
+      perform: () => (window.location.pathname = '/new/note'),
+    },
+    {
+      id: 'todo',
+      name: 'Todo item',
       shortcut: ['t'],
       section: Sections.Entry,
-      keywords: 'text',
-      perform: () => (window.location.pathname = 'text'),
+      keywords: 'todo',
+      icon: <Pencil2Icon />,
+      perform: () => (window.location.pathname = '/new/todo'),
+    },
+    {
+      id: 'code',
+      name: 'Code snippet',
+      shortcut: ['c'],
+      section: Sections.Entry,
+      keywords: 'code',
+      icon: <CodeIcon />,
+      perform: () => (window.location.pathname = '/new/code'),
     },
     {
       id: 'url',
-      name: 'URL',
+      name: 'Bookmark',
       shortcut: ['u'],
       section: Sections.Entry,
       keywords: 'url',
-      icon: <Link1Icon />,
-      perform: () => (window.location.pathname = 'url'),
-    },
-    {
-      id: 'image',
-      name: 'Image',
-      shortcut: ['i'],
-      section: Sections.Entry,
-      keywords: 'image',
-      icon: <ImageIcon />,
-      perform: () => (window.location.pathname = 'image'),
-    },
-    {
-      id: 'video',
-      name: 'Video',
-      shortcut: ['v'],
-      section: Sections.Entry,
-      keywords: 'video',
-      icon: <VideoIcon />,
-      perform: () => (window.location.pathname = 'video'),
+      icon: <Link2Icon />,
+      perform: () => (window.location.pathname = '/new/url'),
     },
     {
       id: 'home',
@@ -84,7 +84,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['h'],
       section: Sections.Navigation,
       keywords: 'home',
-      perform: () => (window.location.pathname = 'home'),
+      perform: () => (window.location.pathname = '/home'),
     },
     {
       id: 'more',
@@ -93,7 +93,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['?'],
       section: Sections.Navigation,
       keywords: 'learn more',
-      perform: () => (window.location.pathname = 'learn-more'),
+      perform: () => (window.location.pathname = '/learn-more'),
     },
     {
       id: 'signout',
@@ -114,7 +114,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: [''],
       section: Sections.Account,
       keywords: 'sign in',
-      perform: () => (window.location.pathname = 'signin'),
+      perform: () => (window.location.pathname = '/signin'),
     },
     {
       id: 'more',
@@ -123,7 +123,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['?'],
       section: Sections.Navigation,
       keywords: 'learn more',
-      perform: () => (window.location.pathname = 'learn-more'),
+      perform: () => (window.location.pathname = '/learn-more'),
     },
   ];
 

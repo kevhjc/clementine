@@ -1,24 +1,34 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { CodeIcon, Link1Icon, TextIcon } from '@radix-ui/react-icons';
+import {
+  CodeIcon,
+  FileTextIcon,
+  Link2Icon,
+  Pencil2Icon,
+} from '@radix-ui/react-icons';
 
 import { UserContext } from '../context/UserContext';
 
 const features = [
   {
-    name: 'Text',
-    description: 'Save markdown',
-    icon: TextIcon,
+    name: 'Notes',
+    description: 'Save a quick note',
+    icon: FileTextIcon,
+  },
+  {
+    name: 'Todos',
+    description: 'Save tasks',
+    icon: Pencil2Icon,
   },
   {
     name: 'Code',
-    description: 'Save snippets',
+    description: 'Save code snippets',
     icon: CodeIcon,
   },
   {
     name: 'Links',
     description: 'Save bookmarks',
-    icon: Link1Icon,
+    icon: Link2Icon,
   },
 ];
 
@@ -38,7 +48,7 @@ export default function Intro() {
         </div>
 
         <div className="mt-24 flex justify-center">
-          <dl className="space-y-10 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10 md:space-y-0">
+          <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-24 md:gap-y-12 md:space-y-0">
             {features.map((feature) => (
               <div key={feature.name} className="relative">
                 <dt>

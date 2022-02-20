@@ -6,26 +6,26 @@ export default function LearnMore() {
           <p className="mt-2 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
             What's <span className="font-black">Lerret?</span>
           </p>
-          <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-500 dark:text-neutral-300">
-            A place to save your thoughts and ideas. Save notes or bookmarks to
-            your Lerret.
+          <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-700 dark:text-neutral-300">
+            A place to save your thoughts and ideas. Save notes, todo items,
+            code snippets, or bookmarks.
           </p>
           <p className="mt-20 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
             What's the stack?
           </p>
-          <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-500 dark:text-neutral-300">
+          <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-700 dark:text-neutral-300">
             TypeScript, React, React Beautiful DnD, kbar, Tailwind CSS, Supabase
           </p>
           <p className="mt-20 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
             Who made it?
           </p>
-          <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-500 dark:text-neutral-300">
+          <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-700 dark:text-neutral-300">
             Built by{' '}
             <a
               href="https://www.kevc.xyz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:no-underline"
+              className="font-bold underline hover:no-underline"
             >
               {`Kevin`}
             </a>

@@ -14,7 +14,7 @@ export default function NotFound() {
         </div>
 
         <div className="mt-24 flex flex-col items-center justify-center font-medium leading-8 tracking-tight text-neutral-900">
-          <Link to="/">
+          <Link to="/home">
             <button
               type="button"
               className="mb-2 flex items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"

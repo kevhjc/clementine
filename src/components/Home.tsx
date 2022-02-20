@@ -18,8 +18,8 @@ function CategoryLink({ category, children, ...props }: CategoryLinkProps) {
       {...props}
       className={
         isActive
-          ? 'flex w-full justify-center rounded-md bg-white py-4 font-sans font-medium leading-5 text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
-          : 'flex w-full justify-center rounded-md py-4 font-sans font-medium leading-5 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-700'
+          ? 'flex w-full justify-center rounded-md bg-white py-3 font-sans font-medium leading-5 text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
+          : 'flex w-full justify-center rounded-md py-3 font-sans font-medium leading-5 text-neutral-600 hover:bg-neutral-200/50 dark:text-neutral-100 dark:hover:bg-neutral-700/50'
       }
     >
       {children}
@@ -40,14 +40,14 @@ const Home = () => {
     <div>
       <div className="flex justify-center">
         <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8 font-mono">
-          <div className="mb-6 flex space-x-1 rounded-md bg-neutral-100 p-1 dark:bg-neutral-800">
-            <div className="flex w-full gap-x-1 rounded-md font-sans font-medium leading-5">
+          <div className="mb-6 flex space-x-1 rounded-md bg-neutral-100 p-2 dark:bg-neutral-800">
+            <div className="flex w-full gap-x-2 rounded-md font-sans font-medium leading-5">
               <Link
                 to={`/home`}
                 className={
                   window.location.pathname === '/home'
-                    ? 'flex w-full justify-center rounded-md bg-white py-4 font-sans font-medium leading-5 text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
-                    : 'flex w-full justify-center rounded-md py-4 font-sans font-medium leading-5 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-700'
+                    ? 'flex w-full justify-center rounded-md bg-white py-3 font-sans font-medium leading-5 text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
+                    : 'flex w-full justify-center rounded-md py-3 font-sans font-medium leading-5 text-neutral-600 hover:bg-neutral-200/50 dark:text-neutral-100 dark:hover:bg-neutral-700/50'
                 }
               >
                 {'All'}

@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import Intro from './components/Intro';
 import Auth from './components/Auth';
 import Home from './components/Home';
+import EntryListItem from './components/EntryListItem';
 import LearnMore from './components/LearnMore';
 import NotFound from './components/NotFound';
 
@@ -28,7 +29,7 @@ export default function App() {
             <Route index element={<Intro />} />
             <Route path="signin" element={<Auth />} />
             <Route path="home" element={<Home />} />
-            <Route path="/category/:id" />
+            <Route path="/category/:id" element={<EntryListItem />} />
             <Route path="learn-more" element={<LearnMore />} />
             <Route path="*" element={<NotFound />} />
           </Route>

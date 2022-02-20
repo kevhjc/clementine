@@ -17,7 +17,10 @@ const EntryList = memo(({ items }: IEntryProps) => {
           className="group relative rounded-md p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700"
         >
           <div className="flex flex-col justify-center">
-            <span className="text-lg font-medium leading-6">
+            <span className="font-sans text-lg font-bold leading-6">
+              {item.title}
+            </span>
+            <span className="... mt-1 truncate text-sm font-medium italic leading-6 text-neutral-500 dark:text-neutral-400">
               {item.content}
             </span>
             <ul className="mt-1 flex flex-wrap text-sm font-normal leading-6 text-neutral-500 dark:text-neutral-400">
@@ -28,7 +31,7 @@ const EntryList = memo(({ items }: IEntryProps) => {
               <li
                 className={
                   item.category === 'note'
-                    ? 'text-red-400'
+                    ? 'text-orange-400'
                     : item.category === 'task'
                     ? 'text-blue-400'
                     : item.category === 'bookmark'

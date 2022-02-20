@@ -40,8 +40,6 @@ enum Sections {
 export default function CommandPalette({ children }: ICommandPaletteProps) {
   const session = useContext(UserContext);
 
-  console.log('session', session);
-
   const sessionActions = [
     {
       id: 'text',
@@ -251,7 +249,6 @@ const ResultItem = React.forwardRef(
                 ))}
               <span>{action.name}</span>
             </div>
-
             {action.subtitle && (
               <span className="text-[0.75rem]">{action.subtitle}</span>
             )}

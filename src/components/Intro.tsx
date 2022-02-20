@@ -1,24 +1,24 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { CodeIcon, ImageIcon, Link1Icon } from '@radix-ui/react-icons';
+import { CodeIcon, Link1Icon, TextIcon } from '@radix-ui/react-icons';
 
 import { UserContext } from '../context/UserContext';
 
 const features = [
   {
     name: 'Text',
-    description: 'Add notes or code snippets',
+    description: 'Save markdown',
+    icon: TextIcon,
+  },
+  {
+    name: 'Code',
+    description: 'Save snippets',
     icon: CodeIcon,
   },
   {
     name: 'Links',
-    description: 'Save links to webpages',
+    description: 'Save bookmarks',
     icon: Link1Icon,
-  },
-  {
-    name: 'Media',
-    description: 'Embed images or videos',
-    icon: ImageIcon,
   },
 ];
 
@@ -26,7 +26,7 @@ export default function Intro() {
   const session = useContext(UserContext);
 
   return (
-    <div className="h-screen px-4 pt-40 font-mono">
+    <div className="h-screen px-4 pt-40">
       <div className="mx-auto max-w-7xl px-10">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
@@ -79,7 +79,7 @@ export default function Intro() {
               </button>
             </Link>
           )}
-          <div className="mt-28 rounded-lg bg-yellow-100/20 px-8 py-2 text-center text-sm font-medium leading-8 tracking-tight text-black dark:bg-yellow-600/20 dark:text-white">
+          <div className="mt-28 rounded-lg bg-yellow-100/20 px-8 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight text-black dark:bg-yellow-600/20 dark:text-white">
             <span>
               <strong>Tip:</strong> Use cmd/ctrl + K to access the command bar
             </span>

@@ -1,46 +1,20 @@
-import * as React from 'react';
-import {
-  DragDropContext,
-  Droppable,
-  OnDragEndResponder,
-} from 'react-beautiful-dnd';
+import { memo } from 'react';
 
 import { Item } from '../typings';
 import EntryListItem from './EntryListItem';
 
 interface IDraggableListProps {
   items: Item[];
-  category: string;
-  onDragEnd: OnDragEndResponder;
 }
 
-const EntryList = React.memo(
-  ({ items, category, onDragEnd }: IDraggableListProps) => {
-    return (
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="droppable-list">
-          {(provided, snapshot) => (
-            <div
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-              className={'rounded-md'}
-            >
-              {category !== 'all'
-                ? Object.values(items)
-                    .filter((item) => item.category === category)
-                    .map((item, index) => (
-                      <EntryListItem item={item} index={index} key={item.id} />
-                    ))
-                : Object.values(items).map((item, index) => (
-                    <EntryListItem item={item} index={index} key={item.id} />
-                  ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
-    );
-  }
-);
+const EntryList = memo(({ items }: IDraggableListProps) => {
+  return (
+    <div className={'rounded-md'}>
+      {Object.values(items).map((item) => (
+        <EntryListItem item={item} key={item.id} />
+      ))}
+    </div>
+  );
+});
 
 export default EntryList;

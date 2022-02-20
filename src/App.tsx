@@ -11,7 +11,7 @@ import Home from './components/Home';
 import LearnMore from './components/LearnMore';
 import NotFound from './components/NotFound';
 
-function App() {
+export default function App() {
   const [session, setSession] = useState(supabase.auth.session());
 
   useEffect(() => {
@@ -28,6 +28,7 @@ function App() {
             <Route index element={<Intro />} />
             <Route path="signin" element={<Auth />} />
             <Route path="home" element={<Home />} />
+            <Route path="/category/:id" />
             <Route path="learn-more" element={<LearnMore />} />
             <Route path="*" element={<NotFound />} />
           </Route>
@@ -36,5 +37,3 @@ function App() {
     </UserContext.Provider>
   );
 }
-
-export default App;

@@ -1,75 +1,27 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import { Draggable } from 'react-beautiful-dnd';
 import { format } from 'date-fns';
-import { CaretSortIcon } from '@radix-ui/react-icons';
 
 import { Item } from '../typings';
 
 interface IDraggableListItemProps {
   item: Item;
-  index: number;
 }
 
-const EntryListItem = ({ item, index }: IDraggableListItemProps) => {
+const EntryListItem = ({ item }: IDraggableListItemProps) => {
   return (
-    <Draggable draggableId={item.id} index={index} key={index}>
-      {(provided, snapshot) => (
-        <li
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          className={
-            snapshot.isDragging
-              ? 'group relative rounded-md bg-red-50 p-3 opacity-40 dark:bg-red-300'
-              : 'group relative rounded-md p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700'
-          }
-        >
-          <div className="flex flex-col justify-center">
-            <div className="absolute -ml-14 w-full py-12">
-              <CaretSortIcon
-                className="hidden h-6 w-6 flex-shrink-0 rounded bg-neutral-100 group-hover:block dark:bg-neutral-800"
-                aria-hidden="true"
-              />
-            </div>
-            <span
-              className={
-                snapshot.isDragging
-                  ? 'text-lg font-medium leading-6 text-neutral-900'
-                  : 'text-lg font-medium leading-6'
-              }
-            >
-              {item.content}
-            </span>
-            <ul className="mt-1 flex flex-wrap text-sm font-normal leading-6 text-neutral-500 dark:text-neutral-400">
-              <li
-                className={
-                  snapshot.isDragging ? 'text-neutral-800' : 'text-neutral-500'
-                }
-              >
-                {format(new Date(item.createdAt), "MMM d, yyyy '–' h:mm bb")}
-              </li>
-              <li
-                className={
-                  snapshot.isDragging
-                    ? 'mx-2 text-neutral-800 md:visible'
-                    : 'mx-2 md:visible'
-                }
-              >
-                &middot;
-              </li>
-              <li
-                className={
-                  snapshot.isDragging ? 'text-red-600' : 'text-red-400'
-                }
-              >
-                {item.category}
-              </li>
-            </ul>
-            <a href="/" className="absolute inset-0 rounded-md" />
-          </div>
-        </li>
-      )}
-    </Draggable>
+    <li className="group relative rounded-md p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700">
+      <div className="flex flex-col justify-center">
+        <span className="text-lg font-medium leading-6">{item.content}</span>
+        <ul className="mt-1 flex flex-wrap text-sm font-normal leading-6 text-neutral-500 dark:text-neutral-400">
+          <li className="text-neutral-500">
+            {format(new Date(item.createdAt), "MMM d, yyyy '–' h:mm bb")}
+          </li>
+          <li className="mx-2 md:visible">&middot;</li>
+          <li className="text-red-400">{item.category}</li>
+        </ul>
+        <a href="/" className="absolute inset-0 rounded-md" />
+      </div>
+    </li>
   );
 };
 

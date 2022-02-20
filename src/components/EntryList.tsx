@@ -49,6 +49,18 @@ const EntryList = memo(({ items }: IEntryProps) => {
                   {item.title}
                 </label>
               </div>
+            ) : item.category === 'bookmark' ? (
+              <div>
+                <span className="break-words font-sans text-lg font-bold leading-6 underline hover:no-underline">
+                  <a
+                    href={item.content}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.title}
+                  </a>
+                </span>
+              </div>
             ) : (
               <span className="font-sans text-lg font-bold leading-6">
                 {item.title}

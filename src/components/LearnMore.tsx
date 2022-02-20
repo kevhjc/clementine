@@ -7,14 +7,14 @@ export default function LearnMore() {
             What's <span className="font-black">Lerret?</span>
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-700 dark:text-neutral-300">
-            A place to save your thoughts and ideas. Save notes, todo items,
-            code snippets, or bookmarks.
+            A place to save your thoughts and ideas. Add notes, tasks, or
+            bookmarks to your Lerret collection.
           </p>
           <p className="mt-20 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
             What's the stack?
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-700 dark:text-neutral-300">
-            TypeScript, React, React Beautiful DnD, kbar, Tailwind CSS, Supabase
+            TypeScript, React, kbar, Tailwind CSS, Supabase
           </p>
           <p className="mt-20 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
             Who made it?

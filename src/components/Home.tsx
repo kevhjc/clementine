@@ -1,7 +1,8 @@
-import { useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import type { LinkProps } from 'react-router-dom';
-import { categories, ENTRIES, filterByCategory } from '../utils/data';
+import { supabase } from './../supabaseClient';
+
 import EntryList from './EntryList';
 
 interface CategoryLinkProps extends Omit<LinkProps, 'to'> {
@@ -28,13 +29,35 @@ function CategoryLink({ category, children, ...props }: CategoryLinkProps) {
 }
 
 const Home = () => {
+  const [supabaseEntries, setSupabaseEntries] = useState<any>([]);
   const [searchParams] = useSearchParams();
+  const categories = ['note', 'task', 'bookmark'];
   const category = searchParams.get('category');
 
+  useEffect(() => {
+    fetchSupabaseEntries().catch(console.error);
+  }, []);
+
   const entries = useMemo(() => {
-    if (!category) return ENTRIES;
+    const filterByCategory = (category: string) => {
+      return supabaseEntries.filter(
+        (item: { category: string }) =>
+          item.category.toLowerCase() === category.toLowerCase()
+      );
+    };
+
+    if (!category) return supabaseEntries;
     return filterByCategory(category);
-  }, [category]);
+  }, [category, supabaseEntries]);
+
+  const fetchSupabaseEntries = async () => {
+    let { data: entries, error } = await supabase
+      .from('entries')
+      .select('*')
+      .order('inserted_at', { ascending: false });
+    if (error) console.log('error', error);
+    else setSupabaseEntries(entries);
+  };
 
   return (
     <div>

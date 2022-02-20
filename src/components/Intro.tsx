@@ -16,14 +16,9 @@ const features = [
     icon: FileTextIcon,
   },
   {
-    name: 'Todos',
-    description: 'Save tasks',
+    name: 'Tasks',
+    description: 'Save todo items',
     icon: Pencil2Icon,
-  },
-  {
-    name: 'Code',
-    description: 'Save code snippets',
-    icon: CodeIcon,
   },
   {
     name: 'Links',
@@ -39,7 +34,7 @@ export default function Intro() {
     <div className="h-screen px-4 pt-40">
       <div className="mx-auto max-w-7xl px-10">
         <div className="text-center">
-          <p className="mt-2 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
+          <p className="mt-2 text-3xl font-medium leading-8 sm:text-5xl">
             Say 👋 to <span className="font-black">Lerret.</span>
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-500 dark:text-neutral-300">
@@ -48,7 +43,7 @@ export default function Intro() {
         </div>
 
         <div className="mt-24 flex justify-center">
-          <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-24 md:gap-y-12 md:space-y-0">
+          <dl className="space-y-10 md:grid md:grid-cols-3 md:gap-x-24 md:gap-y-12 md:space-y-0">
             {features.map((feature) => (
               <div key={feature.name} className="relative">
                 <dt>

@@ -13,7 +13,6 @@ import {
   useMatches,
 } from 'kbar';
 import {
-  CodeIcon,
   FileTextIcon,
   ExitIcon,
   InfoCircledIcon,
@@ -43,7 +42,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
   const sessionActions = [
     {
       id: 'note',
-      name: 'Quick note',
+      name: 'Note',
       icon: <FileTextIcon />,
       shortcut: ['n'],
       section: Sections.Entry,
@@ -51,22 +50,13 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       perform: () => (window.location.pathname = '/new/note'),
     },
     {
-      id: 'todo',
-      name: 'Todo item',
+      id: 'task',
+      name: 'Task',
       shortcut: ['t'],
       section: Sections.Entry,
-      keywords: 'todo',
+      keywords: 'task',
       icon: <Pencil2Icon />,
-      perform: () => (window.location.pathname = '/new/todo'),
-    },
-    {
-      id: 'code',
-      name: 'Code snippet',
-      shortcut: ['c'],
-      section: Sections.Entry,
-      keywords: 'code',
-      icon: <CodeIcon />,
-      perform: () => (window.location.pathname = '/new/code'),
+      perform: () => (window.location.pathname = '/new/task'),
     },
     {
       id: 'url',

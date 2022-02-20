@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import format from 'date-fns/format';
 
 import { Item } from '../typings';
-import EntryListItem from './EntryListItem';
 
 interface IDraggableListProps {
   items: Item[];
@@ -23,10 +22,22 @@ const EntryList = memo(({ items }: IDraggableListProps) => {
             </span>
             <ul className="mt-1 flex flex-wrap text-sm font-normal leading-6 text-neutral-500 dark:text-neutral-400">
               <li className="text-neutral-500">
-                {format(new Date(item.createdAt), "MMM d, yyyy '–' h:mm bb")}
+                {format(new Date(item.inserted_at), "MMM d, yyyy '–' h:mm bb")}
               </li>
               <li className="mx-2 md:visible">&middot;</li>
-              <li className="text-red-400">{item.category}</li>
+              <li
+                className={
+                  item.category === 'note'
+                    ? 'text-red-400'
+                    : item.category === 'task'
+                    ? 'text-blue-400'
+                    : item.category === 'bookmark'
+                    ? 'text-purple-400'
+                    : 'text-neutral-500'
+                }
+              >
+                {item.category}
+              </li>
             </ul>
             <Link
               className="absolute inset-0"
@@ -35,7 +46,6 @@ const EntryList = memo(({ items }: IDraggableListProps) => {
           </div>
         </li>
       ))}
-      <EntryListItem />
     </div>
   );
 });

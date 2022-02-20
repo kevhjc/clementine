@@ -1,11 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  CodeIcon,
-  FileTextIcon,
-  Link2Icon,
-  Pencil2Icon,
-} from '@radix-ui/react-icons';
+import { FileTextIcon, Link2Icon, Pencil2Icon } from '@radix-ui/react-icons';
 
 import { UserContext } from '../context/UserContext';
 

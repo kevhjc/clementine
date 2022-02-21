@@ -1,6 +1,6 @@
 export default function LearnMore() {
   return (
-    <div className="h-screen px-4 pt-40">
+    <div className="mb-24 h-screen px-4 pt-40">
       <div className="mx-auto max-w-7xl px-10">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">

@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useKBar } from 'kbar';
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
 import { UserContext } from '../context/UserContext';
 import Logo from '../assets/logo.svg';

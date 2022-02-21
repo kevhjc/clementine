@@ -4,11 +4,11 @@ export default function LearnMore() {
       <div className="mx-auto max-w-7xl px-10">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
-            What's <span className="font-black">Lerret?</span>
+            What is <span className="font-black">Jurnal?</span>
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-500 dark:text-neutral-300">
             A place to save your thoughts and ideas. Add notes, tasks, or
-            bookmarks to your Lerret collection.
+            bookmarks to your personal Jurnal.
           </p>
           <p className="mt-20 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
             What's the stack?

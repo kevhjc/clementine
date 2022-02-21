@@ -30,7 +30,7 @@ export default function Intro() {
       <div className="mx-auto max-w-7xl px-10">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 sm:text-5xl">
-            Say 👋 to <span className="font-black">Lerret.</span>
+            Say 👋 to <span className="font-black">Jurnal.</span>
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-500 dark:text-neutral-300">
             A place to save your thoughts and ideas
@@ -75,7 +75,7 @@ export default function Intro() {
                 type="button"
                 className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
               >
-                Go to your Lerret &rarr;
+                Go to your Jurnal &rarr;
               </button>
             </Link>
           )}

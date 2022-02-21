@@ -10,7 +10,6 @@ import Auth from './components/Auth';
 import Home from './components/Home';
 import LearnMore from './components/LearnMore';
 import NotFound from './components/NotFound';
-import Unauthorized from './components/Unauthorized';
 
 export default function App() {
   const [session, setSession] = useState(supabase.auth.session());
@@ -31,7 +30,7 @@ export default function App() {
             {session ? (
               <Route path="home" element={<Home />} />
             ) : (
-              <Route path="home" element={<Unauthorized />} />
+              <Route path="home" element={<Auth />} />
             )}
             <Route path="/category/:id" />
             <Route path="learn-more" element={<LearnMore />} />

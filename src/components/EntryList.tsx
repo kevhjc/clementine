@@ -75,11 +75,11 @@ const EntryList = memo(({ items }: IEntryProps) => {
               <li
                 className={
                   item.category === 'note'
-                    ? 'text-orange-400'
+                    ? 'text-orange-600 dark:text-orange-400'
                     : item.category === 'task'
-                    ? 'text-blue-400'
+                    ? 'text-blue-600 dark:text-blue-400'
                     : item.category === 'bookmark'
-                    ? 'text-purple-400'
+                    ? 'text-green-600 dark:text-green-400'
                     : 'text-neutral-500'
                 }
               >

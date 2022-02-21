@@ -39,6 +39,10 @@ enum Sections {
 export default function CommandPalette({ children }: ICommandPaletteProps) {
   const session = useContext(UserContext);
 
+  const handleSignOut = () => {
+    supabase.auth.signOut();
+  };
+
   const sessionActions = [
     {
       id: 'note',
@@ -92,7 +96,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: [''],
       section: Sections.Account,
       keywords: 'sign out',
-      perform: () => supabase.auth.signOut(),
+      perform: () => handleSignOut(),
     },
   ];
 

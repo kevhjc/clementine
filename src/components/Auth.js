@@ -10,7 +10,7 @@ export default function Auth() {
   const handleLogin = async (email) => {
     try {
       setLoading(true);
-      const { error } = await supabase.auth.signIn({ email });
+      const { error } = await supabase.auth.signIn({ email: email });
       setHelperText({
         error: false,
         text: 'Success! Check your email to sign in',
@@ -21,6 +21,7 @@ export default function Auth() {
           error: true,
           text: 'Uh oh, something went wrong',
         });
+      console.log(error);
     } catch (error) {
       console.log(
         'Error handling login: ',

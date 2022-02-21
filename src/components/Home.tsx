@@ -59,8 +59,6 @@ const Home = () => {
     else setSupabaseEntries(entries);
   };
 
-  console.log('supabaseEntries', supabaseEntries);
-
   return (
     <div>
       <div className="flex justify-center">
@@ -84,11 +82,19 @@ const Home = () => {
               ))}
             </div>
           </div>
-          <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
-            <ul>
-              <EntryList items={entries} />
-            </ul>
-          </div>
+          <ul>
+            {supabaseEntries.length === 0 ? (
+              <li className="mt-24 text-center text-lg">
+                <div className="flex flex-col justify-center dark:text-neutral-500">
+                  Use cmd/ctrl + K or click the menu icon to begin
+                </div>
+              </li>
+            ) : (
+              <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
+                <EntryList items={entries} />
+              </div>
+            )}
+          </ul>
         </div>
       </div>
     </div>

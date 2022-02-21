@@ -27,7 +27,11 @@ export default function App() {
           <Route path="/" element={<Navigation />}>
             <Route index element={<Intro />} />
             <Route path="signin" element={<Auth />} />
-            <Route path="home" element={<Home />} />
+            {session ? (
+              <Route path="home" element={<Home />} />
+            ) : (
+              <Route path="home" element={<Auth />} />
+            )}
             <Route path="/category/:id" />
             <Route path="learn-more" element={<LearnMore />} />
             <Route path="*" element={<NotFound />} />

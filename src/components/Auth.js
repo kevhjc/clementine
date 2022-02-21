@@ -19,7 +19,7 @@ export default function Auth() {
       if (error)
         setHelperText({
           error: true,
-          text: 'Please enter a valid email address',
+          text: 'Uh oh, something went wrong',
         });
     } catch (error) {
       console.log(
@@ -36,7 +36,7 @@ export default function Auth() {
       <div className="mx-auto max-w-7xl px-10">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
-            Let's get started 👍
+            Hey there 👋
           </p>
           <p className="mx-auto mt-4 max-w-2xl font-sans text-xl text-neutral-500 dark:text-neutral-300">
             Sign in via Magic Link with your email

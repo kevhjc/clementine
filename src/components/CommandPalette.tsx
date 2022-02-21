@@ -147,7 +147,7 @@ function CommandMenu() {
         {session ? (
           <div>
             <span
-              className="fixed top-16 z-20 cursor-pointer justify-between rounded-md py-2 px-4 font-mono dark:bg-neutral-800 dark:text-neutral-100/80
+              className="fixed top-16 z-20 cursor-pointer justify-between rounded-md border border-neutral-200 bg-white/80 py-2 px-4 font-mono dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80
             "
             >
               {session.user.email}

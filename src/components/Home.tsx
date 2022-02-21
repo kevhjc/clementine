@@ -86,7 +86,7 @@ const Home = () => {
             {userEntries.length === 0 ? (
               <li className="mt-24 text-center text-lg">
                 <div className="flex flex-col justify-center dark:text-neutral-500">
-                  Use cmd/ctrl + K or click the search icon to begin
+                  Use cmd/ctrl + K or click the command icon to begin
                 </div>
               </li>
             ) : (

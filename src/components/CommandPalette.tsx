@@ -37,7 +37,7 @@ enum Sections {
 }
 
 export default function CommandPalette({ children }: ICommandPaletteProps) {
-  const session = useContext(UserContext);
+  const user = useContext(UserContext);
 
   const handleSignOut = () => {
     supabase.auth.signOut();
@@ -63,13 +63,13 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       perform: () => (window.location.pathname = '/new/task'),
     },
     {
-      id: 'url',
+      id: 'bookmark',
       name: 'Bookmark',
-      shortcut: ['u'],
+      shortcut: ['b'],
       section: Sections.Entry,
-      keywords: 'url',
+      keywords: 'bookmark',
       icon: <Link2Icon />,
-      perform: () => (window.location.pathname = '/new/url'),
+      perform: () => (window.location.pathname = '/new/bookmark'),
     },
     {
       id: 'home',
@@ -122,7 +122,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
   ];
 
   return (
-    <KBarProvider actions={session ? sessionActions : noSessionActions}>
+    <KBarProvider actions={user ? sessionActions : noSessionActions}>
       <CommandMenu />
       {children}
     </KBarProvider>
@@ -130,7 +130,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
 }
 
 function CommandMenu() {
-  const session = useContext(UserContext);
+  const user = useContext(UserContext);
 
   return (
     <KBarPortal>
@@ -138,14 +138,14 @@ function CommandMenu() {
         className="bg-neutral-100/50 backdrop-blur-sm dark:bg-black/50"
         style={{ padding: '9rem 16px 16px' }}
       >
-        {session ? (
+        {user ? (
           <div>
             <span
               className="fixed top-20 z-20 flex cursor-pointer justify-center rounded-md border border-neutral-200 bg-white/80 px-4 py-2 font-mono dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80
               "
             >
               <PersonIcon className="mr-2 h-6 w-4 opacity-80" />
-              {session.user.email}
+              {user.email}
             </span>
           </div>
         ) : null}
@@ -224,8 +224,18 @@ const ResultItem = React.forwardRef(
           }
           ${
             active &&
-            action.id === 'signout' &&
-            'bg-red-200/30 dark:bg-red-600/20'
+            action.id === 'note' &&
+            'bg-rose-200/30 dark:bg-rose-600/20'
+          }
+          ${
+            active &&
+            action.id === 'task' &&
+            'bg-blue-200/30 dark:bg-blue-600/20'
+          }
+          ${
+            active &&
+            action.id === 'bookmark' &&
+            'bg-green-200/30 dark:bg-green-600/20'
           }
 					font-mono transition-colors delay-[0]
 					duration-[.15s] dark:text-neutral-100/80

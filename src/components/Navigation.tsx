@@ -30,7 +30,7 @@ export default function Navigation() {
         <div className="flex basis-11/12 justify-end">
           <button
             title="Add entry"
-            className="mr-6 rounded-md bg-neutral-100/50 p-2 outline-none transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:bg-neutral-700/50 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
+            className="mr-6 rounded-md bg-neutral-200/40 p-2 outline-none transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:bg-neutral-800/50 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
             onClick={handleMenuClick}
           >
             <svg viewBox="0 0 60 60" className="h-5 w-5 fill-current">

@@ -36,7 +36,6 @@ enum Sections {
   Entry = 'New Entry',
 }
 
-/* eslint-enable */
 export default function CommandPalette({ children }: ICommandPaletteProps) {
   const session = useContext(UserContext);
 

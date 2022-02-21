@@ -2,12 +2,14 @@ import { memo } from 'react';
 import format from 'date-fns/format';
 
 import { Item } from '../typings';
+import TaskItem from './TaskItem';
 
 interface IEntryProps {
   items: Item[];
+  deleteEntryById: (id: string) => void;
 }
 
-const EntryList = memo(({ items }: IEntryProps) => {
+const EntryList = memo(({ items, deleteEntryById }: IEntryProps) => {
   if (items.length > 0)
     return (
       <div className="rounded-md">
@@ -18,38 +20,11 @@ const EntryList = memo(({ items }: IEntryProps) => {
           >
             <div className="flex flex-col justify-center">
               {item.category === 'task' ? (
-                <div className="mb-2 flex items-center">
-                  <input
-                    type="checkbox"
-                    id={item.id}
-                    name="checkbox"
-                    className="absolute h-6 w-6 opacity-0"
-                  />
-                  <div className="mr-2 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border-[1.5px] border-neutral-400/70 bg-transparent focus-within:border-sky-400">
-                    <svg
-                      className="pointer-events-none hidden h-3 w-3 fill-current"
-                      version="1.1"
-                      viewBox="0 0 17 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g fill="none" fillRule="evenodd">
-                        <g
-                          transform="translate(-9 -11)"
-                          fill="#0ea5e9"
-                          fillRule="nonzero"
-                        >
-                          <path d="m25.576 11.414c0.56558 0.55188 0.56558 1.4439 0 1.9961l-9.404 9.176c-0.28213 0.27529-0.65247 0.41385-1.0228 0.41385-0.37034 0-0.74068-0.13855-1.0228-0.41385l-4.7019-4.588c-0.56584-0.55188-0.56584-1.4442 0-1.9961 0.56558-0.55214 1.4798-0.55214 2.0456 0l3.679 3.5899 8.3812-8.1779c0.56558-0.55214 1.4798-0.55214 2.0456 0z" />
-                        </g>
-                      </g>
-                    </svg>
-                  </div>
-                  <label
-                    htmlFor={item.id}
-                    className="select-none font-sans text-lg font-bold"
-                  >
-                    {item.title}
-                  </label>
-                </div>
+                <TaskItem
+                  key={item.id}
+                  task={item}
+                  onDelete={() => deleteEntryById(item.id)}
+                />
               ) : item.category === 'bookmark' ? (
                 <div>
                   <span className="break-words font-sans text-lg font-bold leading-6 underline hover:no-underline">
@@ -94,10 +69,6 @@ const EntryList = memo(({ items }: IEntryProps) => {
                   )}
                 </li>
               </ul>
-              {/* <Link
-              className="absolute inset-0"
-              to={`/${item.category}/${item.id}`}
-            ></Link> */}
             </div>
           </li>
         ))}
@@ -105,7 +76,7 @@ const EntryList = memo(({ items }: IEntryProps) => {
     );
   return (
     <li className="justify-center text-center dark:text-neutral-500">
-      Use cmd/ctrl + K or click the command icon to start
+      No entries found
     </li>
   );
 });

@@ -1,0 +1,48 @@
+diff --git a/node_modules/kbar/lib/KBarResults.d.ts b/node_modules/kbar/lib/KBarResults.d.ts
+index f787bc7..5db72c6 100644
+--- a/node_modules/kbar/lib/KBarResults.d.ts
++++ b/node_modules/kbar/lib/KBarResults.d.ts
+@@ -3,6 +3,7 @@ import { ActionImpl } from "./action/ActionImpl";
+ interface RenderParams<T = ActionImpl | string> {
+     item: T;
+     active: boolean;
++    session: boolean;
+ }
+ interface KBarResultsProps {
+     items: any[];
+diff --git a/node_modules/kbar/lib/action/ActionImpl.d.ts b/node_modules/kbar/lib/action/ActionImpl.d.ts
+index 69c7d2b..ab79365 100644
+--- a/node_modules/kbar/lib/action/ActionImpl.d.ts
++++ b/node_modules/kbar/lib/action/ActionImpl.d.ts
+@@ -8,6 +8,7 @@ interface ActionImplOptions {
+ export declare class ActionImpl implements Action {
+     id: Action["id"];
+     name: Action["name"];
++    requiresSession: Action["requiresSession"];
+     shortcut: Action["shortcut"];
+     keywords: Action["keywords"];
+     section: Action["section"];
+diff --git a/node_modules/kbar/lib/action/ActionImpl.js b/node_modules/kbar/lib/action/ActionImpl.js
+index 94ea600..dc61e81 100644
+--- a/node_modules/kbar/lib/action/ActionImpl.js
++++ b/node_modules/kbar/lib/action/ActionImpl.js
+@@ -23,6 +23,7 @@ var ActionImpl = /** @class */ (function () {
+         Object.assign(this, action);
+         this.id = action.id;
+         this.name = action.name;
++        this.requiresSession = action.requiresSession;
+         this.keywords = extendKeywords(action);
+         var perform = action.perform;
+         this.command =
+diff --git a/node_modules/kbar/lib/types.d.ts b/node_modules/kbar/lib/types.d.ts
+index 80b4305..0bf30f0 100644
+--- a/node_modules/kbar/lib/types.d.ts
++++ b/node_modules/kbar/lib/types.d.ts
+@@ -4,6 +4,7 @@ export declare type ActionId = string;
+ export declare type Action = {
+     id: ActionId;
+     name: string;
++    requiresSession?: boolean;
+     shortcut?: string[];
+     keywords?: string;
+     section?: string;

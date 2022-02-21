@@ -15,7 +15,7 @@
 }
 
 input:checked + div {
-  @apply border-blue-500;
+  @apply border-sky-500;
 }
 input:checked + div svg {
   @apply block;

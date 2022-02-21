@@ -10,7 +10,10 @@ export default function Auth() {
   const handleLogin = async (email) => {
     try {
       setLoading(true);
-      const { error } = await supabase.auth.signIn({ email: email });
+      const { error } = await supabase.auth.signIn(
+        { email: email },
+        { redirectTo: 'http://localhost:3000/home' }
+      );
       setHelperText({
         error: false,
         text: 'Success! Check your email to sign in',

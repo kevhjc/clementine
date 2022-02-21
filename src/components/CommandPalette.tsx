@@ -32,21 +32,20 @@ interface ICommandPaletteProps {
 /* eslint-disable no-unused-vars */
 enum Sections {
   Account = 'Account',
-  Navigation = 'Navigation',
   Entry = 'New Entry',
+  Navigation = 'Navigation',
 }
 
 export default function CommandPalette({ children }: ICommandPaletteProps) {
-  const user = useContext(UserContext);
-
   const handleSignOut = () => {
     supabase.auth.signOut();
   };
 
-  const sessionActions = [
+  const actions = [
     {
       id: 'note',
       name: 'Note',
+      requiresSession: true,
       icon: <FileTextIcon />,
       shortcut: ['n'],
       section: Sections.Entry,
@@ -56,6 +55,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'task',
       name: 'Task',
+      requiresSession: true,
       shortcut: ['t'],
       section: Sections.Entry,
       keywords: 'task',
@@ -65,6 +65,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'bookmark',
       name: 'Bookmark',
+      requiresSession: true,
       shortcut: ['b'],
       section: Sections.Entry,
       keywords: 'bookmark',
@@ -74,6 +75,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'home',
       name: 'Home',
+      requiresSession: true,
       icon: <HomeIcon />,
       shortcut: ['h'],
       section: Sections.Navigation,
@@ -83,6 +85,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'more',
       name: 'Learn more',
+      requiresSession: false,
       icon: <InfoCircledIcon />,
       shortcut: ['?'],
       section: Sections.Navigation,
@@ -90,8 +93,19 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       perform: () => (window.location.pathname = '/learn-more'),
     },
     {
+      id: 'signin',
+      name: 'Sign in with Magic Link',
+      requiresSession: false,
+      icon: <MagicWandIcon />,
+      shortcut: [''],
+      section: Sections.Account,
+      keywords: 'sign in',
+      perform: () => (window.location.pathname = '/signin'),
+    },
+    {
       id: 'signout',
       name: 'Sign out',
+      requiresSession: true,
       icon: <ExitIcon />,
       shortcut: [''],
       section: Sections.Account,
@@ -100,29 +114,8 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     },
   ];
 
-  const noSessionActions = [
-    {
-      id: 'signin',
-      name: 'Sign in with Magic Link',
-      icon: <MagicWandIcon />,
-      shortcut: [''],
-      section: Sections.Account,
-      keywords: 'sign in',
-      perform: () => (window.location.pathname = '/signin'),
-    },
-    {
-      id: 'more',
-      name: 'Learn more',
-      icon: <InfoCircledIcon />,
-      shortcut: ['?'],
-      section: Sections.Navigation,
-      keywords: 'learn more',
-      perform: () => (window.location.pathname = '/learn-more'),
-    },
-  ];
-
   return (
-    <KBarProvider actions={user ? sessionActions : noSessionActions}>
+    <KBarProvider actions={actions}>
       <CommandMenu />
       {children}
     </KBarProvider>
@@ -165,25 +158,57 @@ function CommandMenu() {
 function Results() {
   const { results, rootActionId } = useMatches();
   const wrapperRef = useRef(null);
+  const user = useContext(UserContext);
 
   return (
     <div className="relative" ref={wrapperRef}>
-      <KBarResults
-        items={results.filter((i) => i !== NO_GROUP)}
-        onRender={({ item, active }) =>
-          typeof item === 'string' ? (
-            <p className="pb-2 pl-3 pt-3 text-xs uppercase text-neutral-500 dark:text-neutral-100">
-              {item}
-            </p>
-          ) : (
-            <ResultItem
-              action={item}
-              active={active}
-              currentRootActionId={rootActionId as string}
-            />
-          )
-        }
-      />
+      {user ? (
+        <KBarResults
+          items={results.filter((action) =>
+            action !== NO_GROUP && typeof action !== 'string'
+              ? action.requiresSession === true
+              : typeof action === 'string'
+              ? action
+              : null
+          )}
+          onRender={({ item, active }) =>
+            typeof item === 'string' ? (
+              <p className="pb-2 pl-3 pt-3 text-xs uppercase text-neutral-500 dark:text-neutral-100">
+                {item}
+              </p>
+            ) : (
+              <ResultItem
+                action={item}
+                active={active}
+                currentRootActionId={rootActionId as string}
+              />
+            )
+          }
+        />
+      ) : (
+        <KBarResults
+          items={results.filter((action) =>
+            action !== NO_GROUP && typeof action !== 'string'
+              ? action.requiresSession === false
+              : typeof action === 'string' && action !== 'New Entry'
+              ? action
+              : null
+          )}
+          onRender={({ item, active }) =>
+            typeof item === 'string' ? (
+              <p className="pb-2 pl-3 pt-3 text-xs uppercase text-neutral-500 dark:text-neutral-100">
+                {item}
+              </p>
+            ) : (
+              <ResultItem
+                action={item}
+                active={active}
+                currentRootActionId={rootActionId as string}
+              />
+            )
+          }
+        />
+      )}
     </div>
   );
 }
@@ -228,9 +253,7 @@ const ResultItem = React.forwardRef(
             'bg-rose-200/30 dark:bg-rose-600/20'
           }
           ${
-            active &&
-            action.id === 'task' &&
-            'bg-blue-200/30 dark:bg-blue-600/20'
+            active && action.id === 'task' && 'bg-sky-200/30 dark:bg-sky-600/20'
           }
           ${
             active &&

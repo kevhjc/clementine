@@ -24,7 +24,7 @@ const EntryList = memo(({ items }: IEntryProps) => {
                   name="checkbox"
                   className="absolute h-6 w-6 opacity-0"
                 />
-                <div className="mr-2 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border-[1.5px] border-neutral-400/70 bg-transparent focus-within:border-blue-400">
+                <div className="mr-2 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border-[1.5px] border-neutral-400/70 bg-transparent focus-within:border-sky-400">
                   <svg
                     className="pointer-events-none hidden h-3 w-3 fill-current"
                     version="1.1"
@@ -34,7 +34,7 @@ const EntryList = memo(({ items }: IEntryProps) => {
                     <g fill="none" fillRule="evenodd">
                       <g
                         transform="translate(-9 -11)"
-                        fill="#3b82f6"
+                        fill="#0ea5e9"
                         fillRule="nonzero"
                       >
                         <path d="m25.576 11.414c0.56558 0.55188 0.56558 1.4439 0 1.9961l-9.404 9.176c-0.28213 0.27529-0.65247 0.41385-1.0228 0.41385-0.37034 0-0.74068-0.13855-1.0228-0.41385l-4.7019-4.588c-0.56584-0.55188-0.56584-1.4442 0-1.9961 0.56558-0.55214 1.4798-0.55214 2.0456 0l3.679 3.5899 8.3812-8.1779c0.56558-0.55214 1.4798-0.55214 2.0456 0z" />
@@ -77,7 +77,7 @@ const EntryList = memo(({ items }: IEntryProps) => {
                   item.category === 'note'
                     ? 'text-rose-600 dark:text-rose-400'
                     : item.category === 'task'
-                    ? 'text-blue-600 dark:text-blue-400'
+                    ? 'text-sky-500 dark:text-sky-400'
                     : item.category === 'bookmark'
                     ? 'text-green-600 dark:text-green-400'
                     : 'text-neutral-500'

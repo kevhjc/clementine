@@ -31,11 +31,11 @@ function CategoryLink({ category, children, ...props }: CategoryLinkProps) {
 const Home = () => {
   const [userEntries, setuserEntries] = useState<any>([]);
   const [searchParams] = useSearchParams();
-  const categories = ['note', 'task', 'bookmark'];
+  const categories = ['Note', 'Task', 'Bookmark'];
   const category = searchParams.get('category');
 
   useEffect(() => {
-    fetchuserEntries().catch(console.error);
+    fetchUserEntries().catch(console.error);
   }, []);
 
   const entries = useMemo(() => {
@@ -50,7 +50,7 @@ const Home = () => {
     return filterByCategory(category);
   }, [category, userEntries]);
 
-  const fetchuserEntries = async () => {
+  const fetchUserEntries = async () => {
     let { data: entries, error } = await supabase
       .from('entries')
       .select('*')
@@ -77,23 +77,15 @@ const Home = () => {
               </Link>
               {categories.map((category, index) => (
                 <CategoryLink category={category} key={index}>
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                  {category}
                 </CategoryLink>
               ))}
             </div>
           </div>
           <ul>
-            {userEntries.length === 0 ? (
-              <li className="mt-24 text-center text-lg">
-                <div className="flex flex-col justify-center dark:text-neutral-500">
-                  Use cmd/ctrl + K or click the command icon to begin
-                </div>
-              </li>
-            ) : (
-              <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
-                <EntryList items={entries} />
-              </div>
-            )}
+            <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
+              <EntryList items={entries} />
+            </div>
           </ul>
         </div>
       </div>

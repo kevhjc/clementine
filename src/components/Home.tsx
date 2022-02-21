@@ -29,34 +29,34 @@ function CategoryLink({ category, children, ...props }: CategoryLinkProps) {
 }
 
 const Home = () => {
-  const [supabaseEntries, setSupabaseEntries] = useState<any>([]);
+  const [userEntries, setuserEntries] = useState<any>([]);
   const [searchParams] = useSearchParams();
   const categories = ['note', 'task', 'bookmark'];
   const category = searchParams.get('category');
 
   useEffect(() => {
-    fetchSupabaseEntries().catch(console.error);
+    fetchuserEntries().catch(console.error);
   }, []);
 
   const entries = useMemo(() => {
     const filterByCategory = (category: string) => {
-      return supabaseEntries.filter(
+      return userEntries.filter(
         (item: { category: string }) =>
           item.category.toLowerCase() === category.toLowerCase()
       );
     };
 
-    if (!category) return supabaseEntries;
+    if (!category) return userEntries;
     return filterByCategory(category);
-  }, [category, supabaseEntries]);
+  }, [category, userEntries]);
 
-  const fetchSupabaseEntries = async () => {
+  const fetchuserEntries = async () => {
     let { data: entries, error } = await supabase
       .from('entries')
       .select('*')
       .order('inserted_at', { ascending: false });
     if (error) console.log('error', error);
-    else setSupabaseEntries(entries);
+    else setuserEntries(entries);
   };
 
   return (
@@ -83,7 +83,7 @@ const Home = () => {
             </div>
           </div>
           <ul>
-            {supabaseEntries.length === 0 ? (
+            {userEntries.length === 0 ? (
               <li className="mt-24 text-center text-lg">
                 <div className="flex flex-col justify-center dark:text-neutral-500">
                   Use cmd/ctrl + K or click the menu icon to begin

@@ -38,6 +38,7 @@ enum Sections {
 /* eslint-enable */
 export default function CommandPalette({ children }: ICommandPaletteProps) {
   const session = useContext(UserContext);
+  console.log('session', session.user.email);
 
   const sessionActions = [
     {
@@ -135,12 +136,24 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
 }
 
 function CommandMenu() {
+  const session = useContext(UserContext);
+
   return (
     <KBarPortal>
       <KBarPositioner
         className="bg-neutral-100/50 backdrop-blur-sm dark:bg-black/50"
-        style={{ padding: '10vh 16px 16px' }}
+        style={{ padding: '8rem 16px 16px' }}
       >
+        {session ? (
+          <div>
+            <span
+              className="fixed top-16 z-20 cursor-pointer justify-between rounded-md py-2 px-4 font-mono dark:bg-neutral-800 dark:text-neutral-100/80
+            "
+            >
+              {session.user.email}
+            </span>
+          </div>
+        ) : null}
         <KBarAnimator className="z-10 w-full max-w-2xl overflow-hidden rounded-lg border border-neutral-300 bg-white/80 shadow-2xl backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-800/80 dark:text-white">
           <div>
             <KBarSearch className="mb-2 box-border w-full border-b-[1px] bg-white/70 px-4 pt-4 pb-4 outline-none backdrop-blur-sm dark:border-neutral-700/80 dark:bg-neutral-800/80 dark:placeholder:text-neutral-100/60" />

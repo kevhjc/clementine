@@ -19,6 +19,7 @@ import {
   HomeIcon,
   Link2Icon,
   Pencil2Icon,
+  PersonIcon,
   MagicWandIcon,
 } from '@radix-ui/react-icons';
 
@@ -118,19 +119,10 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
   ];
 
   return (
-    <>
-      {session ? (
-        <KBarProvider actions={sessionActions}>
-          <CommandMenu />
-          {children}
-        </KBarProvider>
-      ) : (
-        <KBarProvider actions={noSessionActions}>
-          <CommandMenu />
-          {children}
-        </KBarProvider>
-      )}
-    </>
+    <KBarProvider actions={session ? sessionActions : noSessionActions}>
+      <CommandMenu />
+      {children}
+    </KBarProvider>
   );
 }
 
@@ -146,9 +138,10 @@ function CommandMenu() {
         {session ? (
           <div>
             <span
-              className="fixed top-20 z-20 cursor-pointer justify-between rounded-md border border-neutral-200 bg-white/80 py-2 px-4 font-mono font-bold dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80
-            "
+              className="fixed top-20 z-20 flex cursor-pointer justify-center rounded-md border border-neutral-200 bg-white/80 px-4 py-2 font-mono dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80
+              "
             >
+              <PersonIcon className="mr-2 h-6 w-4 opacity-80" />
               {session.user.email}
             </span>
           </div>

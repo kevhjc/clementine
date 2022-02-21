@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
-    "@heroicons/react": "^1.0.5",
     "@radix-ui/react-icons": "^1.0.3",
     "@reach/visually-hidden": "^0.16.0",
     "@supabase/supabase-js": "^1.30.3",

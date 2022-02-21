@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useKBar } from 'kbar';
-import { MenuAlt3Icon } from '@heroicons/react/outline';
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
 import { UserContext } from '../context/UserContext';
 import Logo from '../assets/logo.svg';
@@ -34,7 +34,7 @@ export default function Navigation() {
             className="mr-6 rounded-md p-2 outline-none transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
             onClick={handleMenuClick}
           >
-            <MenuAlt3Icon className="h-6 w-6" />
+            <MagnifyingGlassIcon className="h-6 w-6" />
           </button>
         </div>
       </div>

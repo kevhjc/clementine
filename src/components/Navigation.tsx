@@ -4,7 +4,6 @@ import { useKBar } from 'kbar';
 
 import { UserContext } from '../context/UserContext';
 import Logo from '../assets/logo.svg';
-import CommandIcon from '../assets/command.svg';
 
 export default function Navigation() {
   const session = useContext(UserContext);

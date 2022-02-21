@@ -45,7 +45,6 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'note',
       name: 'Note',
-      requiresSession: true,
       icon: <FileTextIcon />,
       shortcut: ['n'],
       section: Sections.Entry,
@@ -55,7 +54,6 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'task',
       name: 'Task',
-      requiresSession: true,
       shortcut: ['t'],
       section: Sections.Entry,
       keywords: 'task',
@@ -65,7 +63,6 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'bookmark',
       name: 'Bookmark',
-      requiresSession: true,
       shortcut: ['b'],
       section: Sections.Entry,
       keywords: 'bookmark',
@@ -75,7 +72,6 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'home',
       name: 'Home',
-      requiresSession: true,
       icon: <HomeIcon />,
       shortcut: ['h'],
       section: Sections.Navigation,
@@ -85,7 +81,6 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'more',
       name: 'Learn more',
-      requiresSession: false,
       icon: <InfoCircledIcon />,
       shortcut: ['?'],
       section: Sections.Navigation,
@@ -95,7 +90,6 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'signin',
       name: 'Sign in with Magic Link',
-      requiresSession: false,
       icon: <MagicWandIcon />,
       shortcut: [''],
       section: Sections.Account,
@@ -105,7 +99,6 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     {
       id: 'signout',
       name: 'Sign out',
-      requiresSession: true,
       icon: <ExitIcon />,
       shortcut: [''],
       section: Sections.Account,
@@ -166,10 +159,8 @@ function Results() {
         <KBarResults
           items={results.filter((action) =>
             action !== NO_GROUP && typeof action !== 'string'
-              ? action.requiresSession === true
-              : typeof action === 'string'
-              ? action
-              : null
+              ? action.id !== 'signin'
+              : action
           )}
           onRender={({ item, active }) =>
             typeof item === 'string' ? (
@@ -189,10 +180,10 @@ function Results() {
         <KBarResults
           items={results.filter((action) =>
             action !== NO_GROUP && typeof action !== 'string'
-              ? action.requiresSession === false
-              : typeof action === 'string' && action !== 'New Entry'
-              ? action
-              : null
+              ? action.section !== 'New Entry' &&
+                action.id !== 'signout' &&
+                action.id !== 'home'
+              : action !== 'New Entry'
           )}
           onRender={({ item, active }) =>
             typeof item === 'string' ? (

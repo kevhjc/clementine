@@ -38,7 +38,6 @@ enum Sections {
 /* eslint-enable */
 export default function CommandPalette({ children }: ICommandPaletteProps) {
   const session = useContext(UserContext);
-  console.log('session', session.user.email);
 
   const sessionActions = [
     {

@@ -66,7 +66,7 @@ export default function Auth() {
                 }}
                 disabled={loading}
               >
-                {loading ? <span>Loading</span> : <span>Send</span>}
+                {loading ? <span>Sending</span> : <span>Send</span>}
               </button>
             </form>
             {!!helperText.text && (

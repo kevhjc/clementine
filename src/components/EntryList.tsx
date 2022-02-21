@@ -104,10 +104,8 @@ const EntryList = memo(({ items }: IEntryProps) => {
       </div>
     );
   return (
-    <li className="mt-24 text-center text-lg">
-      <div className="flex flex-col justify-center dark:text-neutral-500">
-        Use cmd/ctrl + K or click the command icon to start adding items
-      </div>
+    <li className="justify-center text-center dark:text-neutral-500">
+      Use cmd/ctrl + K or click the command icon to start
     </li>
   );
 });

@@ -34,9 +34,6 @@ function CategoryLink({ category, children, ...props }: CategoryLinkProps) {
 
 const Home = () => {
   const location = useLocation();
-
-  console.log(location.pathname);
-
   const [searchParams] = useSearchParams();
 
   const [userEntries, setUserEntries] = useState<any>([]);

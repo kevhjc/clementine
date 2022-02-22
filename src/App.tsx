@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import Intro from './components/Intro';
 import Auth from './components/Auth';
 import Home from './components/Home';
+import EntryItemView from './components/EntryItemView';
 import LearnMore from './components/LearnMore';
 import NotFound from './components/NotFound';
 
@@ -34,6 +35,7 @@ const App = () => {
               <Route path="/home" element={<Auth />} />
             )}
             <Route path="/new/:entry" element={<Home />} />
+            <Route path="/:category/:entry" element={<EntryItemView />} />
             <Route path="/learn-more" element={<LearnMore />} />
             <Route path="*" element={<NotFound />} />
           </Route>

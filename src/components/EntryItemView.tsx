@@ -44,11 +44,11 @@ const EntryItemView = () => {
                   entry[0].category === 'note'
                     ? 'bg-rose-600 hover:bg-rose-500 dark:bg-rose-500 hover:dark:bg-rose-600'
                     : entry[0].category === 'task'
-                    ? 'bg-sky-500 hover:bg-sky-400 dark:bg-sky-500 dark:hover:bg-sky-600'
+                    ? 'bg-sky-500 hover:bg-sky-400 dark:bg-sky-400 dark:hover:bg-sky-500'
                     : entry[0].category === 'bookmark'
                     ? 'bg-green-600 hover:bg-green-500 dark:bg-green-500 dark:hover:bg-green-600'
                     : 'bg-gray-200/70 hover:bg-neutral-300/70',
-                  'mb-8 w-28 justify-center rounded px-2 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:text-neutral-900 dark:hover:bg-neutral-600'
+                  'mb-8 w-28 justify-center rounded px-2 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:text-neutral-900'
                 )}
                 onClick={() => navigate(-1)}
               >
@@ -64,7 +64,7 @@ const EntryItemView = () => {
               </button>
               <button
                 type="button"
-                className="mb-8 ml-4 w-24 justify-center rounded bg-red-500 px-2 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700 dark:hover:bg-red-600"
+                className="mb-8 ml-4 w-24 justify-center rounded bg-gray-200/70 px-2 py-3 pb-3 font-bold leading-tight text-red-500 transition duration-150 ease-in-out hover:bg-red-600 hover:text-white focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:hover:bg-red-600"
                 onClick={() => deleteEntryById(entry[0].id)}
               >
                 Delete

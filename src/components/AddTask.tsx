@@ -85,7 +85,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
                   }
                   placeholder="Enter a new task..."
                   className={
-                    'w-full bg-white/70 px-1 py-2 pt-1 text-neutral-900 outline-none backdrop-blur-sm dark:border-neutral-700/80 dark:bg-neutral-800/80 dark:placeholder:text-neutral-100/60'
+                    'w-full bg-white/70 px-1 py-2 pt-1 text-neutral-900 outline-none backdrop-blur-sm dark:border-neutral-700/80 dark:bg-neutral-800/80 dark:text-white dark:placeholder:text-neutral-100/60'
                   }
                   autoFocus
                 />

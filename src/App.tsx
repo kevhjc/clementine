@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { supabase } from './supabaseClient';
 
 import { SessionContext } from './context/SessionContext';
@@ -14,6 +14,8 @@ import NotFound from './components/NotFound';
 
 const App = () => {
   const [session, setSession] = useState(supabase.auth.session());
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((_event, session) => {
@@ -21,6 +23,13 @@ const App = () => {
       setSession(session);
     });
   }, [session]);
+
+  useEffect(() => {
+    if (session && location.pathname === '/signin') {
+      return navigate('/home');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <SessionContext.Provider value={session}>

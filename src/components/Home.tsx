@@ -79,9 +79,7 @@ const Home = () => {
   return (
     <div>
       {location.pathname === '/new/task' && (
-        <div className="z-10 w-full max-w-2xl overflow-hidden rounded-lg border border-neutral-300 bg-white/80 shadow-2xl backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-800/80 dark:text-white">
-          <AddTask userEntries={userEntries} setUserEntries={setUserEntries} />
-        </div>
+        <AddTask userEntries={userEntries} setUserEntries={setUserEntries} />
       )}
 
       <div className="flex justify-center">

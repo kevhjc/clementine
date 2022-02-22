@@ -49,8 +49,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['n'],
       section: Sections.Entry,
       keywords: 'note',
-      perform: () =>
-        (window.location.href = 'https://getjurnal.vercel.app/new/note'),
+      perform: () => (window.location.pathname = '/new/note'),
     },
     {
       id: 'task',
@@ -59,8 +58,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Entry,
       keywords: 'task',
       icon: <Pencil2Icon />,
-      perform: () =>
-        (window.location.href = 'https://getjurnal.vercel.app/new/task'),
+      perform: () => (window.location.pathname = '/new/task'),
     },
     {
       id: 'bookmark',
@@ -69,8 +67,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Entry,
       keywords: 'bookmark',
       icon: <Link2Icon />,
-      perform: () =>
-        (window.location.href = 'https://getjurnal.vercel.app/new/bookmark'),
+      perform: () => (window.location.pathname = '/new/bookmark'),
     },
     {
       id: 'home',
@@ -79,8 +76,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['h'],
       section: Sections.Navigation,
       keywords: 'home',
-      perform: () =>
-        (window.location.href = 'https://getjurnal.vercel.app/home'),
+      perform: () => (window.location.pathname = '/home'),
     },
     {
       id: 'more',
@@ -89,8 +85,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['?'],
       section: Sections.Navigation,
       keywords: 'learn more',
-      perform: () =>
-        (window.location.href = 'https://getjurnal.vercel.app/learn-more'),
+      perform: () => (window.location.pathname = '/learn-more'),
     },
     {
       id: 'signin',
@@ -99,8 +94,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: [''],
       section: Sections.Account,
       keywords: 'sign in',
-      perform: () =>
-        (window.location.href = 'https://getjurnal.vercel.app/signin'),
+      perform: () => (window.location.pathname = '/signin'),
     },
     {
       id: 'signout',

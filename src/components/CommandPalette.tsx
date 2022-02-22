@@ -1,4 +1,5 @@
 import React, { ReactNode, useRef, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 import {
   ActionId,
@@ -37,8 +38,11 @@ enum Sections {
 }
 
 export default function CommandPalette({ children }: ICommandPaletteProps) {
+  const navigate = useNavigate();
+
   const handleSignOut = () => {
     supabase.auth.signOut();
+    return navigate('/signin');
   };
 
   const actions = [

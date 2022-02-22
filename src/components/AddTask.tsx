@@ -5,6 +5,7 @@ import {
   useRef,
   MutableRefObject,
 } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from './../supabaseClient';
 import { Dialog, Transition } from '@headlessui/react';
 
@@ -16,6 +17,7 @@ interface IAddTaskProps {
 }
 
 const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
+  const navigate = useNavigate();
   const session = useContext(SessionContext);
   const [open, setOpen] = useState(true);
   const newTaskTitleRef = useRef() as MutableRefObject<any>;
@@ -37,7 +39,13 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
       setOpen(false);
       setUserEntries([tasks, ...userEntries]);
       newTaskTitleRef.current.value = '';
+      return navigate('/home');
     }
+  };
+
+  const handleModalClose = () => {
+    setOpen(false);
+    return navigate('/home');
   };
 
   return (
@@ -46,7 +54,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
         as="div"
         className="fixed inset-0 z-10 overflow-y-auto"
         initialFocus={cancelButtonRef}
-        onClose={setOpen}
+        onClose={handleModalClose}
       >
         <div className="flex min-h-screen items-center justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -103,7 +111,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
                 <button
                   type="submit"
                   className="ml-4 inline-flex w-auto justify-center rounded border border-neutral-200 bg-white px-4 py-1 text-base font-medium text-neutral-700 hover:bg-neutral-100/80 focus:outline-none dark:border-neutral-500 dark:bg-neutral-500 dark:text-white dark:hover:border-neutral-600/80 dark:hover:bg-neutral-600/80"
-                  onClick={() => setOpen(false)}
+                  onClick={handleModalClose}
                   ref={cancelButtonRef}
                 >
                   Cancel

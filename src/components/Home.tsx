@@ -55,7 +55,7 @@ const Home = () => {
   useEffect(() => {
     fetchUserEntries().catch(console.error);
     fetchTasks().catch(console.error);
-  }, [userEntries, tasks]);
+  }, []);
 
   // fetch all entries for current user
   const fetchUserEntries = async () => {
@@ -174,6 +174,7 @@ const Home = () => {
               {categories.map((category, index) => (
                 <CategoryLink category={category} key={index}>
                   {category}
+                  {'s'}
                 </CategoryLink>
               ))}
             </div>

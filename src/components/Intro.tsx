@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FileTextIcon, Link2Icon, Pencil2Icon } from '@radix-ui/react-icons';
 
-import { UserContext } from '../context/UserContext';
+import { SessionContext } from '../context/SessionContext';
 
 const features = [
   {
@@ -23,7 +23,7 @@ const features = [
 ];
 
 export default function Intro() {
-  const session = useContext(UserContext);
+  const session = useContext(SessionContext);
 
   return (
     <div className="h-screen px-4 pt-40">

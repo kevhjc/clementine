@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useKBar } from 'kbar';
 
-import { UserContext } from '../context/UserContext';
+import { SessionContext } from '../context/SessionContext';
 import Logo from '../assets/logo.svg';
 
 export default function Navigation() {
-  const session = useContext(UserContext);
+  const session = useContext(SessionContext);
   const { query } = useKBar();
 
   const handleMenuClick = () => {

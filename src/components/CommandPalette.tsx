@@ -23,7 +23,7 @@ import {
   MagicWandIcon,
 } from '@radix-ui/react-icons';
 
-import { UserContext } from '../context/UserContext';
+import { SessionContext } from '../context/SessionContext';
 
 interface ICommandPaletteProps {
   children: ReactNode;
@@ -116,7 +116,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
 }
 
 function CommandMenu() {
-  const user = useContext(UserContext);
+  const session = useContext(SessionContext);
 
   return (
     <KBarPortal>
@@ -124,14 +124,14 @@ function CommandMenu() {
         className="bg-neutral-100/50 backdrop-blur-sm dark:bg-black/50"
         style={{ padding: '9rem 16px 16px' }}
       >
-        {user ? (
+        {session ? (
           <div>
             <span
               className="fixed top-20 z-20 flex cursor-pointer justify-center rounded-md border border-neutral-200 bg-white/80 px-4 py-2 font-mono dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80
               "
             >
               <PersonIcon className="mr-2 h-6 w-4 opacity-80" />
-              {user.email}
+              {session.email}
             </span>
           </div>
         ) : null}
@@ -151,11 +151,11 @@ function CommandMenu() {
 function Results() {
   const { results, rootActionId } = useMatches();
   const wrapperRef = useRef(null);
-  const user = useContext(UserContext);
+  const session = useContext(SessionContext);
 
   return (
     <div className="relative" ref={wrapperRef}>
-      {user ? (
+      {session ? (
         <KBarResults
           items={results.filter((action) =>
             action !== NO_GROUP && typeof action !== 'string'

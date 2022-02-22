@@ -10,7 +10,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import type { LinkProps } from 'react-router-dom';
 import { supabase } from './../supabaseClient';
 
-import { UserContext } from '../context/UserContext';
+import { SessionContext } from '../context/SessionContext';
 import EntryList from './EntryList';
 // import TaskItem from './TaskItem';
 
@@ -38,7 +38,7 @@ function CategoryLink({ category, children, ...props }: CategoryLinkProps) {
 }
 
 const Home = () => {
-  const user = useContext(UserContext);
+  const session = useContext(SessionContext);
 
   const [userEntries, setUserEntries] = useState<any>([]);
   const [searchParams] = useSearchParams();
@@ -72,25 +72,24 @@ const Home = () => {
   }, [category, userEntries]);
 
   const addTask = async () => {
-    const newTaskInput = newTaskTextRef.current.value;
-    const title = newTaskInput.trim();
-    const { data: tasks, error } = await supabase
+    let newTaskInput = newTaskTextRef.current.value;
+    let title = newTaskInput.trim();
+    let { data: tasks, error } = await supabase
       .from('entries')
       .insert({
         title: title,
-        user_id: user.id,
+        user_id: session.user.id,
         category: 'task',
-        is_complete: false,
       })
       .single();
     if (error) console.log(error);
     else {
-      setUserEntries([...userEntries, tasks]);
+      setUserEntries([tasks, ...userEntries]);
       newTaskTextRef.current.value = '';
     }
   };
 
-  const deleteEntryById = async (id: any) => {
+  const deleteEntryById = async (id: string) => {
     try {
       await supabase.from('entries').delete().eq('id', id);
       setUserEntries(
@@ -105,7 +104,7 @@ const Home = () => {
     <div>
       <div className="flex justify-center">
         <div className="mt-40 rounded-lg border border-red-100 bg-red-50 p-4 duration-300 hover:shadow-lg md:w-3/4 dark:border-neutral-700 dark:bg-neutral-800">
-          <form className="relative my-1" action="#">
+          <div className="relative my-1">
             <input
               ref={newTaskTextRef}
               type="text"
@@ -122,7 +121,7 @@ const Home = () => {
             >
               Add task
             </button>
-          </form>
+          </div>
         </div>
       </div>
 

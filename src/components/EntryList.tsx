@@ -15,6 +15,14 @@ interface IEntryProps {
 const EntryList = memo(({ items, deleteEntryById }: IEntryProps) => {
   return (
     <div className="rounded-md">
+      {items.length === 0 && (
+        <li className="group relative z-10 rounded-md p-3 py-6">
+          <div className="flex flex-col justify-center text-center">
+            No entries yet
+          </div>
+        </li>
+      )}
+
       {Object.values(items).map((item, index) => (
         <li
           key={index}

@@ -113,23 +113,9 @@ const Home = () => {
             </div>
           </div>
           <ul>
-            {userEntries ? (
-              <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
-                <EntryList items={entries} deleteEntryById={deleteEntryById} />
-              </div>
-            ) : (
-              <div className="mt-24 flex flex-col items-center justify-center font-medium leading-8 tracking-tight ">
-                <div className="rounded-md text-center">
-                  🤔 Your content is loading or you don't any entries yet.
-                  <div className="mt-24 rounded-lg bg-yellow-100/20 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight text-black dark:bg-yellow-600/20 dark:text-white">
-                    <span>
-                      <strong>Tip:</strong> Use Command + K to access the
-                      command bar
-                    </span>
-                  </div>
-                </div>
-              </div>
-            )}
+            <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
+              <EntryList items={entries} deleteEntryById={deleteEntryById} />
+            </div>
           </ul>
         </div>
       </div>

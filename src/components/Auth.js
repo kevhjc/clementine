@@ -44,7 +44,7 @@ export default function Auth() {
           </p>
         </div>
         <div className="flex justify-center">
-          <div className="mt-12 rounded-lg border border-red-100 bg-red-50 p-4 duration-300 hover:shadow-lg md:w-3/4 dark:border-neutral-700 dark:bg-neutral-800">
+          <div className="mt-12 rounded-lg border border-orange-100 bg-orange-50 p-4 duration-300 hover:shadow-lg md:w-3/4 dark:border-neutral-700 dark:bg-neutral-800">
             <form className="relative my-1" action="#">
               <input
                 id="email"
@@ -59,7 +59,7 @@ export default function Auth() {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <button
-                className="absolute right-1 top-1 flex h-10 w-24 items-center justify-center rounded-md bg-red-500 px-4 font-sans font-medium text-white transition duration-150 ease-in-out hover:bg-red-600 dark:bg-red-700 dark:text-neutral-200"
+                className="absolute right-1 top-1 flex h-10 w-24 items-center justify-center rounded-md bg-orange-500 px-4 font-sans font-medium text-white transition duration-150 ease-in-out hover:bg-orange-600 dark:bg-orange-700 dark:text-neutral-200"
                 type="submit"
                 onClick={(e) => {
                   e.preventDefault();
@@ -75,7 +75,7 @@ export default function Auth() {
                 <div
                   className={`text-center text-sm font-bold ${
                     helperText.error
-                      ? ' text-red-600 dark:text-red-500'
+                      ? ' text-orange-600 dark:text-orange-500'
                       : ' text-sky-600 dark:text-sky-500'
                   }`}
                 >

@@ -30,7 +30,7 @@ export default function Intro() {
       <div className="mx-auto max-w-7xl px-10">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 sm:text-5xl">
-            Say 👋 to <span className="font-black">Jurnal.</span>
+            Say 👋 to <span className="font-black">Clementine.</span>
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-500 dark:text-neutral-300">
             A place to save your thoughts and ideas
@@ -42,7 +42,7 @@ export default function Intro() {
             {features.map((feature) => (
               <div key={feature.name} className="relative">
                 <dt>
-                  <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-red-100 text-red-800 dark:bg-red-400">
+                  <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-orange-200/70 text-orange-600 dark:bg-orange-400 dark:text-orange-700">
                     <feature.icon className="h-6 w-6" aria-hidden="true" />
                   </div>
                   <p className="ml-16 text-lg font-black leading-6">
@@ -63,7 +63,7 @@ export default function Intro() {
               <Link to="/signin">
                 <button
                   type="button"
-                  className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
+                  className="mb-2 flex animate-bounce items-center justify-center rounded bg-orange-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-orange-600 focus:outline-none focus:ring-0 dark:bg-orange-700"
                 >
                   Get started &rarr;
                 </button>
@@ -73,9 +73,9 @@ export default function Intro() {
             <Link to="/home">
               <button
                 type="button"
-                className="mb-2 flex animate-bounce items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
+                className="mb-2 flex animate-bounce items-center justify-center rounded bg-orange-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-orange-600 focus:outline-none focus:ring-0 dark:bg-orange-700"
               >
-                Go to your Jurnal &rarr;
+                Go home &rarr;
               </button>
             </Link>
           )}

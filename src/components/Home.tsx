@@ -91,7 +91,7 @@ const Home = () => {
       )}
 
       <div className="flex justify-center">
-        <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8 font-mono">
+        <div className="mt-24 mb-24 w-4/6 max-w-7xl py-8 font-mono">
           <div className="mb-6 flex space-x-1 rounded-md bg-neutral-100 p-2 dark:bg-neutral-800">
             <div className="flex w-full gap-x-2 rounded-md font-sans text-sm font-medium leading-5">
               <Link
@@ -113,9 +113,23 @@ const Home = () => {
             </div>
           </div>
           <ul>
-            <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
-              <EntryList items={entries} deleteEntryById={deleteEntryById} />
-            </div>
+            {userEntries > 0 ? (
+              <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
+                <EntryList items={entries} deleteEntryById={deleteEntryById} />
+              </div>
+            ) : (
+              <div className="mt-24 flex flex-col items-center justify-center font-medium leading-8 tracking-tight ">
+                <div className="rounded-md text-center">
+                  🤔 Your content is loading or you don't any entries yet.
+                  <div className="mt-24 rounded-lg bg-yellow-100/20 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight text-black dark:bg-yellow-600/20 dark:text-white">
+                    <span>
+                      <strong>Tip:</strong> Use Command + K to access the
+                      command bar
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
           </ul>
         </div>
       </div>

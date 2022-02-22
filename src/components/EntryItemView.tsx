@@ -35,7 +35,7 @@ const EntryItemView = () => {
   if (entry) {
     return (
       <div className="flex justify-center">
-        <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8">
+        <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8 text-sm">
           <dl className="grid grid-cols-2">
             <div className="col-start-1">
               <button
@@ -48,7 +48,7 @@ const EntryItemView = () => {
                     : entry[0].category === 'bookmark'
                     ? 'bg-green-600 hover:bg-green-500 dark:bg-green-500 dark:hover:bg-green-600'
                     : 'bg-gray-200/70 hover:bg-neutral-300/70',
-                  'mb-8 w-36 justify-center rounded px-2 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:text-neutral-900 dark:hover:bg-neutral-600'
+                  'mb-8 w-28 justify-center rounded px-2 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:text-neutral-900 dark:hover:bg-neutral-600'
                 )}
                 onClick={() => navigate(-1)}
               >
@@ -58,13 +58,13 @@ const EntryItemView = () => {
             <div className="col-end-4">
               <button
                 type="button"
-                className="mb-8 w-48 justify-center rounded bg-gray-200/70 px-2 py-3 pb-3 font-bold leading-tight text-neutral-400 transition duration-150 ease-in-out hover:bg-neutral-300/70 focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                className="mb-8 w-28 justify-center rounded bg-gray-200/70 px-2 py-3 pb-3 font-bold leading-tight text-neutral-400 transition duration-150 ease-in-out hover:bg-neutral-300/70 focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:hover:bg-neutral-600"
               >
-                Edit (Coming Soon)
+                Edit (Soon)
               </button>
               <button
                 type="button"
-                className="mb-8 ml-4 w-28 justify-center rounded bg-red-500 px-2 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700 dark:hover:bg-red-600"
+                className="mb-8 ml-4 w-24 justify-center rounded bg-red-500 px-2 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700 dark:hover:bg-red-600"
                 onClick={() => deleteEntryById(entry[0].id)}
               >
                 Delete

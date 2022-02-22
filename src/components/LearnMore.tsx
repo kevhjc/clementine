@@ -29,7 +29,7 @@ export default function LearnMore() {
           </p>
 
           <p className="mt-20 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
-            What's are these shortcuts?
+            What are these shortcuts?
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-600 dark:text-neutral-300">
             Use <strong>command</strong> or <strong>control + K</strong> to

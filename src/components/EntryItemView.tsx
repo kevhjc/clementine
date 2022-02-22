@@ -27,6 +27,7 @@ const EntryItemView = () => {
       <div className="h-screen px-4 pt-40">
         <div className="mx-auto max-w-7xl px-10">
           <div className="text-left">
+            <button onClick={() => navigate(-1)}>&larr; Go back</button>
             <p className="mt-2 text-3xl font-medium leading-8 tracking-tight sm:text-5xl">
               {entry[0].title}
             </p>
@@ -35,9 +36,6 @@ const EntryItemView = () => {
             </p>
           </div>
         </div>
-        <>
-          <button onClick={() => navigate(-1)}>Back</button>
-        </>
       </div>
     );
   }

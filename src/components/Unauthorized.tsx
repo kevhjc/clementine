@@ -17,7 +17,7 @@ export default function Unauthorized() {
           <Link to="/signin">
             <button
               type="button"
-              className="mb-2 flex items-center justify-center rounded bg-red-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-red-600 focus:outline-none focus:ring-0 dark:bg-red-700"
+              className="mb-2 flex items-center justify-center rounded bg-orange-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-orange-600 focus:outline-none focus:ring-0 dark:bg-orange-700"
             >
               Sign in &rarr;
             </button>

@@ -23,7 +23,7 @@ const AddNote = ({ userEntries, setUserEntries }: IAddNoteProps) => {
 
   const cancelButtonRef = useRef(null);
 
-  const addTask = async () => {
+  const addNote = async () => {
     let newNoteTitle = newNoteTitleRef.current.value;
     let newNoteContent = newNoteContentRef.current.value;
     let title = newNoteTitle.trim();
@@ -39,10 +39,10 @@ const AddNote = ({ userEntries, setUserEntries }: IAddNoteProps) => {
       .single();
     if (error) console.log(error);
     else {
-      setUserEntries([notes, ...userEntries]);
-      newNoteTitle.current.value = '';
-      newNoteContent.current.value = '';
       setOpen(false);
+      setUserEntries([notes, ...userEntries]);
+      newNoteTitleRef.current.value = '';
+      newNoteContentRef.current.value = '';
     }
   };
 
@@ -100,7 +100,7 @@ const AddNote = ({ userEntries, setUserEntries }: IAddNoteProps) => {
                   ref={newNoteContentRef}
                   type="text"
                   onKeyUp={(e) =>
-                    e.key === 'Enter' && addTask() && setOpen(false)
+                    e.key === 'Enter' && addNote() && setOpen(false)
                   }
                   placeholder="Body"
                   className={
@@ -112,7 +112,7 @@ const AddNote = ({ userEntries, setUserEntries }: IAddNoteProps) => {
                 <button
                   type="button"
                   className="ml-4 inline-flex w-auto justify-center rounded border border-rose-500 bg-rose-500 px-4 py-1 text-base font-medium text-white hover:border-rose-600 hover:bg-rose-600 focus:outline-none"
-                  onClick={addTask}
+                  onClick={addNote}
                 >
                   Add note
                 </button>

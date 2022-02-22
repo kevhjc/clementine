@@ -23,12 +23,12 @@ const AddBookmark = ({ userEntries, setUserEntries }: IAddBookmarkProps) => {
 
   const cancelButtonRef = useRef(null);
 
-  const addTask = async () => {
+  const addBookmark = async () => {
     let newBookmarkTitle = newBookmarkTitleRef.current.value;
     let newBookmarkUrl = newBookmarkUrlRef.current.value;
     let title = newBookmarkTitle.trim();
     let url = newBookmarkUrl.trim();
-    let { data: notes, error } = await supabase
+    let { data: bookmarks, error } = await supabase
       .from('entries')
       .insert({
         title: title,
@@ -39,10 +39,10 @@ const AddBookmark = ({ userEntries, setUserEntries }: IAddBookmarkProps) => {
       .single();
     if (error) console.log(error);
     else {
-      setUserEntries([notes, ...userEntries]);
-      newBookmarkTitle.current.value = '';
-      newBookmarkUrl.current.value = '';
       setOpen(false);
+      setUserEntries([bookmarks, ...userEntries]);
+      newBookmarkTitleRef.current.value = '';
+      newBookmarkUrlRef.current.value = '';
     }
   };
 
@@ -100,7 +100,7 @@ const AddBookmark = ({ userEntries, setUserEntries }: IAddBookmarkProps) => {
                   ref={newBookmarkUrlRef}
                   type="url"
                   onKeyUp={(e) =>
-                    e.key === 'Enter' && addTask() && setOpen(false)
+                    e.key === 'Enter' && addBookmark() && setOpen(false)
                   }
                   placeholder="Url"
                   className={
@@ -112,7 +112,7 @@ const AddBookmark = ({ userEntries, setUserEntries }: IAddBookmarkProps) => {
                 <button
                   type="button"
                   className="ml-4 inline-flex w-auto justify-center rounded border border-green-500 bg-green-500 px-4 py-1 text-base font-medium text-white hover:border-green-600 hover:bg-green-600 focus:outline-none"
-                  onClick={addTask}
+                  onClick={addBookmark}
                 >
                   Add bookmark
                 </button>

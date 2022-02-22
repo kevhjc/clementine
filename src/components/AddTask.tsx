@@ -48,7 +48,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
         initialFocus={cancelButtonRef}
         onClose={setOpen}
       >
-        <div className="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+        <div className="flex min-h-screen items-center justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -58,7 +58,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-neutral-900 bg-opacity-40 backdrop-blur-sm transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-neutral-100/50 backdrop-blur-sm transition-opacity dark:bg-black/50" />
           </Transition.Child>
           <span
             className="hidden sm:inline-block sm:h-screen sm:align-middle"
@@ -75,8 +75,8 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block w-[420px] transform overflow-hidden rounded-lg bg-white text-left shadow-md transition-all sm:my-8 sm:align-middle">
-              <div className="bg-white px-4 pt-4 pb-4 sm:p-6 sm:pb-4">
+            <div className="inline-block w-[420px] transform overflow-hidden rounded-md border border-neutral-200 bg-white/80 text-left shadow-2xl transition-all sm:my-8 sm:align-middle dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80">
+              <div className="px-4 pt-4 pb-4 sm:p-6 sm:pb-4">
                 <input
                   ref={newTaskTextRef}
                   type="text"
@@ -85,21 +85,22 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
                   }
                   placeholder="Enter a new task..."
                   className={
-                    'w-full rounded-lg border bg-white px-4 py-4 text-neutral-900 outline-none dark:border-neutral-600 dark:bg-neutral-900/70 dark:text-neutral-200'
+                    'w-full bg-white/70 px-1 py-2 pt-1 text-neutral-900 outline-none backdrop-blur-sm dark:border-neutral-700/80 dark:bg-neutral-800/80 dark:placeholder:text-neutral-100/60'
                   }
+                  autoFocus
                 />
               </div>
-              <div className="border-t bg-white px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <div className="flex flex-row-reverse border-t bg-white/80 px-4 py-4 dark:border-neutral-700/80 dark:bg-neutral-800/80">
                 <button
                   type="button"
-                  className="inline-flex w-full justify-center rounded-md border border-transparent bg-sky-500 px-4 py-2 text-base font-medium text-white hover:bg-sky-600 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+                  className="ml-4 inline-flex w-auto justify-center rounded border border-sky-500 bg-sky-500 px-4 py-1 text-base font-medium text-white hover:border-sky-600 hover:bg-sky-600 focus:outline-none"
                   onClick={addTask}
                 >
                   Add task
                 </button>
                 <button
                   type="submit"
-                  className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                  className="ml-4 inline-flex w-auto justify-center rounded border border-neutral-200 bg-white px-4 py-1 text-base font-medium text-neutral-700 hover:bg-neutral-100/80 focus:outline-none dark:border-neutral-500 dark:bg-neutral-500 dark:text-white dark:hover:border-neutral-600/80 dark:hover:bg-neutral-600/80"
                   onClick={() => setOpen(false)}
                   ref={cancelButtonRef}
                 >

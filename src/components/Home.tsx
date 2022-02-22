@@ -81,6 +81,9 @@ const Home = () => {
       {location.pathname === '/new/task' && (
         <AddTask userEntries={userEntries} setUserEntries={setUserEntries} />
       )}
+      {location.pathname === '/new/bookmark' && (
+        <AddTask userEntries={userEntries} setUserEntries={setUserEntries} />
+      )}
 
       <div className="flex justify-center">
         <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8 font-mono">

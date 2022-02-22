@@ -10,32 +10,38 @@ import { Dialog, Transition } from '@headlessui/react';
 
 import { SessionContext } from '../context/SessionContext';
 
-interface IAddTaskProps {
+interface IAddNoteProps {
   userEntries: string[];
   setUserEntries: any;
 }
 
-const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
+const AddNote = ({ userEntries, setUserEntries }: IAddNoteProps) => {
   const session = useContext(SessionContext);
   const [open, setOpen] = useState(true);
-  const newTaskTitleRef = useRef() as MutableRefObject<any>;
+  const newNoteTitleRef = useRef() as MutableRefObject<any>;
+  const newNoteContentRef = useRef() as MutableRefObject<any>;
+
   const cancelButtonRef = useRef(null);
 
   const addTask = async () => {
-    let newTaskInput = newTaskTitleRef.current.value;
-    let title = newTaskInput.trim();
-    let { data: tasks, error } = await supabase
+    let newNoteTitle = newNoteTitleRef.current.value;
+    let newNoteContent = newNoteContentRef.current.value;
+    let title = newNoteTitle.trim();
+    let content = newNoteContent.trim();
+    let { data: notes, error } = await supabase
       .from('entries')
       .insert({
         title: title,
+        content: content,
         user_id: session.user.id,
-        category: 'task',
+        category: 'note',
       })
       .single();
     if (error) console.log(error);
     else {
-      setUserEntries([tasks, ...userEntries]);
-      newTaskTitleRef.current.value = '';
+      setUserEntries([notes, ...userEntries]);
+      newNoteTitle.current.value = '';
+      newNoteContent.current.value = '';
       setOpen(false);
     }
   };
@@ -76,30 +82,39 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div className="inline-block w-[420px] transform overflow-hidden rounded-md border border-neutral-200 bg-white/80 text-left shadow-2xl transition-all sm:my-8 sm:align-middle dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80">
-              <div className="pl-5 pt-3 pb-2 font-mono font-black text-sky-500 dark:text-sky-400">
-                New task
+              <div className="pl-5 pt-3 pb-2 font-mono font-black text-rose-500 dark:text-rose-400">
+                New note
               </div>
               <div className="px-4 pt-4 pb-4">
                 <input
-                  ref={newTaskTitleRef}
+                  ref={newNoteTitleRef}
+                  type="text"
+                  placeholder="Title"
+                  className={
+                    'w-full bg-white/70 px-1 py-2 pt-1 text-neutral-900 outline-none backdrop-blur-sm dark:border-neutral-700/80 dark:bg-neutral-800/80 dark:text-white dark:placeholder:text-neutral-100/60'
+                  }
+                />
+              </div>
+              <div className="px-4 pt-2 pb-4">
+                <input
+                  ref={newNoteContentRef}
                   type="text"
                   onKeyUp={(e) =>
                     e.key === 'Enter' && addTask() && setOpen(false)
                   }
-                  placeholder="Enter a new task..."
+                  placeholder="Body"
                   className={
                     'w-full bg-white/70 px-1 py-2 pt-1 text-neutral-900 outline-none backdrop-blur-sm dark:border-neutral-700/80 dark:bg-neutral-800/80 dark:text-white dark:placeholder:text-neutral-100/60'
                   }
-                  autoFocus
                 />
               </div>
               <div className="flex flex-row-reverse border-t bg-white/80 px-4 py-4 dark:border-neutral-700/80 dark:bg-neutral-800/80">
                 <button
                   type="button"
-                  className="ml-4 inline-flex w-auto justify-center rounded border border-sky-500 bg-sky-500 px-4 py-1 text-base font-medium text-white hover:border-sky-600 hover:bg-sky-600 focus:outline-none"
+                  className="ml-4 inline-flex w-auto justify-center rounded border border-rose-500 bg-rose-500 px-4 py-1 text-base font-medium text-white hover:border-rose-600 hover:bg-rose-600 focus:outline-none"
                   onClick={addTask}
                 >
-                  Add task
+                  Add note
                 </button>
                 <button
                   type="submit"
@@ -118,4 +133,4 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
   );
 };
 
-export default AddTask;
+export default AddNote;

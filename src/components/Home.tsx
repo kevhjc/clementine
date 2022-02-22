@@ -5,7 +5,9 @@ import { supabase } from './../supabaseClient';
 
 import EntryList from './EntryList';
 
+import AddNote from './AddNote';
 import AddTask from './AddTask';
+import AddBookmark from './AddBookmark';
 
 interface CategoryLinkProps extends Omit<LinkProps, 'to'> {
   category: string;
@@ -78,11 +80,17 @@ const Home = () => {
 
   return (
     <div>
+      {location.pathname === '/new/note' && (
+        <AddNote userEntries={userEntries} setUserEntries={setUserEntries} />
+      )}
       {location.pathname === '/new/task' && (
         <AddTask userEntries={userEntries} setUserEntries={setUserEntries} />
       )}
       {location.pathname === '/new/bookmark' && (
-        <AddTask userEntries={userEntries} setUserEntries={setUserEntries} />
+        <AddBookmark
+          userEntries={userEntries}
+          setUserEntries={setUserEntries}
+        />
       )}
 
       <div className="flex justify-center">

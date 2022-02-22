@@ -18,9 +18,13 @@ const EntryList = memo(({ items, deleteEntryById }: IEntryProps) => {
       {Object.values(items).map((item, index) => (
         <li
           key={index}
-          className="group relative rounded-md p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700"
+          className="group relative z-10 rounded-md p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700"
         >
           <div className="flex flex-col justify-center">
+            <Link
+              className="absolute inset-0"
+              to={`/${item.category}/${item.id}`}
+            />
             {item.category === 'task' ? (
               <TaskItem
                 key={item.id}
@@ -64,10 +68,6 @@ const EntryList = memo(({ items, deleteEntryById }: IEntryProps) => {
                 {format(new Date(item.inserted_at), "MMM d, yyyy '–' h:mm bb")}
               </li>
             </ul>
-            <Link
-              className="absolute inset-0"
-              to={`/${item.category}/${item.id}`}
-            ></Link>
           </div>
         </li>
       ))}

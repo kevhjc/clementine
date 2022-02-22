@@ -1,7 +1,7 @@
 const BookmarkItem = ({ bookmark, onDelete }) => {
   return (
     <div className="mb-1 flex items-center">
-      <span className="z-20 break-words font-sans text-lg font-bold leading-6 underline hover:no-underline">
+      <span className="z-20 break-words font-sans text-lg font-bold leading-6 underline underline-offset-1 hover:no-underline">
         <a href={bookmark.content} target="_blank" rel="noopener noreferrer">
           {bookmark.title}
         </a>

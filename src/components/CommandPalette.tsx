@@ -131,7 +131,7 @@ function CommandMenu() {
               "
             >
               <PersonIcon className="mr-2 h-6 w-4 opacity-80" />
-              {session.email}
+              {session.user.email}
             </span>
           </div>
         ) : null}

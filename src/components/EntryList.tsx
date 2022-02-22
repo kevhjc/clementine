@@ -2,7 +2,9 @@ import { memo } from 'react';
 import format from 'date-fns/format';
 
 import { Item } from '../typings';
+import NoteItem from './NoteItem';
 import TaskItem from './TaskItem';
+import BookmarkItem from './BookmarkItem';
 
 interface IEntryProps {
   items: Item[];
@@ -26,21 +28,17 @@ const EntryList = memo(({ items, deleteEntryById }: IEntryProps) => {
                   onDelete={() => deleteEntryById(item.id)}
                 />
               ) : item.category === 'bookmark' ? (
-                <div>
-                  <span className="break-words font-sans text-lg font-bold leading-6 underline hover:no-underline">
-                    <a
-                      href={item.content}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {item.title}
-                    </a>
-                  </span>
-                </div>
+                <BookmarkItem
+                  key={item.id}
+                  bookmark={item}
+                  onDelete={() => deleteEntryById(item.id)}
+                />
               ) : (
-                <span className="font-sans text-lg font-bold leading-6">
-                  {item.title}
-                </span>
+                <NoteItem
+                  key={item.id}
+                  note={item}
+                  onDelete={() => deleteEntryById(item.id)}
+                />
               )}
               {item.content ? (
                 <span className="... mt-1 truncate font-mono text-sm italic leading-6 text-neutral-500 dark:text-neutral-400">

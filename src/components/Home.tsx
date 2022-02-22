@@ -1,18 +1,11 @@
-import {
-  useState,
-  useEffect,
-  useContext,
-  useRef,
-  useMemo,
-  MutableRefObject,
-} from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useState, useEffect, useMemo } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import type { LinkProps } from 'react-router-dom';
 import { supabase } from './../supabaseClient';
 
-import { SessionContext } from '../context/SessionContext';
 import EntryList from './EntryList';
-// import TaskItem from './TaskItem';
+
+import AddTask from './AddTask';
 
 interface CategoryLinkProps extends Omit<LinkProps, 'to'> {
   category: string;
@@ -38,14 +31,15 @@ function CategoryLink({ category, children, ...props }: CategoryLinkProps) {
 }
 
 const Home = () => {
-  const session = useContext(SessionContext);
+  const location = useLocation();
+
+  console.log(location.pathname);
+
+  const [searchParams] = useSearchParams();
 
   const [userEntries, setUserEntries] = useState<any>([]);
-  const [searchParams] = useSearchParams();
   const categories = ['Note', 'Task', 'Bookmark'];
   const category = searchParams.get('category');
-
-  const newTaskTextRef = useRef() as MutableRefObject<any>;
 
   useEffect(() => {
     fetchUserEntries().catch(console.error);
@@ -71,24 +65,6 @@ const Home = () => {
     return filterByCategory(category);
   }, [category, userEntries]);
 
-  const addTask = async () => {
-    let newTaskInput = newTaskTextRef.current.value;
-    let title = newTaskInput.trim();
-    let { data: tasks, error } = await supabase
-      .from('entries')
-      .insert({
-        title: title,
-        user_id: session.user.id,
-        category: 'task',
-      })
-      .single();
-    if (error) console.log(error);
-    else {
-      setUserEntries([tasks, ...userEntries]);
-      newTaskTextRef.current.value = '';
-    }
-  };
-
   const deleteEntryById = async (id: string) => {
     try {
       await supabase.from('entries').delete().eq('id', id);
@@ -102,28 +78,11 @@ const Home = () => {
 
   return (
     <div>
-      <div className="flex justify-center">
-        <div className="mt-40 rounded-lg border border-red-100 bg-red-50 p-4 duration-300 hover:shadow-lg md:w-3/4 dark:border-neutral-700 dark:bg-neutral-800">
-          <div className="relative my-1">
-            <input
-              ref={newTaskTextRef}
-              type="text"
-              onKeyUp={(e) => e.key === 'Enter' && addTask()}
-              placeholder="Enter a new task..."
-              className={
-                'mt-1 block w-full rounded-lg bg-white px-4 py-3 pr-28 text-neutral-900 outline-none dark:border-neutral-600 dark:bg-neutral-900/70 dark:text-neutral-200'
-              }
-            />
-            <button
-              className="absolute right-1 top-1 flex h-10 w-32 items-center justify-center rounded-md bg-red-500 px-4 font-sans font-medium text-white transition duration-150 ease-in-out hover:bg-red-600 dark:bg-red-700 dark:text-neutral-200"
-              type="submit"
-              onClick={addTask}
-            >
-              Add task
-            </button>
-          </div>
+      {location.pathname === '/new/task' && (
+        <div className="z-10 w-full max-w-2xl overflow-hidden rounded-lg border border-neutral-300 bg-white/80 shadow-2xl backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-800/80 dark:text-white">
+          <AddTask userEntries={userEntries} setUserEntries={setUserEntries} />
         </div>
-      </div>
+      )}
 
       <div className="flex justify-center">
         <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8 font-mono">

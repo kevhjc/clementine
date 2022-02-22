@@ -40,24 +40,17 @@ function CategoryLink({ category, children, ...props }: CategoryLinkProps) {
 const Home = () => {
   const user = useContext(UserContext);
 
-  // get/set all entries and categories for current user
   const [userEntries, setUserEntries] = useState<any>([]);
   const [searchParams] = useSearchParams();
   const categories = ['Note', 'Task', 'Bookmark'];
   const category = searchParams.get('category');
-  const [errorText, setError] = useState('');
 
-  // requirements for user tasks
-  const [tasks, setTasks] = useState<any>([]);
   const newTaskTextRef = useRef() as MutableRefObject<any>;
 
-  // fetch all user entries on page load
   useEffect(() => {
     fetchUserEntries().catch(console.error);
-    fetchTasks().catch(console.error);
-  }, []);
+  }, [setUserEntries]);
 
-  // fetch all entries for current user
   const fetchUserEntries = async () => {
     let { data: entries, error } = await supabase
       .from('entries')
@@ -67,18 +60,6 @@ const Home = () => {
     else setUserEntries(entries);
   };
 
-  // fetch all tasks for current user
-  const fetchTasks = async () => {
-    let { data: tasks, error } = await supabase
-      .from('entries')
-      .select('*')
-      .eq('category', 'task')
-      .order('inserted_at', { ascending: false });
-    if (error) console.log('error', error);
-    else setTasks(tasks);
-  };
-
-  // filtering all user entries by category
   const entries = useMemo(() => {
     const filterByCategory = (category: string) => {
       return userEntries.filter(
@@ -90,51 +71,39 @@ const Home = () => {
     return filterByCategory(category);
   }, [category, userEntries]);
 
-  // add new task
   const addTask = async () => {
-    let taskText = newTaskTextRef.current.value;
-    let title = taskText.trim();
-    if (title.length <= 3) {
-      setError('Task length should be more than 3!');
-    } else {
-      let { data: tasks, error } = await supabase
-        .from('entries')
-        .insert({ title, user_id: user.id, category: 'task' })
-        .single();
-      if (error) setError(error.message);
-      else {
-        setTasks([tasks, ...tasks]);
-        setError('');
-        newTaskTextRef.current.value = '';
-      }
+    const newTaskInput = newTaskTextRef.current.value;
+    const title = newTaskInput.trim();
+    const { data: tasks, error } = await supabase
+      .from('entries')
+      .insert({
+        title: title,
+        user_id: user.id,
+        category: 'task',
+        is_complete: false,
+      })
+      .single();
+    if (error) console.log(error);
+    else {
+      setUserEntries([...userEntries, tasks]);
+      newTaskTextRef.current.value = '';
     }
   };
 
-  // delete task by id
   const deleteEntryById = async (id: any) => {
     try {
       await supabase.from('entries').delete().eq('id', id);
-      setTasks(tasks.filter((task: { id: any }) => task.id !== id));
       setUserEntries(
         userEntries.filter((entry: { id: any }) => entry.id !== id)
       );
     } catch (error) {
-      console.log('error', error);
+      console.log('Error deleting entry: ', error);
     }
   };
 
   return (
     <div>
       <div className="flex justify-center">
-        {!!errorText && (
-          <div
-            className={
-              'absolute max-w-sm self-center border border-red-300 bg-red-100 px-4 py-2 text-center text-sm text-red-400'
-            }
-          >
-            {errorText}
-          </div>
-        )}
         <div className="mt-40 rounded-lg border border-red-100 bg-red-50 p-4 duration-300 hover:shadow-lg md:w-3/4 dark:border-neutral-700 dark:bg-neutral-800">
           <form className="relative my-1" action="#">
             <input

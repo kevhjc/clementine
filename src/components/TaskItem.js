@@ -2,18 +2,18 @@ import { useState } from 'react';
 import { supabase } from '../supabaseClient';
 
 const TaskItem = ({ task, onDelete }) => {
-  const [isCompleted, setIsCompleted] = useState(task.is_complete);
+  const [isComplete, setIsComplete] = useState(task.is_complete);
 
-  const toggleCompleted = async () => {
+  const toggleComplete = async () => {
     const { data, error } = await supabase
       .from('entries')
-      .update({ is_complete: !isCompleted })
+      .update({ is_complete: !isComplete })
       .eq('id', task.id)
       .single();
     if (error) {
       console.error(error);
     }
-    setIsCompleted(data.is_complete);
+    setIsComplete(data.is_complete);
   };
 
   return (
@@ -24,8 +24,8 @@ const TaskItem = ({ task, onDelete }) => {
           className="absolute h-6 w-6 opacity-0"
           name="checkbox"
           type="checkbox"
-          onChange={toggleCompleted}
-          checked={isCompleted ? true : ''}
+          onChange={toggleComplete}
+          checked={isComplete ? true : ''}
         />
         <div className="mr-2 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border-[1.5px] border-neutral-400/70 bg-transparent focus-within:border-sky-400">
           <svg
@@ -48,7 +48,7 @@ const TaskItem = ({ task, onDelete }) => {
         <label
           htmlFor={task.id}
           className={`select-none font-sans text-lg font-bold ${
-            isCompleted
+            isComplete
               ? 'text-neutral-400 line-through decoration-1 transition-colors duration-150 ease-in-out'
               : ''
           }`}

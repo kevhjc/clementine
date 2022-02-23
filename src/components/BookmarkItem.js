@@ -8,7 +8,7 @@ const BookmarkItem = ({ bookmark, onDelete }) => {
       </span>
       <div className="absolute right-3 justify-center">
         <button
-          className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-orange-600 hover:text-white group-hover:block dark:bg-neutral-600"
+          className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-red-600 hover:text-white group-hover:block dark:bg-neutral-600"
           aria-hidden="true"
           onClick={(e) => {
             e.preventDefault();

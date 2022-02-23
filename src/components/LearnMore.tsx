@@ -8,10 +8,7 @@ export default function LearnMore() {
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-600 dark:text-neutral-300">
             <ul className="px-6 text-center text-lg">
-              A place to save your thoughts and ideas.
-            </ul>
-            <ul className="px-6 text-center text-lg">
-              Add{' '}
+              A place to save your thoughts and ideas. Add{' '}
               <span className="mx-[1px] rounded bg-rose-200/70 p-[1px] font-mono text-rose-800 dark:bg-rose-500/70 dark:text-rose-200">
                 notes
               </span>
@@ -34,7 +31,7 @@ export default function LearnMore() {
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-600 dark:text-neutral-300">
             Use <strong>command</strong> or <strong>control + K</strong> to
             access the command bar from anywhere. Use global shortcuts (like{' '}
-            <strong>N</strong> for a new note) for quick entries.
+            <strong>T</strong> for a new task) for quick entries.
           </p>
 
           <p className="mt-20 text-3xl font-black leading-8 tracking-tight sm:text-5xl">

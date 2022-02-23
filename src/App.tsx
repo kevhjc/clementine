@@ -36,7 +36,7 @@ const App = () => {
       <CommandPalette>
         <Routes>
           <Route path="/" element={<Navigation />}>
-            <Route index element={<Intro />} />
+            <Route index element={session ? <Home /> : <Intro />} />
             <Route path="/signin" element={<Auth />} />
             {session ? (
               <Route path="/home" element={<Home />} />

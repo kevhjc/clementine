@@ -64,7 +64,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       keywords: 'task',
       icon: <Pencil2Icon />,
       perform: () =>
-        (window.location.pathname = 'https://www.clementine.today/new/task'),
+        (window.location.href = 'https://www.clementine.today/new/task'),
     },
     {
       id: 'bookmark',
@@ -74,8 +74,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       keywords: 'bookmark',
       icon: <Link2Icon />,
       perform: () =>
-        (window.location.pathname =
-          'https://www.clementine.today/new/bookmark'),
+        (window.location.href = 'https://www.clementine.today/new/bookmark'),
     },
     {
       id: 'home',
@@ -85,7 +84,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Navigation,
       keywords: 'home',
       perform: () =>
-        (window.location.pathname = 'https://www.clementine.today/home'),
+        (window.location.href = 'https://www.clementine.today/home'),
     },
     {
       id: 'more',
@@ -95,7 +94,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Navigation,
       keywords: 'learn more',
       perform: () =>
-        (window.location.pathname = 'https://www.clementine.today/learn-more'),
+        (window.location.href = 'https://www.clementine.today/learn-more'),
     },
     {
       id: 'signin',
@@ -105,7 +104,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Account,
       keywords: 'sign in',
       perform: () =>
-        (window.location.pathname = 'https://www.clementine.today/signin'),
+        (window.location.href = 'https://www.clementine.today/signin'),
     },
     {
       id: 'signout',

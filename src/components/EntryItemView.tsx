@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import classNames from 'classnames';
 import { supabase } from '../supabaseClient';
 
 const EntryItemView = () => {
@@ -15,12 +14,25 @@ const EntryItemView = () => {
   }, []);
 
   const fetchUserEntryById = async () => {
-    let { data: entry, error } = await supabase
+    let { data: entries, error } = await supabase
       .from('entries')
       .select('*')
       .eq('id', params.entry);
-    if (error) console.log('error', error);
-    else setEntry(entry);
+    if (error) console.log('Error fetching entries: ', error);
+    else setEntry(entries);
+  };
+
+  const updateEntryById = async (
+    id: string,
+    title: string | undefined,
+    content: string | undefined
+  ) => {
+    const { data: entries, error } = await supabase
+      .from('entries')
+      .update({ title: title, content: content })
+      .eq('id', id);
+    if (error) console.log('Error updating entry: ', error);
+    else setEntry(entries);
   };
 
   const deleteEntryById = async (id: string) => {
@@ -40,16 +52,7 @@ const EntryItemView = () => {
             <div className="col-start-1">
               <button
                 type="button"
-                className={classNames(
-                  entry[0].category === 'note'
-                    ? 'bg-rose-600 hover:bg-rose-500 dark:bg-rose-500 hover:dark:bg-rose-600'
-                    : entry[0].category === 'task'
-                    ? 'bg-sky-500 hover:bg-sky-400 dark:bg-sky-400 dark:hover:bg-sky-500'
-                    : entry[0].category === 'bookmark'
-                    ? 'bg-green-600 hover:bg-green-500 dark:bg-green-500 dark:hover:bg-green-600'
-                    : 'bg-gray-200/70 hover:bg-neutral-300/70',
-                  'mb-8 w-28 justify-center rounded px-2 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:text-neutral-900'
-                )}
+                className="mb-8 w-28 justify-center rounded bg-rose-600 px-2 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-rose-500 focus:outline-none focus:ring-0 dark:bg-rose-500 dark:text-neutral-900 hover:dark:bg-rose-600"
                 onClick={() => navigate(-1)}
               >
                 &larr; Go back
@@ -58,27 +61,57 @@ const EntryItemView = () => {
             <div className="col-end-4">
               <button
                 type="button"
-                className="mb-8 w-28 justify-center rounded bg-gray-200/70 px-2 py-3 pb-3 font-bold leading-tight text-neutral-400 transition duration-150 ease-in-out hover:bg-neutral-300/70 focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:hover:bg-neutral-600"
-              >
-                Edit (Soon)
-              </button>
-              <button
-                type="button"
-                className="mb-8 ml-4 w-24 justify-center rounded bg-gray-200/70 px-2 py-3 pb-3 font-bold leading-tight text-red-500 transition duration-150 ease-in-out hover:bg-red-600 hover:text-white focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:hover:bg-red-600"
+                className="mb-8 ml-4 w-24 justify-center rounded bg-gray-200/70 px-2 py-3 pb-3 font-bold leading-tight text-red-500 transition duration-150 ease-in-out hover:bg-red-600 hover:text-white focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:text-white dark:hover:bg-red-600"
                 onClick={() => deleteEntryById(entry[0].id)}
               >
                 Delete
               </button>
             </div>
           </dl>
-          <p className="mt-2 rounded-md p-2 text-3xl font-medium leading-8 tracking-tight outline-none hover:bg-neutral-100 sm:text-5xl dark:hover:bg-neutral-800">
-            {entry[0].title}
-          </p>
-          {entry[0].content ? (
-            <p className="mx-auto mt-8 rounded-md p-2 text-lg text-neutral-500 outline-none hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800">
-              {entry[0].content}
+          <div className="group relative mt-8">
+            <span className="absolute top-0 -mt-8 hidden p-2 text-xs text-neutral-400 group-hover:block">
+              Title
+            </span>
+            <p
+              contentEditable
+              suppressContentEditableWarning={true}
+              id="title"
+              onBlur={() =>
+                updateEntryById(
+                  entry[0].id,
+                  document.getElementById('title')?.innerText,
+                  entry[0].content
+                )
+              }
+              className="mt-2 mb-8 rounded-md p-2 text-3xl font-bold leading-8 tracking-tight outline-none hover:bg-neutral-100/70 sm:text-5xl dark:hover:bg-neutral-800"
+            >
+              {entry[0].title}
             </p>
-          ) : null}
+          </div>
+          <div className="group relative mt-12 mb-24">
+            {entry[0].content ? (
+              <>
+                <span className="absolute top-0 -mt-8 hidden p-2 text-xs text-neutral-400 group-hover:block">
+                  Body
+                </span>
+                <p
+                  contentEditable
+                  suppressContentEditableWarning={true}
+                  id="content"
+                  onBlur={() =>
+                    updateEntryById(
+                      entry[0].id,
+                      entry[0].title,
+                      document.getElementById('content')?.innerText
+                    )
+                  }
+                  className="mt-2 rounded-md p-2 text-lg text-neutral-500 outline-none hover:bg-neutral-100/70 dark:text-neutral-400 dark:hover:bg-neutral-800"
+                >
+                  {entry[0].content}
+                </p>
+              </>
+            ) : null}
+          </div>
         </div>
       </div>
     );

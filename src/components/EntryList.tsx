@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import format from 'date-fns/format';
+import classNames from 'classnames';
 
 import { Item } from '../typings';
 import NoteItem from './NoteItem';
@@ -26,13 +27,20 @@ const EntryList = memo(({ items, deleteEntryById }: IEntryProps) => {
       {Object.values(items).map((item, index) => (
         <li
           key={index}
-          className="group relative z-10 rounded-md p-3 hover:bg-neutral-100 dark:hover:bg-neutral-700"
+          className={classNames(
+            item.category === 'note'
+              ? 'hover:bg-neutral-100 dark:hover:bg-neutral-700'
+              : 'hover:none dark:hover:none',
+            'group relative z-10 rounded-md p-3'
+          )}
         >
           <div className="flex flex-col justify-center">
-            <Link
-              className="absolute inset-0"
-              to={`/${item.category}/${item.id}`}
-            />
+            {item.category === 'note' ? (
+              <Link
+                className="absolute inset-0"
+                to={`/${item.category}/${item.id}`}
+              />
+            ) : null}
             {item.category === 'task' ? (
               <TaskItem
                 key={item.id}

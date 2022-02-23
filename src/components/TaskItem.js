@@ -17,7 +17,7 @@ const TaskItem = ({ task, onDelete }) => {
   };
 
   return (
-    <div className="mb-1 flex items-center">
+    <div className="z-20 mb-1 flex items-start">
       <input
         id={task.id}
         className="absolute h-6 w-6 opacity-0"
@@ -50,7 +50,7 @@ const TaskItem = ({ task, onDelete }) => {
       >
         {task.title}
       </label>
-      <div className="absolute right-3 justify-center">
+      <div className="absolute right-3 z-50 justify-center">
         <button
           className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-red-600 hover:text-white group-hover:block dark:bg-neutral-600"
           aria-hidden="true"

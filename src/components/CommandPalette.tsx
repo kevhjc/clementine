@@ -53,7 +53,8 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['n'],
       section: Sections.Entry,
       keywords: 'note',
-      perform: () => (window.location.pathname = '/new/note'),
+      perform: () =>
+        (window.location.href = 'http://clementine.today/new/note'),
     },
     {
       id: 'task',
@@ -62,7 +63,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Entry,
       keywords: 'task',
       icon: <Pencil2Icon />,
-      perform: () => (window.location.pathname = '/new/task'),
+      perform: (window.location.href = 'http://clementine.today/new/task'),
     },
     {
       id: 'bookmark',
@@ -71,7 +72,8 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Entry,
       keywords: 'bookmark',
       icon: <Link2Icon />,
-      perform: () => (window.location.pathname = '/new/bookmark'),
+      perform: () =>
+        (window.location.href = 'http://clementine.today/new/bookmark'),
     },
     {
       id: 'home',
@@ -80,7 +82,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['h'],
       section: Sections.Navigation,
       keywords: 'home',
-      perform: () => (window.location.pathname = '/home'),
+      perform: () => (window.location.href = 'http://clementine.today/home'),
     },
     {
       id: 'more',
@@ -89,7 +91,8 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['?'],
       section: Sections.Navigation,
       keywords: 'learn more',
-      perform: () => (window.location.pathname = '/learn-more'),
+      perform: () =>
+        (window.location.href = 'http://clementine.today/learn-more'),
     },
     {
       id: 'signin',
@@ -98,7 +101,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: [''],
       section: Sections.Account,
       keywords: 'sign in',
-      perform: () => (window.location.pathname = '/signin'),
+      perform: () => (window.location.href = 'http://clementine.today/signin'),
     },
     {
       id: 'signout',

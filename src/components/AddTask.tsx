@@ -39,13 +39,13 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
       setOpen(false);
       setUserEntries([tasks, ...userEntries]);
       newTaskTitleRef.current.value = '';
-      return navigate('/home');
+      return navigate(-1);
     }
   };
 
   const handleModalClose = () => {
     setOpen(false);
-    return navigate('/home');
+    return navigate(-1);
   };
 
   return (

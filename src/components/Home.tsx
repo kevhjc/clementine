@@ -37,7 +37,7 @@ const Home = () => {
   const [searchParams] = useSearchParams();
 
   const [userEntries, setUserEntries] = useState<any>([]);
-  const categories = ['Note', 'Task', 'Bookmark'];
+  const categories = ['note', 'task', 'bookmark'];
   const category = searchParams.get('category');
 
   useEffect(() => {
@@ -106,8 +106,7 @@ const Home = () => {
               </Link>
               {categories.map((category, index) => (
                 <CategoryLink category={category} key={index}>
-                  {category}
-                  {'s'}
+                  {category.charAt(0).toUpperCase() + category.slice(1) + 's'}
                 </CategoryLink>
               ))}
             </div>

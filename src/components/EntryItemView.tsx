@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
+import format from 'date-fns/format';
 
 const EntryItemView = () => {
   const params = useParams();
@@ -52,7 +53,7 @@ const EntryItemView = () => {
             <div className="col-start-1">
               <button
                 type="button"
-                className="mb-8 w-28 justify-center rounded bg-rose-600 px-2 py-3 pb-3 text-sm font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-rose-500 focus:outline-none focus:ring-0 dark:bg-rose-500 dark:text-neutral-900 hover:dark:bg-rose-600"
+                className="mb-8 w-28 justify-center rounded bg-neutral-200/70 px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out hover:bg-neutral-300 focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:text-white hover:dark:bg-neutral-600"
                 onClick={() => navigate(-1)}
               >
                 &larr; Go back
@@ -61,14 +62,17 @@ const EntryItemView = () => {
             <div className="col-end-4">
               <button
                 type="button"
-                className="mb-8 ml-4 w-24 justify-center rounded bg-gray-200/70 px-2 py-3 pb-3 text-sm font-bold leading-tight text-red-500 transition duration-150 ease-in-out hover:bg-red-600 hover:text-white focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:text-white dark:hover:bg-red-600"
+                className="mb-8 ml-4 w-24 justify-center rounded bg-neutral-200/70 px-2 py-3 pb-3 text-sm font-bold leading-tight text-red-500 transition duration-150 ease-in-out hover:bg-red-600 hover:text-white focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:text-white dark:hover:bg-red-600"
                 onClick={() => deleteEntryById(entry[0].id)}
               >
                 Delete
               </button>
             </div>
           </dl>
-          <div className="group relative mt-8">
+          <span className="p-2 text-neutral-600 group-hover:block dark:text-neutral-300">
+            {format(new Date(entry[0].inserted_at), "MMM d, yyyy '–' h:mm bb")}
+          </span>
+          <div className="group relative mt-12">
             <span className="absolute top-0 -mt-8 hidden p-2 text-xs text-neutral-400 group-hover:block">
               Title
             </span>
@@ -83,7 +87,7 @@ const EntryItemView = () => {
                   entry[0].content
                 )
               }
-              className="mt-2 mb-8 rounded-md p-2 text-3xl font-bold leading-8 tracking-tight outline-none ring-red-500 hover:bg-neutral-100/70 focus:ring-2 sm:text-5xl dark:hover:bg-neutral-800"
+              className="mt-2 mb-8 rounded-md p-2 text-3xl font-bold leading-8 tracking-tight outline-none ring-neutral-600 hover:bg-neutral-100/70 focus:ring-2 sm:text-5xl dark:hover:bg-neutral-800"
             >
               {entry[0].title}
             </p>
@@ -105,7 +109,7 @@ const EntryItemView = () => {
                       document.getElementById('content')?.innerText
                     )
                   }
-                  className="mt-2 rounded-md p-2 text-lg text-neutral-500 outline-none ring-red-500 hover:bg-neutral-100/70 focus:ring-2 dark:text-neutral-400 dark:hover:bg-neutral-800"
+                  className="mt-2 rounded-md p-2 text-lg text-neutral-500 outline-none ring-neutral-600 hover:bg-neutral-100/70 focus:ring-2 dark:text-neutral-400 dark:hover:bg-neutral-800"
                 >
                   {entry[0].content}
                 </p>

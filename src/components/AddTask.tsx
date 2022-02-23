@@ -66,7 +66,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-neutral-100/50 backdrop-blur-sm transition-opacity dark:bg-black/50" />
+            <Dialog.Overlay className="fixed inset-0 bg-neutral-100 backdrop-blur-lg transition-opacity dark:bg-neutral-900" />
           </Transition.Child>
           <span
             className="hidden sm:inline-block sm:h-screen sm:align-middle"

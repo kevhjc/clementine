@@ -91,7 +91,7 @@ const Home = () => {
       )}
 
       <div className="flex justify-center">
-        <div className="mt-24 mb-24 w-4/6 max-w-7xl py-8 font-mono">
+        <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8 font-mono">
           <div className="mb-6 flex space-x-1 rounded-md bg-neutral-100 p-2 dark:bg-neutral-800">
             <div className="flex w-full gap-x-2 rounded-md font-sans text-sm font-medium leading-5">
               <Link

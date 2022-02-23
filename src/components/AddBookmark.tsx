@@ -45,7 +45,7 @@ const AddBookmark = ({ userEntries, setUserEntries }: IAddBookmarkProps) => {
       setUserEntries([bookmarks, ...userEntries]);
       newBookmarkTitleRef.current.value = '';
       newBookmarkUrlRef.current.value = '';
-      return navigate(-1);
+      return navigate('/home/?category=bookmark');
     }
   };
 

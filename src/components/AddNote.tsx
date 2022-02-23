@@ -45,7 +45,7 @@ const AddNote = ({ userEntries, setUserEntries }: IAddNoteProps) => {
       setUserEntries([notes, ...userEntries]);
       newNoteTitleRef.current.value = '';
       newNoteContentRef.current.value = '';
-      return navigate(-1);
+      return navigate('/home/?category=note');
     }
   };
 

@@ -44,15 +44,15 @@ const EntryItemView = () => {
     }
   };
 
-  if (entry) {
+  if (entry)
     return (
       <div className="flex justify-center">
-        <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8 text-sm">
+        <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8">
           <dl className="grid grid-cols-2">
             <div className="col-start-1">
               <button
                 type="button"
-                className="mb-8 w-28 justify-center rounded bg-rose-600 px-2 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-rose-500 focus:outline-none focus:ring-0 dark:bg-rose-500 dark:text-neutral-900 hover:dark:bg-rose-600"
+                className="mb-8 w-28 justify-center rounded bg-rose-600 px-2 py-3 pb-3 text-sm font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-rose-500 focus:outline-none focus:ring-0 dark:bg-rose-500 dark:text-neutral-900 hover:dark:bg-rose-600"
                 onClick={() => navigate(-1)}
               >
                 &larr; Go back
@@ -61,7 +61,7 @@ const EntryItemView = () => {
             <div className="col-end-4">
               <button
                 type="button"
-                className="mb-8 ml-4 w-24 justify-center rounded bg-gray-200/70 px-2 py-3 pb-3 font-bold leading-tight text-red-500 transition duration-150 ease-in-out hover:bg-red-600 hover:text-white focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:text-white dark:hover:bg-red-600"
+                className="mb-8 ml-4 w-24 justify-center rounded bg-gray-200/70 px-2 py-3 pb-3 text-sm font-bold leading-tight text-red-500 transition duration-150 ease-in-out hover:bg-red-600 hover:text-white focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:text-white dark:hover:bg-red-600"
                 onClick={() => deleteEntryById(entry[0].id)}
               >
                 Delete
@@ -83,7 +83,7 @@ const EntryItemView = () => {
                   entry[0].content
                 )
               }
-              className="mt-2 mb-8 rounded-md p-2 text-3xl font-bold leading-8 tracking-tight outline-none hover:bg-neutral-100/70 sm:text-5xl dark:hover:bg-neutral-800"
+              className="mt-2 mb-8 rounded-md p-2 text-3xl font-bold leading-8 tracking-tight outline-none ring-red-500 hover:bg-neutral-100/70 focus:ring-2 sm:text-5xl dark:hover:bg-neutral-800"
             >
               {entry[0].title}
             </p>
@@ -105,7 +105,7 @@ const EntryItemView = () => {
                       document.getElementById('content')?.innerText
                     )
                   }
-                  className="mt-2 rounded-md p-2 text-lg text-neutral-500 outline-none hover:bg-neutral-100/70 dark:text-neutral-400 dark:hover:bg-neutral-800"
+                  className="mt-2 rounded-md p-2 text-lg text-neutral-500 outline-none ring-red-500 hover:bg-neutral-100/70 focus:ring-2 dark:text-neutral-400 dark:hover:bg-neutral-800"
                 >
                   {entry[0].content}
                 </p>
@@ -115,8 +115,7 @@ const EntryItemView = () => {
         </div>
       </div>
     );
-  }
-  return <div>Loading...</div>;
+  return null;
 };
 
 export default EntryItemView;

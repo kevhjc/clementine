@@ -39,7 +39,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
       setOpen(false);
       setUserEntries([tasks, ...userEntries]);
       newTaskTitleRef.current.value = '';
-      return navigate(-1);
+      return navigate('/home/?category=task');
     }
   };
 

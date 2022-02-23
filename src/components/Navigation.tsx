@@ -19,7 +19,7 @@ export default function Navigation() {
         <div className="ml-6 flex basis-1/12">
           {session ? (
             <a href="/home">
-              <img src={Logo} alt="Logo" width={30} height={30} />
+              <img src={Logo} alt="Logo" width={35} height={35} />
             </a>
           ) : (
             <a href="/">

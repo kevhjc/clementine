@@ -1,7 +1,7 @@
 <svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <linearGradient id="linearGradient1" x1="274.68851" y1="805.31149" x2="804.31149" y2="275.68851" gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="#ea580c" stop-opacity="1"/>
+    <linearGradient id="linearGradient1" x1="306.422445" y1="906.570447" x2="813.032828" y2="324.127817" gradientUnits="userSpaceOnUse">
+        <stop offset="1e-05" stop-color="#ea580c" stop-opacity="1"/>
         <stop offset="1" stop-color="#fdba74" stop-opacity="1"/>
     </linearGradient>
-    <path id="Rectangle" fill="url(#linearGradient1)" fill-rule="evenodd" stroke="none" d="M 165 915 L 914 915 L 914 166 L 165 166 Z"/>
+    <path id="Rectangle" fill="url(#linearGradient1)" fill-rule="evenodd" stroke="none" d="M 876.5 541 C 876.5 354.603882 725.396118 203.5 539 203.5 C 352.603882 203.5 201.5 354.603882 201.5 541 C 201.5 727.396118 352.603882 878.5 539 878.5 C 725.396118 878.5 876.5 727.396118 876.5 541 Z"/>
 </svg>

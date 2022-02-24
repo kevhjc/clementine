@@ -64,6 +64,19 @@ const Home = () => {
     return filterByCategory(category);
   }, [category, userEntries]);
 
+  const updateEntryById = async (
+    id: string,
+    title: string | undefined,
+    content?: string | undefined
+  ) => {
+    const { error } = await supabase
+      .from('entries')
+      .update({ title: title, content: content })
+      .eq('id', id);
+    if (error) console.log('Error updating entry: ', error);
+    fetchUserEntries();
+  };
+
   const deleteEntryById = async (id: string) => {
     try {
       await supabase.from('entries').delete().eq('id', id);
@@ -113,7 +126,11 @@ const Home = () => {
           </div>
           <ul>
             <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
-              <EntryList items={entries} deleteEntryById={deleteEntryById} />
+              <EntryList
+                items={entries}
+                updateEntryById={updateEntryById}
+                deleteEntryById={deleteEntryById}
+              />
             </div>
           </ul>
         </div>

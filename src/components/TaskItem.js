@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { supabase } from '../supabaseClient';
 
-const TaskItem = ({ task, onDelete }) => {
+const TaskItem = ({ task, updateEntryById, onDelete }) => {
   const [isComplete, setIsComplete] = useState(task.is_complete);
+  const [editMode, setEditMode] = useState(false);
 
   const toggleComplete = async () => {
     const { data, error } = await supabase
@@ -16,16 +17,37 @@ const TaskItem = ({ task, onDelete }) => {
     setIsComplete(data.is_complete);
   };
 
+  const handleUpdateTask = (id, title) => {
+    updateEntryById(id, title);
+    setEditMode(!editMode);
+  };
+
+  const toggleMode = () => {
+    setEditMode(!editMode);
+  };
+
   return (
     <div className="z-20 mb-1 flex items-start">
-      <input
-        id={task.id}
-        className="absolute h-6 w-6 opacity-0"
-        name="checkbox"
-        type="checkbox"
-        onChange={toggleComplete}
-        checked={isComplete ? true : ''}
-      />
+      {editMode ? (
+        <input
+          contentEditable
+          suppressContentEditableWarning={true}
+          id={task.id}
+          className="absolute h-6 w-6 opacity-0"
+          name="checkbox"
+          type="checkbox"
+          checked={''}
+        />
+      ) : (
+        <input
+          id={task.id}
+          className="absolute h-6 w-6 opacity-0"
+          name="checkbox"
+          type="checkbox"
+          onChange={toggleComplete}
+          checked={isComplete ? true : ''}
+        />
+      )}
       <div className="mr-2 mt-[1px] flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border-[1.5px] border-neutral-800/70 bg-transparent focus-within:border-sky-400 dark:border-neutral-400">
         <svg
           className="pointer-events-none hidden h-3 w-3 fill-current"
@@ -40,17 +62,52 @@ const TaskItem = ({ task, onDelete }) => {
           </g>
         </svg>
       </div>
-      <label
-        htmlFor={task.id}
-        className={`z-20 select-none font-sans text-lg font-bold hover:line-through  ${
-          isComplete
-            ? 'text-neutral-400 line-through decoration-1 transition-colors duration-150 ease-in-out'
-            : ''
-        }`}
-      >
-        {task.title}
-      </label>
-      <div className="absolute right-3 z-50 justify-center">
+      {editMode && !isComplete ? (
+        <p
+          id="task-title"
+          contentEditable
+          suppressContentEditableWarning={true}
+          htmlFor={task.id}
+          className="z-20 bg-yellow-300/70 font-sans text-lg font-bold outline-none dark:bg-yellow-700/70"
+        >
+          {task.title}
+        </p>
+      ) : (
+        <p
+          htmlFor={task.id}
+          className={`z-20 select-none font-sans text-lg font-bold hover:line-through  ${
+            isComplete
+              ? 'text-neutral-400 line-through decoration-1 transition-colors duration-150 ease-in-out'
+              : ''
+          }`}
+        >
+          {task.title}
+        </p>
+      )}
+      <div className="absolute right-3 z-50 flex justify-center gap-x-3">
+        {!isComplete && !editMode ? (
+          <button
+            className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-300 group-hover:block dark:bg-neutral-600 dark:hover:bg-neutral-500"
+            aria-hidden="true"
+            onClick={toggleMode}
+          >
+            {'Edit'}
+          </button>
+        ) : null}
+        {editMode ? (
+          <button
+            className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-300 group-hover:block dark:bg-neutral-600 dark:hover:bg-neutral-500"
+            aria-hidden="true"
+            onClick={() =>
+              handleUpdateTask(
+                task.id,
+                document.getElementById('task-title')?.innerText
+              )
+            }
+          >
+            {'Save'}
+          </button>
+        ) : null}
         <button
           className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-red-600 hover:text-white group-hover:block dark:bg-neutral-600"
           aria-hidden="true"

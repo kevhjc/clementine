@@ -259,7 +259,7 @@ const ResultItem = React.forwardRef(
           ${
             active &&
             action.id === 'bookmark' &&
-            'bg-green-200/30 dark:bg-green-600/20'
+            'bg-emerald-200/30 dark:bg-emerald-600/20'
           }
 					font-mono transition-colors delay-[0]
 					duration-[.15s] dark:text-neutral-100/80

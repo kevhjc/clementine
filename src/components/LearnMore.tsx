@@ -17,7 +17,7 @@ export default function LearnMore() {
                 tasks
               </span>
               {', or '}
-              <span className="mx-[1px] rounded bg-green-200/70 p-[1px] font-mono text-green-800 dark:bg-green-500/70 dark:text-green-200">
+              <span className="mx-[1px] rounded bg-emerald-200/70 p-[1px] font-mono text-emerald-800 dark:bg-emerald-500/70 dark:text-emerald-200">
                 bookmarks
               </span>
               {', '}

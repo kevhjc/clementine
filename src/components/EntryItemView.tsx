@@ -87,7 +87,7 @@ const EntryItemView = () => {
                   entry[0].content
                 )
               }
-              className="mt-2 mb-8 rounded-md p-2 text-3xl font-bold leading-8 tracking-tight outline-none ring-neutral-600 hover:bg-neutral-100/70 focus:ring-2 sm:text-5xl dark:hover:bg-neutral-800"
+              className="mt-2 mb-8 p-2 text-3xl font-bold leading-8 tracking-tight outline-none ring-neutral-600 hover:bg-neutral-100/70 focus:ring-2 sm:text-5xl dark:hover:bg-neutral-800"
             >
               {entry[0].title}
             </p>
@@ -109,7 +109,7 @@ const EntryItemView = () => {
                       document.getElementById('content')?.innerText
                     )
                   }
-                  className="mt-2 rounded-md p-2 text-lg text-neutral-500 outline-none ring-neutral-600 hover:bg-neutral-100/70 focus:ring-2 dark:text-neutral-400 dark:hover:bg-neutral-800"
+                  className="mt-2 p-2 text-lg text-neutral-500 outline-none ring-neutral-600 hover:bg-neutral-100/70 focus:ring-2 dark:text-neutral-400 dark:hover:bg-neutral-800"
                 >
                   {entry[0].content}
                 </p>

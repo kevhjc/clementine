@@ -32,7 +32,6 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
         <input
           contentEditable
           suppressContentEditableWarning={true}
-          id={task.id}
           className="absolute h-6 w-6 opacity-0"
           name="checkbox"
           type="checkbox"
@@ -67,7 +66,6 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
           id="task-title"
           contentEditable
           suppressContentEditableWarning={true}
-          htmlFor={task.id}
           className="z-20 bg-yellow-300/70 font-sans text-lg font-bold outline-none dark:bg-yellow-700/70"
         >
           {task.title}
@@ -75,7 +73,8 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
       ) : (
         <p
           htmlFor={task.id}
-          className={`z-30 select-none font-sans text-lg font-bold hover:line-through  ${
+          onClick={toggleComplete}
+          className={`z-40 select-none font-sans text-lg font-bold hover:line-through  ${
             isComplete
               ? 'text-neutral-400 line-through decoration-1 transition-colors duration-150 ease-in-out'
               : ''

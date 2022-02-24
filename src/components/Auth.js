@@ -21,17 +21,16 @@ export default function Auth() {
         text: 'Success! Check your email to sign in',
       });
       document.getElementById('email').value = '';
-      if (error)
+      if (error.status === 422)
         setHelperText({
           error: true,
-          text: 'Uh oh, something went wrong',
+          text: 'Please enter a valid email address',
         });
-      console.log(error);
     } catch (error) {
-      console.log(
-        'Error handling login: ',
-        error.error_description || error.message
-      );
+      setHelperText({
+        error: true,
+        text: 'Uh oh, something went wrong',
+      });
     } finally {
       setLoading(false);
     }
@@ -48,7 +47,7 @@ export default function Auth() {
         </p>
       </div>
       <div className="flex justify-center">
-        <div className="mt-12 w-3/4 rounded-lg border border-orange-100 bg-orange-50 p-4 duration-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800">
+        <div className="mt-12 w-3/4 rounded-lg border border-neutral-200/70 bg-neutral-50 p-4 duration-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800">
           <form className="relative my-1" action="#">
             <input
               id="email"
@@ -79,7 +78,7 @@ export default function Auth() {
               <div
                 className={`text-center text-sm font-bold ${
                   helperText.error
-                    ? ' text-orange-600 dark:text-orange-500'
+                    ? ' text-red-600 dark:text-red-500'
                     : ' text-sky-600 dark:text-sky-500'
                 }`}
               >

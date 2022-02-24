@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import classNames from 'classnames';
 
 const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
   const [editMode, setEditMode] = useState(false);
@@ -24,7 +25,7 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             id="bookmark-title"
             contentEditable
             suppressContentEditableWarning={true}
-            className="z-20 break-words bg-yellow-300/70 font-sans text-lg font-bold leading-6 outline-none dark:bg-yellow-700/70"
+            className="z-20 break-words bg-white font-sans text-lg font-bold leading-6 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:outline-neutral-500"
           >
             <a
               href={bookmark.content}
@@ -35,7 +36,7 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             </a>
           </span>
         ) : (
-          <span className="z-30 break-words font-sans text-lg font-bold leading-6 underline underline-offset-1 hover:no-underline">
+          <span className="z-30 break-words font-sans text-lg font-bold leading-6 decoration-1 underline-offset-1 hover:underline">
             <a
               href={bookmark.content}
               target="_blank"
@@ -48,7 +49,7 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
         <div className="absolute right-3 z-50 flex justify-center gap-x-3">
           {!editMode ? (
             <button
-              className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-300 group-hover:block dark:bg-neutral-600 dark:hover:bg-neutral-500"
+              className="hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600"
               aria-hidden="true"
               onClick={toggleMode}
             >
@@ -57,7 +58,7 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
           ) : null}
           {editMode ? (
             <button
-              className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-300 group-hover:block dark:bg-neutral-600 dark:hover:bg-neutral-500"
+              className="hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 text-emerald-600 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:text-emerald-400 dark:hover:bg-neutral-600"
               aria-hidden="true"
               onClick={() =>
                 handleUpdateBookmark(
@@ -71,8 +72,12 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             </button>
           ) : null}
           <button
-            className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-red-600 hover:text-white group-hover:block dark:bg-neutral-600"
+            className={classNames(
+              editMode ? 'text-neutral-400' : 'text-red-500',
+              'hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600'
+            )}
             aria-hidden="true"
+            disabled={editMode ? true : false}
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -85,18 +90,18 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
       </div>
       <div className="flex">
         {editMode ? (
-          <span
+          <p
             contentEditable
             suppressContentEditableWarning={true}
             id="bookmark-url"
-            className="... truncate bg-yellow-300/70 font-mono text-sm italic leading-6 text-neutral-500 outline-none dark:bg-yellow-700/70 dark:text-neutral-400"
+            className="... truncate bg-white font-mono text-sm italic leading-6 text-neutral-500 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:text-neutral-400 dark:outline-neutral-500"
           >
             {bookmark.content}
-          </span>
+          </p>
         ) : (
-          <span className="... truncate font-mono text-sm italic leading-6 text-neutral-500 dark:text-neutral-400">
+          <p className="... truncate font-mono text-sm italic leading-6 text-neutral-500 dark:text-neutral-400">
             {bookmark.content}
-          </span>
+          </p>
         )}
       </div>
     </>

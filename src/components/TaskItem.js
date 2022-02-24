@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { supabase } from '../supabaseClient';
+import classNames from 'classnames';
 
 const TaskItem = ({ task, updateEntryById, onDelete }) => {
   const [isComplete, setIsComplete] = useState(task.is_complete);
@@ -66,7 +67,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
           id="task-title"
           contentEditable
           suppressContentEditableWarning={true}
-          className="z-20 bg-yellow-300/70 font-sans text-lg font-bold outline-none dark:bg-yellow-700/70"
+          className="z-20 bg-white font-sans text-lg font-bold outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:outline-neutral-500"
         >
           {task.title}
         </p>
@@ -86,7 +87,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
       <div className="absolute right-3 z-50 flex justify-center gap-x-3">
         {!isComplete && !editMode ? (
           <button
-            className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-300 group-hover:block dark:bg-neutral-600 dark:hover:bg-neutral-500"
+            className="hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600"
             aria-hidden="true"
             onClick={toggleMode}
           >
@@ -95,7 +96,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
         ) : null}
         {editMode ? (
           <button
-            className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-300 group-hover:block dark:bg-neutral-600 dark:hover:bg-neutral-500"
+            className="hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 text-sky-500 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:text-sky-400 dark:hover:bg-neutral-600"
             aria-hidden="true"
             onClick={() =>
               handleUpdateTask(
@@ -108,7 +109,10 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
           </button>
         ) : null}
         <button
-          className="hidden flex-shrink-0 rounded bg-neutral-200 px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-red-600 hover:text-white group-hover:block dark:bg-neutral-600"
+          className={classNames(
+            editMode ? 'text-neutral-400' : 'text-red-500',
+            'hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600'
+          )}
           aria-hidden="true"
           onClick={(e) => {
             e.preventDefault();

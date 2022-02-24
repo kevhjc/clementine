@@ -35,7 +35,7 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             </a>
           </span>
         ) : (
-          <span className="z-20 break-words font-sans text-lg font-bold leading-6 underline underline-offset-1 hover:no-underline">
+          <span className="z-30 break-words font-sans text-lg font-bold leading-6 underline underline-offset-1 hover:no-underline">
             <a
               href={bookmark.content}
               target="_blank"

@@ -69,7 +69,7 @@ const EntryList = memo(
                 />
               )}
               {item.content && item.category === 'note' ? (
-                <span className="... mt-1 truncate font-mono text-sm italic leading-6 text-neutral-500 dark:text-neutral-400">
+                <span className="... mt-1 truncate font-mono text-sm leading-6 text-neutral-500 dark:text-neutral-400">
                   {item.content}
                 </span>
               ) : null}

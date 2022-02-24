@@ -48,7 +48,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
           checked={isComplete ? true : ''}
         />
       )}
-      <div className="mr-2 mt-[1px] flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border-[1.5px] border-neutral-800/70 bg-transparent focus-within:border-sky-400 dark:border-neutral-400">
+      <div className="mr-2 mt-[1.5px] flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border-[1.5px] border-neutral-800/70 bg-transparent focus-within:border-sky-400 dark:border-neutral-400">
         <svg
           className="pointer-events-none hidden h-3 w-3 fill-current"
           version="1.1"
@@ -84,7 +84,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
           {task.title}
         </p>
       )}
-      <div className="absolute right-3 z-50 flex justify-center gap-x-3">
+      <div className="absolute right-3 z-50 -mt-[1.5px] flex justify-center gap-x-3 font-sans">
         {!isComplete && !editMode ? (
           <button
             className="hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600"

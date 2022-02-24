@@ -1,31 +1,40 @@
 import { useState, useRef } from 'react';
 import { supabase } from '../supabaseClient';
 
+import { validateEmail } from '../utils/validation';
+
 export default function Auth() {
   const [loading, setLoading] = useState(false);
-  const [helperText, setHelperText] = useState({ error: null, text: null });
+  const [helperText, setHelperText] = useState<any>({
+    error: null,
+    text: null,
+  });
+
   const [email, setEmail] = useState('');
   const input = useRef(null);
 
-  const handleLogin = async (email) => {
+  const handleLogin = async (email: string) => {
     try {
       setLoading(true);
+      const emailError = validateEmail(email);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { error } = await supabase.auth.signIn(
-        { email: email },
-        {
-          redirectTo: 'https://www.clementine.today/home',
-        }
+        { email: email }
+        // {
+        //   redirectTo: 'https://www.clementine.today/home',
+        // }
       );
       setHelperText({
         error: false,
         text: 'Success! Check your email to sign in',
       });
-      document.getElementById('email').value = '';
-      if (error.status === 422)
+      (document.getElementById('email') as HTMLInputElement).value = '';
+      if (emailError || error)
         setHelperText({
           error: true,
-          text: 'Please enter a valid email address',
+          text: emailError,
         });
+      console.log('Error signing in:', error);
     } catch (error) {
       setHelperText({
         error: true,

@@ -83,7 +83,7 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
           </button>
         </div>
       </div>
-      <div>
+      <div className="flex">
         {editMode ? (
           <span
             contentEditable

@@ -2,7 +2,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="h-screen px-4 pt-40">
       <div className="mx-auto max-w-7xl px-10">
-        <h1 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Privacy Policy
         </h1>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
           the Service, You agree to the collection and use of information in
           accordance with this Privacy Policy.
         </p>
-        <h1 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Interpretation and Definitions
         </h1>
         <h2 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-4xl">
@@ -120,13 +120,13 @@ export default function PrivacyPolicy() {
             </p>
           </li>
         </ul>
-        <h1 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Collecting and Using Your Personal Data
         </h1>
         <h2 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-4xl">
           Types of Data Collected
         </h2>
-        <h3 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-3xl">
+        <h3 className="mt-4 text-xl font-black leading-8 tracking-tight sm:text-3xl">
           Personal Data
         </h3>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
@@ -147,7 +147,7 @@ export default function PrivacyPolicy() {
             </p>
           </li>
         </ul>
-        <h3 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-3xl">
+        <h3 className="mt-4 text-xl font-black leading-8 tracking-tight sm:text-3xl">
           Usage Data
         </h3>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
@@ -173,7 +173,7 @@ export default function PrivacyPolicy() {
           visit our Service or when You access the Service by or through a
           mobile device.
         </p>
-        <h3 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-3xl">
+        <h3 className="mt-4 text-xl font-black leading-8 tracking-tight sm:text-3xl">
           Tracking Technologies and Cookies
         </h3>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
@@ -477,7 +477,7 @@ export default function PrivacyPolicy() {
         <h2 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-4xl">
           Disclosure of Your Personal Data
         </h2>
-        <h3 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-3xl">
+        <h3 className="mt-4 text-xl font-black leading-8 tracking-tight sm:text-3xl">
           Business Transactions
         </h3>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
@@ -486,7 +486,7 @@ export default function PrivacyPolicy() {
           Your Personal Data is transferred and becomes subject to a different
           Privacy Policy.
         </p>
-        <h3 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-3xl">
+        <h3 className="mt-4 text-xl font-black leading-8 tracking-tight sm:text-3xl">
           Law enforcement
         </h3>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
@@ -494,7 +494,7 @@ export default function PrivacyPolicy() {
           Your Personal Data if required to do so by law or in response to valid
           requests by public authorities (e.g. a court or a government agency).
         </p>
-        <h3 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-3xl">
+        <h3 className="mt-4 text-xl font-black leading-8 tracking-tight sm:text-3xl">
           Other legal requirements
         </h3>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
@@ -539,7 +539,7 @@ export default function PrivacyPolicy() {
           acceptable means to protect Your Personal Data, We cannot guarantee
           its absolute security.
         </p>
-        <h1 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Children's Privacy
         </h1>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
@@ -557,7 +557,7 @@ export default function PrivacyPolicy() {
           require Your parent's consent before We collect and use that
           information.
         </p>
-        <h1 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Links to Other Websites
         </h1>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
@@ -570,7 +570,7 @@ export default function PrivacyPolicy() {
           We have no control over and assume no responsibility for the content,
           privacy policies or practices of any third party sites or services.
         </p>
-        <h1 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Changes to this Privacy Policy
         </h1>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
@@ -587,7 +587,7 @@ export default function PrivacyPolicy() {
           changes. Changes to this Privacy Policy are effective when they are
           posted on this page.
         </p>
-        <h1 className="mt-4 text-2xl font-black leading-8 tracking-tight sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Contact Us
         </h1>
         <p className="mx-auto mt-4 pb-24 text-xl text-neutral-600 dark:text-neutral-300">

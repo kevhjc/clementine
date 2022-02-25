@@ -6,7 +6,7 @@ import {
   MutableRefObject,
 } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { supabase } from './../supabaseClient';
+import { supabase } from '../lib/supabase';
 import { Dialog, Transition } from '@headlessui/react';
 
 import { IAddEntryProps } from '../lib/interfaces';

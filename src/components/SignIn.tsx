@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { supabase } from '../supabaseClient';
+import { supabase } from '../lib/supabase';
 
 import { validateEmail } from '../utils/validation';
 

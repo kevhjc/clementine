@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from '../supabaseClient';
+import { supabase } from '../lib/supabase';
 import classNames from 'classnames';
 
 const TaskItem = ({ task, updateEntryById, onDelete }) => {

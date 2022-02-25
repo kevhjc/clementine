@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import { supabase } from './supabaseClient';
+import { supabase } from './lib/supabase';
 
 import * as ROUTES from './constants/routes';
 

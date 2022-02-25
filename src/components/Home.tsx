@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { supabase } from './../supabaseClient';
+import { supabase } from '../lib/supabase';
 
 import * as PATHS from '../constants/paths';
 

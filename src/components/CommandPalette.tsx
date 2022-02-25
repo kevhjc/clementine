@@ -1,6 +1,6 @@
 import React, { useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../supabaseClient';
+import { supabase } from '../lib/supabase';
 import {
   ActionId,
   ActionImpl,

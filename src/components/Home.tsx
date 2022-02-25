@@ -124,7 +124,7 @@ const Home = () => {
               ))}
             </div>
           </div>
-          <ul>
+          <ul className="ml-10">
             <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
               <EntryList
                 items={entries}

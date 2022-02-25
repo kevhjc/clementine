@@ -97,6 +97,7 @@ export default function SignIn() {
           )}
         </div>
       </div>
+
       <div className="mt-12 flex justify-center font-medium leading-8 tracking-tight">
         <div className="mb-24 mt-12 px-8 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight text-black dark:text-white">
           <ul className="px-2 text-center text-xs leading-6">

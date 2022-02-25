@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Skeleton from 'react-loading-skeleton';
 import classNames from 'classnames';
 import format from 'date-fns/format';
 

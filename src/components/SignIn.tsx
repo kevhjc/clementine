@@ -3,7 +3,7 @@ import { supabase } from '../supabaseClient';
 
 import { validateEmail } from '../utils/validation';
 
-export default function Auth() {
+export default function SignIn() {
   const [loading, setLoading] = useState(false);
   const [helperText, setHelperText] = useState<any>({
     error: null,

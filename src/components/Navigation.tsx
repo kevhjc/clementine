@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useKBar } from 'kbar';
 
 import { SessionContext } from '../context/SessionContext';
+
 import Logo from '../assets/logo.svg';
 
 export default function Navigation() {

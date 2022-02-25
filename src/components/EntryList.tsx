@@ -1,22 +1,13 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import format from 'date-fns/format';
 import classNames from 'classnames';
+import format from 'date-fns/format';
 
-import { Item } from '../typings';
+import { IEntryProps } from '../lib/interfaces';
+
 import NoteItem from './NoteItem';
 import TaskItem from './TaskItem';
 import BookmarkItem from './BookmarkItem';
-
-interface IEntryProps {
-  items: Item[];
-  updateEntryById: (
-    id: string,
-    title: string | undefined,
-    content?: string | undefined
-  ) => void;
-  deleteEntryById: (id: string) => void;
-}
 
 const EntryList = memo(
   ({ items, updateEntryById, deleteEntryById }: IEntryProps) => {

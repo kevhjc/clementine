@@ -9,13 +9,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { supabase } from './../supabaseClient';
 import { Dialog, Transition } from '@headlessui/react';
 
+import { IAddNoteProps } from '../lib/interfaces';
+
 import { validateNote } from '../utils/validation';
 import { SessionContext } from '../context/SessionContext';
-
-interface IAddNoteProps {
-  userEntries: string[];
-  setUserEntries: any;
-}
 
 const AddNote = ({ userEntries, setUserEntries }: IAddNoteProps) => {
   const location = useLocation();

@@ -1,19 +1,15 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import type { LinkProps } from 'react-router-dom';
 import { supabase } from './../supabaseClient';
 
-import EntryList from './EntryList';
+import { ICategoryLinkProps } from '../lib/interfaces';
 
 import AddNote from './AddNote';
 import AddTask from './AddTask';
 import AddBookmark from './AddBookmark';
+import EntryList from './EntryList';
 
-interface CategoryLinkProps extends Omit<LinkProps, 'to'> {
-  category: string;
-}
-
-function CategoryLink({ category, children, ...props }: CategoryLinkProps) {
+function CategoryLink({ category, children, ...props }: ICategoryLinkProps) {
   const [searchParams] = useSearchParams();
   const isActive = searchParams.get('category') === category;
 

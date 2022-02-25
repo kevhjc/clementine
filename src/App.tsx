@@ -5,10 +5,11 @@ import { supabase } from './supabaseClient';
 import * as ROUTES from './constants/routes';
 
 import { SessionContext } from './context/SessionContext';
+
 import CommandPalette from './components/CommandPalette';
 import Navigation from './components/Navigation';
 import Intro from './components/Intro';
-import Auth from './components/Auth';
+import SignIn from './components/SignIn';
 import Home from './components/Home';
 import EntryItemView from './components/EntryItemView';
 import LearnMore from './components/LearnMore';
@@ -39,11 +40,11 @@ const App = () => {
         <Routes>
           <Route path={ROUTES.ROOT} element={<Navigation />}>
             <Route index element={session ? <Home /> : <Intro />} />
-            <Route path={ROUTES.SIGN_IN} element={<Auth />} />
+            <Route path={ROUTES.SIGN_IN} element={<SignIn />} />
             {session ? (
               <Route path={ROUTES.HOME} element={<Home />} />
             ) : (
-              <Route path={ROUTES.HOME} element={<Auth />} />
+              <Route path={ROUTES.HOME} element={<SignIn />} />
             )}
             <Route path={ROUTES.ENTRIES} element={<EntryItemView />} />
             <Route path={ROUTES.NEW_ENTRY} element={<Home />} />

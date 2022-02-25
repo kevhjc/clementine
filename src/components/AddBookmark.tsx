@@ -9,13 +9,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { supabase } from './../supabaseClient';
 import { Dialog, Transition } from '@headlessui/react';
 
+import { IAddBookmarkProps } from '../lib/interfaces';
+
 import { validateUrl } from '../utils/validation';
 import { SessionContext } from '../context/SessionContext';
-
-interface IAddBookmarkProps {
-  userEntries: string[];
-  setUserEntries: any;
-}
 
 const AddBookmark = ({ userEntries, setUserEntries }: IAddBookmarkProps) => {
   const location = useLocation();

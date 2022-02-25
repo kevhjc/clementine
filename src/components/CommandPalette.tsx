@@ -26,18 +26,10 @@ import {
 
 import * as PATHS from '../constants/paths';
 
+import { ICommandPaletteProps } from '../lib/interfaces';
+import { Sections } from '../lib/enums';
+
 import { SessionContext } from '../context/SessionContext';
-
-interface ICommandPaletteProps {
-  children: ReactNode;
-}
-
-/* eslint-disable no-unused-vars */
-enum Sections {
-  Account = 'Account',
-  Entry = 'New Entry',
-  Navigation = 'Navigation',
-}
 
 export default function CommandPalette({ children }: ICommandPaletteProps) {
   const navigate = useNavigate();

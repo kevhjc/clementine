@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
 import { validateEmail } from '../utils/validation';
@@ -97,7 +98,14 @@ export default function SignIn() {
           )}
         </div>
       </div>
-
+      <div className="mt-8 flex justify-center font-medium leading-8 tracking-tight">
+        <ul className="px-2 text-center text-lg leading-6">
+          By clicking "Send", I agree to Clementine's{' '}
+          <Link to="/privacy-policy" className="text-blue-600 hover:underline">
+            Privacy Policy.
+          </Link>
+        </ul>
+      </div>
       <div className="mt-12 flex justify-center font-medium leading-8 tracking-tight">
         <div className="mb-24 mt-12 px-8 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight text-black dark:text-white">
           <ul className="px-2 text-center text-xs leading-6">

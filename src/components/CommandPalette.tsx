@@ -24,6 +24,8 @@ import {
   MagicWandIcon,
 } from '@radix-ui/react-icons';
 
+import * as PATHS from '../constants/paths';
+
 import { SessionContext } from '../context/SessionContext';
 
 interface ICommandPaletteProps {
@@ -53,8 +55,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['n'],
       section: Sections.Entry,
       keywords: 'note',
-      perform: () =>
-        (window.location.href = 'https://www.clementine.today/new/note'),
+      perform: () => (window.location.href = PATHS.NEW_NOTE),
     },
     {
       id: 'task',
@@ -63,8 +64,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Entry,
       keywords: 'task',
       icon: <Pencil2Icon />,
-      perform: () =>
-        (window.location.href = 'https://www.clementine.today/new/task'),
+      perform: () => (window.location.href = PATHS.NEW_TASK),
     },
     {
       id: 'bookmark',
@@ -73,8 +73,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Entry,
       keywords: 'bookmark',
       icon: <Link2Icon />,
-      perform: () =>
-        (window.location.href = 'https://www.clementine.today/new/bookmark'),
+      perform: () => (window.location.href = PATHS.NEW_BOOKMARK),
     },
     {
       id: 'home',
@@ -83,8 +82,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['h'],
       section: Sections.Navigation,
       keywords: 'home',
-      perform: () =>
-        (window.location.href = 'https://www.clementine.today/home'),
+      perform: () => (window.location.href = PATHS.HOME),
     },
     {
       id: 'more',
@@ -93,8 +91,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['?'],
       section: Sections.Navigation,
       keywords: 'learn more',
-      perform: () =>
-        (window.location.href = 'https://www.clementine.today/learn-more'),
+      perform: () => (window.location.href = PATHS.LEARN_MORE),
     },
     {
       id: 'signin',
@@ -103,8 +100,7 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: [''],
       section: Sections.Account,
       keywords: 'sign in',
-      perform: () =>
-        (window.location.href = 'https://www.clementine.today/signin'),
+      perform: () => (window.location.href = PATHS.SIGN_IN),
     },
     {
       id: 'signout',

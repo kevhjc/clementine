@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { supabase } from './supabaseClient';
 
+import * as ROUTES from './constants/routes';
+
 import { SessionContext } from './context/SessionContext';
 import CommandPalette from './components/CommandPalette';
 import Navigation from './components/Navigation';
@@ -35,18 +37,18 @@ const App = () => {
     <SessionContext.Provider value={session}>
       <CommandPalette>
         <Routes>
-          <Route path="/" element={<Navigation />}>
+          <Route path={ROUTES.ROOT} element={<Navigation />}>
             <Route index element={session ? <Home /> : <Intro />} />
-            <Route path="/signin" element={<Auth />} />
+            <Route path={ROUTES.SIGN_IN} element={<Auth />} />
             {session ? (
-              <Route path="/home" element={<Home />} />
+              <Route path={ROUTES.HOME} element={<Home />} />
             ) : (
-              <Route path="/home" element={<Auth />} />
+              <Route path={ROUTES.HOME} element={<Auth />} />
             )}
-            <Route path="/new/:entry" element={<Home />} />
-            <Route path="/:category/:entry" element={<EntryItemView />} />
-            <Route path="/learn-more" element={<LearnMore />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path={ROUTES.ENTRIES} element={<EntryItemView />} />
+            <Route path={ROUTES.NEW_ENTRY} element={<Home />} />
+            <Route path={ROUTES.LEARN_MORE} element={<LearnMore />} />
+            <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
           </Route>
         </Routes>
       </CommandPalette>

@@ -1,7 +1,10 @@
 import { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import format from 'date-fns/format';
+
+import * as PATHS from '../constants/paths';
+import * as PARAMS from '../constants/params';
 
 import { IEntryProps } from '../lib/interfaces';
 
@@ -11,13 +14,35 @@ import BookmarkItem from './BookmarkItem';
 
 const EntryList = memo(
   ({ items, updateEntryById, deleteEntryById }: IEntryProps) => {
+    const location = useLocation();
+
     return (
       <div className="rounded-md">
         {items.length === 0 && (
           <li className="group relative z-10 rounded-md p-3 py-6">
-            <div className="flex flex-col justify-center text-center">
-              No entries yet
-            </div>
+            {location.pathname === PATHS.HOME && (
+              <div className="flex flex-col justify-center text-center">
+                <p>No entries yet</p>
+                <p>
+                  (Hint: try pressing <strong>T</strong> to add a new task)
+                </p>
+              </div>
+            )}
+            {location.search === PARAMS.NOTE_PARAMS && (
+              <div className="flex flex-col justify-center text-center">
+                {'No notes yet'}
+              </div>
+            )}
+            {location.search === PARAMS.TASK_PARAMS && (
+              <div className="flex flex-col justify-center text-center">
+                {'No tasks yet'}
+              </div>
+            )}
+            {location.search === PARAMS.BOOKMARK_PARAMS && (
+              <div className="flex flex-col justify-center text-center">
+                {'No bookmarks yet'}
+              </div>
+            )}
           </li>
         )}
 

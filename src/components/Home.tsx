@@ -2,6 +2,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { supabase } from './../supabaseClient';
 
+import * as PATHS from '../constants/paths';
+
 import { ICategoryLinkProps } from '../lib/interfaces';
 
 import AddNote from './AddNote';
@@ -86,13 +88,13 @@ const Home = () => {
 
   return (
     <div>
-      {location.pathname === '/new/note' && (
+      {location.pathname === PATHS.NEW_NOTE && (
         <AddNote userEntries={userEntries} setUserEntries={setUserEntries} />
       )}
-      {location.pathname === '/new/task' && (
+      {location.pathname === PATHS.NEW_TASK && (
         <AddTask userEntries={userEntries} setUserEntries={setUserEntries} />
       )}
-      {location.pathname === '/new/bookmark' && (
+      {location.pathname === PATHS.NEW_BOOKMARK && (
         <AddBookmark
           userEntries={userEntries}
           setUserEntries={setUserEntries}

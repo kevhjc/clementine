@@ -4,7 +4,7 @@ import { supabase } from '../supabaseClient';
 import format from 'date-fns/format';
 import classNames from 'classnames';
 
-const EntryItemView = () => {
+const NoteEntryView = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const params = useParams();
@@ -172,4 +172,4 @@ const EntryItemView = () => {
   return null;
 };
 
-export default EntryItemView;
+export default NoteEntryView;

@@ -11,7 +11,7 @@ import Navigation from './components/Navigation';
 import Intro from './components/Intro';
 import SignIn from './components/SignIn';
 import Home from './components/Home';
-import EntryItemView from './components/EntryItemView';
+import NoteEntryView from './components/NoteEntryView';
 import LearnMore from './components/LearnMore';
 import NotFound from './components/NotFound';
 
@@ -46,7 +46,7 @@ const App = () => {
             ) : (
               <Route path={ROUTES.HOME} element={<SignIn />} />
             )}
-            <Route path={ROUTES.ENTRIES} element={<EntryItemView />} />
+            <Route path={ROUTES.ENTRIES} element={<NoteEntryView />} />
             <Route path={ROUTES.NEW_ENTRY} element={<Home />} />
             <Route path={ROUTES.LEARN_MORE} element={<LearnMore />} />
             <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />

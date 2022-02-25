@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 import format from 'date-fns/format';
 
 const EntryItemView = () => {
-  const params = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
+  const params = useParams();
 
   const [entry, setEntry] = useState<any>();
+
+  console.log(location);
 
   useEffect(() => {
     fetchUserEntryById().catch(console.error);
@@ -54,9 +57,12 @@ const EntryItemView = () => {
               <button
                 type="button"
                 className="mb-8 w-28 justify-center rounded bg-neutral-200/70 px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out hover:bg-neutral-300 focus:outline-none focus:ring-0 dark:bg-neutral-700 dark:text-white hover:dark:bg-neutral-600"
-                onClick={() => navigate(-1)}
+                onClick={() =>
+                  (location.key !== 'default' && navigate(-1)) ||
+                  navigate('/home')
+                }
               >
-                &larr; Go back
+                &larr; Go {location.key !== 'default' ? 'back' : 'home'}
               </button>
             </div>
             <div className="col-end-4">

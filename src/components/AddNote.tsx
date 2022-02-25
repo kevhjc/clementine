@@ -5,7 +5,7 @@ import {
   useRef,
   MutableRefObject,
 } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { supabase } from './../supabaseClient';
 import { Dialog, Transition } from '@headlessui/react';
 
@@ -18,6 +18,7 @@ interface IAddNoteProps {
 }
 
 const AddNote = ({ userEntries, setUserEntries }: IAddNoteProps) => {
+  const location = useLocation();
   const navigate = useNavigate();
 
   const session = useContext(SessionContext);
@@ -68,7 +69,7 @@ const AddNote = ({ userEntries, setUserEntries }: IAddNoteProps) => {
 
   const handleModalClose = () => {
     setOpen(false);
-    return navigate(-1);
+    return location.search === '' ? navigate('/home') : navigate(-1);
   };
 
   return (

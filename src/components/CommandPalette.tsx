@@ -53,7 +53,8 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       shortcut: ['n'],
       section: Sections.Entry,
       keywords: 'note',
-      perform: () => (window.location.pathname = '/new/note'),
+      perform: () =>
+        (window.location.href = 'https://www.clementine.today/new/note'),
     },
     {
       id: 'task',
@@ -62,7 +63,8 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Entry,
       keywords: 'task',
       icon: <Pencil2Icon />,
-      perform: () => (window.location.pathname = '/new/task'),
+      perform: () =>
+        (window.location.href = 'https://www.clementine.today/new/task'),
     },
     {
       id: 'bookmark',
@@ -71,7 +73,8 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
       section: Sections.Entry,
       keywords: 'bookmark',
       icon: <Link2Icon />,
-      perform: () => (window.location.pathname = '/new/bookmark'),
+      perform: () =>
+        (window.location.href = 'https://www.clementine.today/new/bookmark'),
     },
     {
       id: 'home',

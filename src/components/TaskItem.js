@@ -87,7 +87,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
       <div className="absolute right-3 z-50 -mt-[1.5px] flex justify-center gap-x-3 font-sans">
         {!isComplete && !editMode ? (
           <button
-            className="hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+            className="hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-800 dark:hover:bg-neutral-700"
             aria-hidden="true"
             onClick={toggleMode}
           >
@@ -96,7 +96,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
         ) : null}
         {editMode ? (
           <button
-            className="hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 text-sky-500 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:text-sky-400 dark:hover:bg-neutral-600"
+            className="hidden flex-shrink-0 rounded border border-black bg-black px-2 pb-0.5 text-white transition-all duration-75 ease-in-out hover:bg-neutral-100 hover:text-black group-hover:block dark:border-white dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-white"
             aria-hidden="true"
             onClick={() =>
               handleUpdateTask(
@@ -111,9 +111,9 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
         <button
           className={classNames(
             editMode
-              ? 'text-neutral-400 dark:hover:bg-neutral-700'
-              : 'text-red-500',
-            'hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600'
+              ? 'border-neutral-300 text-neutral-300 hover:bg-white dark:border-neutral-600 dark:text-neutral-500 dark:hover:bg-neutral-800'
+              : 'border-red-500 text-red-500 hover:bg-red-500 hover:text-white dark:border-red-500 dark:hover:bg-red-500',
+            'hidden flex-shrink-0 rounded border bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out focus:outline-none focus:ring-0 group-hover:block dark:bg-neutral-800'
           )}
           aria-hidden="true"
           disabled={editMode ? true : false}

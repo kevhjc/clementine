@@ -63,7 +63,7 @@ const EntryItemView = () => {
             <div className="col-start-1">
               <button
                 type="button"
-                className="mb-8 w-28 justify-center rounded border border-neutral-300 bg-white px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                className="mb-8 w-28 justify-center rounded border border-neutral-300 bg-white px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-900 dark:hover:bg-neutral-800"
                 onClick={() =>
                   (location.key !== 'default' && navigate(-1)) ||
                   navigate('/home')
@@ -76,7 +76,7 @@ const EntryItemView = () => {
               {!editMode ? (
                 <button
                   type="button"
-                  className="mb-8 w-24 justify-center rounded border border-neutral-300 bg-white px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                  className="mb-8 w-24 justify-center rounded border border-neutral-300 bg-white px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-900 dark:hover:bg-neutral-800"
                   onClick={toggleMode}
                 >
                   {'Edit'}
@@ -85,7 +85,7 @@ const EntryItemView = () => {
               {editMode ? (
                 <button
                   type="button"
-                  className="mb-8 w-24 justify-center rounded border border-neutral-300 bg-white px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                  className="mb-8 w-24 justify-center rounded border border-black bg-black px-2 py-3 pb-3 text-sm font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-neutral-900 focus:outline-none focus:ring-0 dark:border-white dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-white"
                   onClick={() =>
                     updateEntryById(
                       entry[0].id,
@@ -102,9 +102,9 @@ const EntryItemView = () => {
                 disabled={editMode ? true : false}
                 className={classNames(
                   editMode
-                    ? 'text-neutral-300 hover:bg-white dark:text-neutral-500 dark:hover:bg-neutral-700'
-                    : 'text-red-500',
-                  'mb-8 ml-4 w-24 justify-center rounded border border-neutral-300 bg-white px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600'
+                    ? 'border-neutral-300 text-neutral-300 hover:bg-white dark:border-neutral-600 dark:text-neutral-500 dark:hover:bg-neutral-900'
+                    : 'border-red-500 text-red-500 hover:bg-red-500 hover:text-white dark:border-red-500 dark:hover:bg-red-500',
+                  'mb-8 ml-4 w-24 justify-center rounded border bg-white px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:bg-neutral-900'
                 )}
                 onClick={() => deleteEntryById(entry[0].id)}
               >

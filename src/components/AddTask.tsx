@@ -9,12 +9,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { supabase } from './../supabaseClient';
 import { Dialog, Transition } from '@headlessui/react';
 
-import { IAddTaskProps } from '../lib/interfaces';
+import { IAddEntryProps } from '../lib/interfaces';
 
 import { validateTask } from '../utils/validation';
 import { SessionContext } from '../context/SessionContext';
 
-const AddTask = ({ userEntries, setUserEntries }: IAddTaskProps) => {
+const AddTask = ({ userEntries, setUserEntries }: IAddEntryProps) => {
   const location = useLocation();
   const navigate = useNavigate();
 

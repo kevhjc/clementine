@@ -21,17 +21,7 @@ export interface IEntryProps {
   deleteEntryById: (id: string) => void;
 }
 
-export interface IAddNoteProps {
-  userEntries: string[];
-  setUserEntries: any;
-}
-
-export interface IAddTaskProps {
-  userEntries: string[];
-  setUserEntries: any;
-}
-
-export interface IAddBookmarkProps {
+export interface IAddEntryProps {
   userEntries: string[];
   setUserEntries: any;
 }

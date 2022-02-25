@@ -39,7 +39,7 @@ const App = () => {
       <CommandPalette>
         <Routes>
           <Route path={ROUTES.ROOT} element={<Navigation />}>
-            <Route index element={session ? <Home /> : <Intro />} />
+            <Route index element={<Intro />} />
             <Route path={ROUTES.SIGN_IN} element={<SignIn />} />
             {session ? (
               <Route path={ROUTES.HOME} element={<Home />} />

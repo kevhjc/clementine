@@ -35,7 +35,7 @@ const EntryList = memo(
             key={index}
             className={classNames(
               item.category === 'note'
-                ? 'hover:bg-neutral-100 dark:hover:bg-neutral-700'
+                ? 'hover:bg-neutral-100 dark:hover:bg-neutral-700/30'
                 : 'hover:none dark:hover:none',
               'group relative z-10 rounded-md p-3'
             )}

@@ -73,7 +73,9 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
           ) : null}
           <button
             className={classNames(
-              editMode ? 'text-neutral-400' : 'text-red-500',
+              editMode
+                ? 'text-neutral-400 dark:hover:bg-neutral-700'
+                : 'text-red-500',
               'hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-700 dark:hover:bg-neutral-600'
             )}
             aria-hidden="true"

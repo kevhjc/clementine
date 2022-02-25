@@ -96,12 +96,12 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             contentEditable
             suppressContentEditableWarning={true}
             id="bookmark-url"
-            className="... truncate bg-white font-mono text-sm leading-6 text-neutral-500 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:text-neutral-400 dark:outline-neutral-500"
+            className="... mt-1 truncate bg-white font-mono text-sm leading-6 text-neutral-500 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:text-neutral-400 dark:outline-neutral-500"
           >
             {bookmark.content}
           </p>
         ) : (
-          <p className="... truncate font-mono text-sm leading-6 text-neutral-500 dark:text-neutral-400">
+          <p className="... mt-1 truncate font-mono text-sm leading-6 text-neutral-500 dark:text-neutral-400">
             {bookmark.content}
           </p>
         )}

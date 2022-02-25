@@ -24,7 +24,7 @@ const EntryList = memo(
               <div className="flex flex-col justify-center text-center">
                 <p>No entries yet</p>
                 <p>
-                  (Hint: try pressing <strong>T</strong> to add a new task)
+                  (Try typing <strong>T</strong> to add a new task)
                 </p>
               </div>
             )}

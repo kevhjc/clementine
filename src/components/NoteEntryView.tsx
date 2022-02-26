@@ -31,9 +31,11 @@ const NoteEntryView = () => {
     title: string | undefined,
     content: string | undefined
   ) => {
+    let updatedTitle = title!.trim();
+    let updatedContent = content!.trim();
     const { data: entries, error } = await supabase
       .from('entries')
-      .update({ title: title, content: content })
+      .update({ title: updatedTitle, content: updatedContent })
       .eq('id', id);
     if (error) console.log('Error updating entry: ', error);
     else {

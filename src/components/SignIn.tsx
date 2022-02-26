@@ -57,7 +57,7 @@ export default function SignIn() {
         </p>
       </div>
       <div className="flex justify-center">
-        <div className="mt-12 w-5/6 max-w-2xl rounded-lg border border-neutral-200/70 bg-neutral-50 p-4 duration-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800">
+        <div className="mt-12 w-full max-w-2xl rounded-lg border border-neutral-200/70 bg-neutral-50 p-4 duration-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800">
           <form className="relative my-1" action="#">
             <input
               id="email"
@@ -107,7 +107,7 @@ export default function SignIn() {
           .
         </ul>
       </div>
-      <div className="mt-12 flex justify-center px-12 font-medium leading-8 tracking-tight">
+      <div className="mt-12 flex justify-center px-2 font-medium leading-8 tracking-tight">
         <div className="mb-24 mt-12 px-8 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight text-black dark:text-white">
           <ul className="px-2 text-center text-sm leading-6">
             <strong>Tip:</strong> Remember to check your spam folder and move

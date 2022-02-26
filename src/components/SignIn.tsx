@@ -102,8 +102,9 @@ export default function SignIn() {
         <ul className="px-2 text-center text-lg leading-6">
           By clicking "Send", I agree to Clementine's{' '}
           <Link to="/privacy-policy" className="text-blue-600 hover:underline">
-            Privacy Policy.
+            Privacy Policy
           </Link>
+          .
         </ul>
       </div>
       <div className="mt-12 flex justify-center px-12 font-medium leading-8 tracking-tight">

@@ -19,8 +19,7 @@ export default function LearnMore() {
               {', or '}
               <span className="mx-[1px] rounded bg-emerald-200/70 p-[1px] font-mono text-emerald-800 dark:bg-emerald-500/70 dark:text-emerald-200">
                 bookmarks
-              </span>
-              {', '}
+              </span>{' '}
               throughout the day.
             </ul>
           </div>

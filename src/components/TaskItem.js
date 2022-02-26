@@ -48,7 +48,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
           checked={isComplete ? true : ''}
         />
       )}
-      <div className="mr-2 mt-[1.5px] flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border-[1.5px] border-neutral-800/70 bg-transparent focus-within:border-sky-400 dark:border-neutral-400">
+      <div className="mr-2 mt-[1.5px] flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border-[1.5px] border-neutral-500/80 bg-transparent focus-within:border-sky-400 dark:border-neutral-400">
         <svg
           className="pointer-events-none hidden h-3 w-3 fill-current"
           version="1.1"

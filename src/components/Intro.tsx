@@ -94,7 +94,7 @@ export default function Intro() {
               <img
                 src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=333198&theme=light"
                 alt="Clementine - A place to save your thoughts and ideas | Product Hunt"
-                className="h-[38px] w-[180px] rotate-6"
+                className="h-[32px] w-[150px] -rotate-6"
               />
             </a>
           </div>

@@ -79,7 +79,7 @@ export default function Intro() {
               </button>
             </Link>
           )}
-          <div className="mb-24 mt-28 rounded-lg bg-yellow-100/20 px-8 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight text-black dark:bg-yellow-600/20 dark:text-white">
+          <div className="mb-24 mt-14 rounded-lg px-4 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight">
             <span>
               <strong>Tip:</strong> Use Command + K to access the command bar
             </span>

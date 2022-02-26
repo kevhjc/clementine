@@ -124,14 +124,14 @@ const NoteEntryView = () => {
                 id="title"
                 contentEditable
                 suppressContentEditableWarning={true}
-                className="mt-2 mb-8 text-3xl font-bold leading-8 tracking-tight outline outline-offset-1 outline-neutral-300 ring-neutral-600 sm:text-5xl dark:outline-neutral-500"
+                className="mt-2 mb-8 py-[3.5px] text-3xl font-bold leading-8 tracking-tight outline outline-offset-1 outline-neutral-300 ring-neutral-600 sm:text-5xl dark:outline-neutral-500"
               >
                 {entry[0].title}
               </p>
             ) : (
               <p
                 id="title"
-                className="mt-2 mb-8 text-3xl font-bold leading-8 tracking-tight outline-none sm:text-5xl"
+                className="mt-2 mb-8 py-[3.5px] text-3xl font-bold leading-8 tracking-tight outline-none sm:text-5xl"
               >
                 {entry[0].title}
               </p>

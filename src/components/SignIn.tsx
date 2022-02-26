@@ -57,7 +57,7 @@ export default function SignIn() {
         </p>
       </div>
       <div className="flex justify-center">
-        <div className="mt-12 w-full max-w-2xl rounded-lg border border-neutral-200/70 bg-neutral-50 p-4 duration-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800">
+        <div className="mt-12 w-full max-w-2xl rounded-lg border border-neutral-200/70 bg-neutral-50 p-4 duration-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800/60">
           <form className="relative my-1" action="#">
             <input
               id="email"
@@ -84,12 +84,10 @@ export default function SignIn() {
             </button>
           </form>
           {!!helperText.text && (
-            <div className="mt-6 flex justify-center">
+            <div className="mt-6 mb-2 flex justify-center">
               <div
-                className={`text-center text-sm font-bold ${
-                  helperText.error
-                    ? ' text-red-600 dark:text-red-500'
-                    : ' text-sky-600 dark:text-sky-500'
+                className={`text-center font-bold ${
+                  helperText.error ? ' text-red-600' : ' text-blue-600'
                 }`}
               >
                 {helperText.text}

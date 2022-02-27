@@ -92,9 +92,9 @@ export default function Intro() {
               rel="noreferrer"
             >
               <img
-                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=333198&theme=light"
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=333198&theme=dark"
                 alt="Clementine - A place to save your thoughts and ideas | Product Hunt"
-                className="h-[32px] w-[150px] -rotate-6"
+                className="h-[43px] w-[200px]"
               />
             </a>
           </div>

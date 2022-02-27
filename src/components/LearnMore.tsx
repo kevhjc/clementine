@@ -32,8 +32,8 @@ export default function LearnMore() {
             <span className="mx-[1px] rounded bg-yellow-200/70 p-[1px] font-mono text-yellow-700 dark:bg-yellow-500/70 dark:text-yellow-100">
               Command + K
             </span>{' '}
-            or (or Control + K on Windows) to access the command bar from any
-            page. Use global shortcuts (like{' '}
+            or (or Control + K on Windows) to access the command palette from
+            any page. Use global shortcuts (like{' '}
             <span className="mx-[1px] rounded bg-yellow-200/70 p-[1px] font-mono text-yellow-700 dark:bg-yellow-500/70 dark:text-yellow-100">
               B
             </span>{' '}

@@ -28,9 +28,16 @@ export default function LearnMore() {
             What are these shortcuts?
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-600 dark:text-neutral-300">
-            Use <strong>Command + K</strong> or (or Control + K on Windows) to
-            access the command bar from any page. Use global shortcuts (like{' '}
-            <strong>T</strong> for a new task) for quick entries.
+            Use{' '}
+            <span className="mx-[1px] rounded bg-yellow-200/70 p-[1px] font-mono text-yellow-700 dark:bg-yellow-500/70 dark:text-yellow-100">
+              Command + K
+            </span>{' '}
+            or (or Control + K on Windows) to access the command bar from any
+            page. Use global shortcuts (like{' '}
+            <span className="mx-[1px] rounded bg-yellow-200/70 p-[1px] font-mono text-yellow-700 dark:bg-yellow-500/70 dark:text-yellow-100">
+              B
+            </span>{' '}
+            for a new bookmark) for quick entries.
           </p>
 
           <p className="mt-20 text-3xl font-black leading-8 tracking-tight sm:text-5xl">

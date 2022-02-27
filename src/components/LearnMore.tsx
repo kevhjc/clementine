@@ -28,8 +28,8 @@ export default function LearnMore() {
             What are these shortcuts?
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-600 dark:text-neutral-300">
-            Use <strong>command</strong> or <strong>control + K</strong> to
-            access the command bar from anywhere. Use global shortcuts (like{' '}
+            Use <strong>Command + K</strong> or (or Control + K on Windows) to
+            access the command bar from any page. Use global shortcuts (like{' '}
             <strong>T</strong> for a new task) for quick entries.
           </p>
 

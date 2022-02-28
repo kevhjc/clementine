@@ -86,8 +86,6 @@ const Home = () => {
     }
   };
 
-  console.log(entries);
-
   return (
     <div>
       {location.pathname === PATHS.NEW_NOTE && (

@@ -123,7 +123,7 @@ function CommandMenu() {
         style={{ padding: '9rem 16px 16px' }}
       >
         {session ? (
-          <div>
+          <>
             <span
               className="fixed top-20 z-20 flex cursor-pointer justify-center rounded-lg border border-neutral-200 bg-white/80 px-4 py-2 font-mono dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80
               "
@@ -131,15 +131,15 @@ function CommandMenu() {
               <PersonIcon className="mr-2 h-6 w-4 opacity-80" />
               {session.user.email}
             </span>
-          </div>
+          </>
         ) : null}
         <KBarAnimator className="z-10 w-full max-w-2xl overflow-hidden rounded-lg border border-neutral-300 bg-white/80 shadow-2xl backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-800/80 dark:text-white">
-          <div>
+          <>
             <KBarSearch
               defaultPlaceholder="What would you like to do?"
               className="mb-2 box-border w-full border-b-[1px] bg-white/70 px-4 pt-4 pb-4 outline-none backdrop-blur-sm dark:border-neutral-700/80 dark:bg-neutral-800/80 dark:placeholder:text-neutral-100/60"
             />
-          </div>
+          </>
           <div className="pb-2">
             <Results />
           </div>
@@ -262,7 +262,7 @@ const ResultItem = React.forwardRef(
           </span>
 
           <div className="mt-0.5 flex flex-col">
-            <div>
+            <>
               {ancestors.length > 0 &&
                 ancestors.map((ancestor: ActionImpl) => (
                   <React.Fragment key={ancestor.id}>
@@ -271,7 +271,7 @@ const ResultItem = React.forwardRef(
                   </React.Fragment>
                 ))}
               <span>{action.name}</span>
-            </div>
+            </>
             {action.subtitle && (
               <span className="text-[0.75rem]">{action.subtitle}</span>
             )}

@@ -87,7 +87,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <>
       {location.pathname === PATHS.NEW_NOTE && (
         <AddNote userEntries={userEntries} setUserEntries={setUserEntries} />
       )}
@@ -133,7 +133,7 @@ const Home = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

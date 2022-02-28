@@ -141,7 +141,7 @@ const NoteEntryView = () => {
           </div>
           <div className="group relative mt-12 mb-24">
             {editMode ? (
-              <div>
+              <>
                 <span className="absolute top-0 -mt-8 hidden text-xs text-neutral-400 group-hover:block">
                   {'Body'}
                 </span>
@@ -153,9 +153,9 @@ const NoteEntryView = () => {
                 >
                   {entry[0].content}
                 </p>
-              </div>
+              </>
             ) : (
-              <div>
+              <>
                 <span className="absolute top-0 -mt-8 hidden text-xs text-neutral-400 group-hover:block">
                   {'Body'}
                 </span>
@@ -165,7 +165,7 @@ const NoteEntryView = () => {
                 >
                   {entry[0].content}
                 </p>
-              </div>
+              </>
             )}
           </div>
         </div>

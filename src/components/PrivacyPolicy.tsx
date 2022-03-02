@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
           Privacy Policy
         </h1>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
-          Last updated: February 25, 2022
+          Last updated: March 02, 2022
         </p>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
           This Privacy Policy describes Our policies and procedures on the
@@ -231,16 +231,7 @@ export default function PrivacyPolicy() {
           Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies.
           Persistent Cookies remain on Your personal computer or mobile device
           when You go offline, while Session Cookies are deleted as soon as You
-          close Your web browser. Learn more about cookies:{' '}
-          <a
-            href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking"
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-600 hover:underline"
-          >
-            Use of Cookies by Free Privacy Policy
-          </a>
-          .
+          close Your web browser.
         </p>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
           We use both Session and Persistent Cookies for the purposes set out

@@ -37,7 +37,7 @@ export default function Intro() {
           </p>
         </div>
 
-        <div className="mt-24 flex justify-center">
+        <div className="mt-14 flex justify-center">
           <dl className="space-y-10 md:grid md:grid-cols-3 md:gap-x-24 md:gap-y-12 md:space-y-0">
             {features.map((feature) => (
               <div key={feature.name} className="relative">
@@ -57,7 +57,7 @@ export default function Intro() {
           </dl>
         </div>
 
-        <div className="mt-24 flex flex-col items-center justify-center font-medium leading-8 tracking-tight text-neutral-900">
+        <div className="mt-20 flex flex-col items-center justify-center font-medium leading-8 tracking-tight text-neutral-900">
           {!session ? (
             <div className="relative inline-flex w-fit">
               <Link to="/signin">
@@ -79,7 +79,7 @@ export default function Intro() {
               </button>
             </Link>
           )}
-          <div className="mb-14 mt-14 rounded-lg px-4 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight dark:text-neutral-300">
+          <div className="mb-12 mt-12 rounded-lg px-4 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight dark:text-neutral-300">
             <span>
               <strong>Tip:</strong> Use Command + K to access the command
               palette

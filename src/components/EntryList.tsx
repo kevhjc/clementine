@@ -22,8 +22,10 @@ const EntryList = memo(
           <li className="group relative z-10 rounded-md p-3 py-6">
             {location.pathname === PATHS.HOME && (
               <div className="flex flex-col justify-center text-center">
-                <p>No entries yet</p>
-                <p>
+                <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
+                  No entries yet
+                </p>
+                <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
                   (Try typing <strong>T</strong> to add a new task)
                 </p>
               </div>

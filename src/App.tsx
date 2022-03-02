@@ -14,6 +14,7 @@ import Home from './components/Home';
 import NoteEntryView from './components/NoteEntryView';
 import LearnMore from './components/LearnMore';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Terms from './components/Terms';
 import NotFound from './components/NotFound';
 
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
             <Route path={ROUTES.NEW_ENTRY} element={<Home />} />
             <Route path={ROUTES.LEARN_MORE} element={<LearnMore />} />
             <Route path={ROUTES.PRIVACY_POLICY} element={<PrivacyPolicy />} />
+            <Route path={ROUTES.TERMS_OF_SERVICE} element={<Terms />} />
             <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
           </Route>
         </Routes>

@@ -592,7 +592,7 @@ export default function PrivacyPolicy() {
         </h1>
         <p className="mx-auto mt-4 pb-24 text-xl text-neutral-600 dark:text-neutral-300">
           If you have any questions about this Privacy Policy, You can contact
-          us at kevin.c@me.com
+          us at hi@kevc.xyz
         </p>
       </div>
     </div>

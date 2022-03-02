@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
+import * as PATHS from '../constants/paths';
+
 import { validateEmail } from '../utils/validation';
 
 export default function SignIn() {
@@ -117,7 +119,17 @@ export default function SignIn() {
       <div className="mt-4 flex justify-center font-medium leading-8 tracking-tight">
         <ul className="px-2 text-center text-sm leading-6">
           By clicking "Send", I agree to Clementine's{' '}
-          <Link to="/privacy-policy" className="text-blue-600 hover:underline">
+          <Link
+            to={PATHS.TERMS_OF_SERVICE}
+            className="text-blue-600 hover:underline"
+          >
+            Terms of Service
+          </Link>{' '}
+          and{' '}
+          <Link
+            to={PATHS.PRIVACY_POLICY}
+            className="text-blue-600 hover:underline"
+          >
             Privacy Policy
           </Link>
           .

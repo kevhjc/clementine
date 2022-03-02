@@ -14,16 +14,16 @@ export default function SignIn() {
   const [email, setEmail] = useState('');
   const input = useRef(null);
 
-  const handleLogin = async (email: string) => {
+  const handleSignin = async (email: string) => {
     try {
       setLoading(true);
       const emailError = validateEmail(email);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { error } = await supabase.auth.signIn(
-        { email: email },
-        {
-          redirectTo: 'https://www.clementine.today/home',
-        }
+        { email: email }
+        // {
+        //   redirectTo: 'https://www.clementine.today/home',
+        // }
       );
       setHelperText({
         error: false,
@@ -46,6 +46,12 @@ export default function SignIn() {
     }
   };
 
+  const handleSignInWithGoogle = async () => {
+    const { user, session, error } = await supabase.auth.signIn({
+      provider: 'google',
+    });
+  };
+
   return (
     <div className="mx-auto mt-40 max-w-7xl px-10">
       <div className="text-center">
@@ -53,7 +59,7 @@ export default function SignIn() {
           Hey there 👋
         </p>
         <p className="mx-auto mt-4 max-w-2xl font-sans text-xl text-neutral-500 dark:text-neutral-300">
-          Sign in via Magic Link with your email
+          Sign in via Magic Link or continue with Google
         </p>
       </div>
       <div className="flex justify-center">
@@ -76,7 +82,7 @@ export default function SignIn() {
               type="submit"
               onClick={(e) => {
                 e.preventDefault();
-                handleLogin(email);
+                handleSignin(email);
               }}
               disabled={loading}
             >
@@ -105,13 +111,31 @@ export default function SignIn() {
           .
         </ul>
       </div>
-      <div className="mt-12 flex justify-center px-2 font-medium leading-8 tracking-tight">
-        <div className="mb-24 mt-12 px-8 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight text-black dark:text-white">
-          <ul className="px-2 text-center text-sm leading-6">
-            <strong>Tip:</strong> Remember to check your spam folder and move
-            the message to your inbox to access to your Magic Link.
-          </ul>
-        </div>
+      <div className="mt-14 flex justify-center px-2 font-medium leading-8 tracking-tight">
+        <button
+          className="right-1 top-1 flex h-14 items-center gap-x-2 rounded-md bg-blue-500 px-8 font-sans font-medium text-white transition duration-150 ease-in-out hover:bg-blue-600 dark:bg-blue-700 dark:text-neutral-200"
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            handleSignInWithGoogle();
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="white"
+            shape-rendering="geometricPrecision"
+            text-rendering="geometricPrecision"
+            image-rendering="optimizeQuality"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            viewBox="0 0 640 640"
+          >
+            <path d="M326.331 274.255v109.761h181.49c-7.37 47.115-54.886 138.002-181.49 138.002-109.242 0-198.369-90.485-198.369-202.006 0-111.509 89.127-201.995 198.369-201.995 62.127 0 103.761 26.516 127.525 49.359l86.883-83.635C484.99 31.512 412.741-.012 326.378-.012 149.494-.012 6.366 143.116 6.366 320c0 176.884 143.128 320.012 320.012 320.012 184.644 0 307.256-129.876 307.256-312.653 0-21-2.244-36.993-5.008-52.997l-302.248-.13-.047.024z" />
+          </svg>
+          Continue with Google
+        </button>
       </div>
     </div>
   );

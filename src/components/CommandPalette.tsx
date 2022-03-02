@@ -15,13 +15,13 @@ import {
 } from 'kbar';
 import {
   FileTextIcon,
+  EnterIcon,
   ExitIcon,
   InfoCircledIcon,
   HomeIcon,
   Link2Icon,
   Pencil2Icon,
   PersonIcon,
-  MagicWandIcon,
 } from '@radix-ui/react-icons';
 
 import * as PATHS from '../constants/paths';
@@ -87,8 +87,8 @@ export default function CommandPalette({ children }: ICommandPaletteProps) {
     },
     {
       id: 'signin',
-      name: 'Sign in with Magic Link',
-      icon: <MagicWandIcon />,
+      name: 'Sign in',
+      icon: <EnterIcon />,
       shortcut: [''],
       section: Sections.Account,
       keywords: 'sign in',

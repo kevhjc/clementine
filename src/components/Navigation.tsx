@@ -30,7 +30,7 @@ export default function Navigation() {
         </div>
         <div className="flex basis-11/12 justify-end">
           <button
-            title="Add entry"
+            title="Open command palette"
             className="mr-6 rounded-md bg-neutral-200/40 p-2 outline-none transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:bg-neutral-800/50 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
             onClick={handleMenuClick}
           >

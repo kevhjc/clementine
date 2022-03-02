@@ -70,8 +70,8 @@ export default function SignIn() {
         <p className="mt-2 text-4xl font-bold leading-8 tracking-tight sm:text-5xl">
           Hey there 👋
         </p>
-        <p className="mx-auto mt-4 max-w-2xl font-sans text-xl text-neutral-500 dark:text-neutral-300">
-          Let's get you started on Clementine
+        <p className="mx-auto mt-4 max-w-2xl font-sans text-lg text-neutral-500 dark:text-neutral-300">
+          Sign in with your email via Magic Link or continue with a third party
         </p>
       </div>
       <div className="flex justify-center">
@@ -82,7 +82,7 @@ export default function SignIn() {
               ref={input}
               type={'email'}
               aria-label="Enter your email to be sent a Magic Link"
-              placeholder="Enter your email to be sent a Magic Link"
+              placeholder="Enter your email"
               required
               className={
                 'mt-1 block w-full rounded-lg bg-white px-4 py-3 pr-28 text-neutral-900 outline-none dark:border-neutral-600 dark:bg-neutral-900/70 dark:text-neutral-200'
@@ -114,8 +114,8 @@ export default function SignIn() {
           )}
         </div>
       </div>
-      <div className="mt-8 flex justify-center font-medium leading-8 tracking-tight">
-        <ul className="px-2 text-center text-lg leading-6">
+      <div className="mt-4 flex justify-center font-medium leading-8 tracking-tight">
+        <ul className="px-2 text-center text-sm leading-6">
           By clicking "Send", I agree to Clementine's{' '}
           <Link to="/privacy-policy" className="text-blue-600 hover:underline">
             Privacy Policy

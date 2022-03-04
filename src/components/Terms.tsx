@@ -86,7 +86,7 @@ export default function PrivacyPolicy() {
                 href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking"
                 target="_blank"
                 rel="noreferrer"
-                className="text-blue-600 hover:underline"
+                className="text-blue-600 hover:underline dark:text-blue-500"
               >
                 https://www.clementine.today/
               </a>

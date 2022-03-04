@@ -63,7 +63,7 @@ export default function SignIn() {
   };
 
   return (
-    <div className="mx-auto mt-40 max-w-7xl px-10">
+    <div className="mx-auto mt-40 mb-24 max-w-7xl px-10">
       <div className="text-center">
         <p className="mt-2 text-4xl font-bold leading-8 tracking-tight sm:text-5xl">
           Hey there 👋
@@ -113,18 +113,18 @@ export default function SignIn() {
         </div>
       </div>
       <div className="mt-4 flex justify-center font-medium leading-8 tracking-tight">
-        <ul className="px-2 text-center text-sm leading-6">
+        <ul className="px-2 text-center leading-6">
           By clicking "Send", I agree to Clementine's{' '}
           <Link
             to={PATHS.TERMS_OF_SERVICE}
-            className="text-blue-600 hover:underline"
+            className="text-blue-600 hover:underline dark:text-blue-500"
           >
             Terms of Service
           </Link>{' '}
           and{' '}
           <Link
             to={PATHS.PRIVACY_POLICY}
-            className="text-blue-600 hover:underline"
+            className="text-blue-600 hover:underline dark:text-blue-500"
           >
             Privacy Policy
           </Link>

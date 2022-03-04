@@ -106,7 +106,7 @@ export default function PrivacyPolicy() {
                 href="https://www.clementine.today/"
                 rel="external nofollow noopener noreferrer"
                 target="_blank"
-                className="text-blue-600 hover:underline"
+                className="text-blue-600 hover:underline dark:text-blue-500"
               >
                 https://www.clementine.today/
               </a>
@@ -209,7 +209,7 @@ export default function PrivacyPolicy() {
                 href="https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_"
                 rel="external nofollow noopener noreferrer"
                 target="_blank"
-                className="break-all text-blue-600 hover:underline"
+                className="break-all text-blue-600 hover:underline dark:text-blue-500"
               >
                 https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_
               </a>

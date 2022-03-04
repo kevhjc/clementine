@@ -105,7 +105,7 @@ const AddBookmark = ({ userEntries, setUserEntries }: IAddEntryProps) => {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div className="inline-block w-[420px] transform overflow-hidden rounded-md border border-neutral-200 bg-white text-left shadow-2xl transition-all sm:my-8 sm:align-middle dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80">
-              <div className="pl-5 pt-3 pb-2 font-mono font-black text-emerald-500 dark:text-emerald-400">
+              <div className="pl-5 pt-3 pb-2 font-black text-emerald-500 dark:text-emerald-400">
                 New bookmark
               </div>
               <div className="px-4 pt-4 pb-4">

@@ -36,7 +36,7 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             </a>
           </span>
         ) : (
-          <span className="... z-30 truncate break-words font-sans text-lg font-bold leading-6 decoration-1 underline-offset-1 hover:underline">
+          <span className="... z-30 truncate break-words font-sans text-lg font-bold leading-6 underline decoration-1 underline-offset-1 hover:no-underline">
             <a
               href={bookmark.content}
               target="_blank"
@@ -96,12 +96,12 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             contentEditable
             suppressContentEditableWarning={true}
             id="bookmark-url"
-            className="... mt-1 truncate bg-white font-mono text-sm leading-6 text-neutral-500 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:text-neutral-400 dark:outline-neutral-500"
+            className="... mt-1 truncate bg-white leading-6 text-neutral-500 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:text-neutral-400 dark:outline-neutral-500"
           >
             {bookmark.content}
           </p>
         ) : (
-          <p className="... mt-1 truncate font-mono text-sm leading-6 text-neutral-500 dark:text-neutral-400">
+          <p className="... mt-1 truncate leading-6 text-neutral-500 dark:text-neutral-400">
             {bookmark.content}
           </p>
         )}

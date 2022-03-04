@@ -125,7 +125,7 @@ function CommandMenu() {
         {session ? (
           <>
             <span
-              className="fixed top-20 z-20 flex cursor-pointer justify-center rounded-lg border border-neutral-200 bg-white/80 px-4 py-2 font-mono dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80
+              className="fixed top-20 z-20 flex cursor-pointer justify-center rounded-lg border border-neutral-200 bg-white/80 px-4 py-2 dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80
               "
             >
               <PersonIcon className="mr-2 h-6 w-4 opacity-80" />
@@ -252,7 +252,7 @@ const ResultItem = React.forwardRef(
             action.id === 'bookmark' &&
             'bg-emerald-200/30 dark:bg-emerald-600/20'
           }
-					font-mono transition-colors delay-[0]
+					transition-colors delay-[0]
 					duration-[.15s] dark:text-neutral-100/80
 				`}
       >

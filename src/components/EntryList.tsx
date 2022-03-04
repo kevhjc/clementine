@@ -86,11 +86,11 @@ const EntryList = memo(
                 />
               )}
               {item.content && item.category === 'note' ? (
-                <span className="... mt-1 truncate font-mono text-sm leading-6 text-neutral-500 dark:text-neutral-400">
+                <span className="... mt-1 truncate leading-6 text-neutral-500 dark:text-neutral-400">
                   {item.content}
                 </span>
               ) : null}
-              <ul className="mt-1 flex flex-wrap text-sm font-normal leading-6 text-neutral-500 dark:text-neutral-400">
+              <ul className="mt-3 flex flex-wrap font-mono text-xs font-normal leading-6 text-neutral-500 dark:text-neutral-400">
                 <li
                   className={
                     item.category === 'note'
@@ -105,7 +105,7 @@ const EntryList = memo(
                   {item.category}
                 </li>
                 <li className="mx-2 md:visible">&middot;</li>
-                <li className="text-neutral-500">
+                <li className="font-sans text-neutral-500">
                   {format(
                     new Date(item.inserted_at),
                     "MMM d, yyyy '–' h:mm bb"

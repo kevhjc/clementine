@@ -1,6 +1,6 @@
 {
   "short_name": "Clementine",
-  "name": "Clementine",
+  "name": "Clementine: A place to save your thoughts and ideas",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "fullscreen",
-  "theme_color": "#000000",
+  "theme_color": "#ffffff",
   "background_color": "#ffffff"
 }

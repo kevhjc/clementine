@@ -104,7 +104,7 @@ const NoteEntryView = () => {
                 disabled={editMode ? true : false}
                 className={classNames(
                   editMode
-                    ? 'border-neutral-300 text-neutral-300 hover:bg-white dark:border-neutral-600 dark:text-neutral-500 dark:hover:bg-neutral-900'
+                    ? 'cursor-not-allowed border-neutral-300 text-neutral-300 hover:bg-white dark:border-neutral-600 dark:text-neutral-500 dark:hover:bg-neutral-900'
                     : 'border-red-500 text-red-500 hover:bg-red-500 hover:text-white dark:border-red-500 dark:hover:bg-red-500',
                   'mb-8 ml-4 w-24 justify-center rounded border bg-white px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:bg-neutral-900'
                 )}
@@ -118,7 +118,7 @@ const NoteEntryView = () => {
             {format(new Date(entry[0].inserted_at), "MMM d, yyyy '–' h:mm bb")}
           </span>
           <div className="group relative mt-12">
-            <span className="absolute top-0 -mt-8 hidden text-xs text-neutral-400 group-hover:block">
+            <span className="absolute top-0 -mt-6 hidden text-xs text-neutral-400 group-hover:block">
               {'Title'}
             </span>
             {editMode ? (
@@ -142,7 +142,7 @@ const NoteEntryView = () => {
           <div className="group relative mt-12 mb-24">
             {editMode ? (
               <>
-                <span className="absolute top-0 -mt-8 hidden text-xs text-neutral-400 group-hover:block">
+                <span className="absolute top-0 -mt-6 hidden text-xs text-neutral-400 group-hover:block">
                   {'Body'}
                 </span>
                 <p

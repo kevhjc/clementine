@@ -154,13 +154,7 @@ const Home = () => {
             </div>
           </ul>
           {location.search === PARAMS.TASK_PARAMS && (
-            <div className="flex justify-between space-x-6 px-6 pt-6">
-              <button
-                className="rounded border border-neutral-400 bg-white px-2 pb-0.5 font-sans transition-all duration-75 ease-in-out hover:border-sky-500 hover:bg-sky-500 hover:text-white focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-800 dark:hover:bg-red-500"
-                aria-hidden="true"
-              >
-                New task
-              </button>
+            <div className="flex justify-end space-x-6 px-6 pt-6">
               {hasCompletedTask ? (
                 <button
                   className="rounded border border-neutral-400 bg-white px-2 pb-0.5 font-sans transition-all duration-75 ease-in-out hover:border-red-500 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-800 dark:hover:bg-red-500"

@@ -22,27 +22,22 @@ const EntryList = memo(
           <li className="group relative z-10 rounded-md p-3 py-6">
             {location.pathname === PATHS.HOME && (
               <div className="flex flex-col justify-center text-center">
-                <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
-                  No entries yet
-                </p>
-                <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
-                  (Try typing <strong>T</strong> to add a new task)
-                </p>
+                {'No entries'}
               </div>
             )}
             {location.search === PARAMS.NOTE_PARAMS && (
               <div className="flex flex-col justify-center text-center">
-                {'No notes yet'}
+                {'No notes'}
               </div>
             )}
             {location.search === PARAMS.TASK_PARAMS && (
               <div className="flex flex-col justify-center text-center">
-                {'No tasks yet'}
+                {'No tasks'}
               </div>
             )}
             {location.search === PARAMS.BOOKMARK_PARAMS && (
               <div className="flex flex-col justify-center text-center">
-                {'No bookmarks yet'}
+                {'No bookmarks'}
               </div>
             )}
           </li>

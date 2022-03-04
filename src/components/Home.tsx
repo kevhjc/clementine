@@ -3,6 +3,7 @@ import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
 import * as PATHS from '../constants/paths';
+import * as PARAMS from '../constants/params';
 
 import { ICategoryLinkProps } from '../lib/interfaces';
 
@@ -35,12 +36,18 @@ const Home = () => {
   const [searchParams] = useSearchParams();
 
   const [userEntries, setUserEntries] = useState<any>([]);
+  const [hasCompletedTask, setHasCompletedTask] = useState(false);
   const categories = ['note', 'task', 'bookmark'];
   const category = searchParams.get('category');
 
   useEffect(() => {
     fetchUserEntries().catch(console.error);
-  }, [setUserEntries]);
+    userEntries.some(
+      (entry: { is_complete: boolean }) => entry.is_complete === true
+    )
+      ? setHasCompletedTask(true)
+      : setHasCompletedTask(false);
+  }, [setUserEntries, userEntries]);
 
   const fetchUserEntries = async () => {
     let { data: entries, error } = await supabase
@@ -83,6 +90,21 @@ const Home = () => {
       );
     } catch (error) {
       console.log('Error deleting entry: ', error);
+    }
+  };
+
+  const clearCompletedTasks = async () => {
+    try {
+      await supabase.from('entries').delete().match({ is_complete: true });
+      setUserEntries(
+        userEntries.filter(
+          (entry: { is_complete: boolean }) => entry.is_complete !== true
+        )
+      );
+    } catch (error) {
+      console.log('Error clearing completed tasks: ', error);
+    } finally {
+      fetchUserEntries();
     }
   };
 
@@ -131,6 +153,23 @@ const Home = () => {
               />
             </div>
           </ul>
+          {location.search === PARAMS.TASK_PARAMS && (
+            <div className="flex justify-end space-x-6 pt-6 pr-6">
+              {hasCompletedTask ? (
+                <button
+                  className="rounded border border-neutral-400 bg-white px-2 pb-0.5 font-sans transition-all duration-75 ease-in-out hover:border-red-500 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-800 dark:hover:bg-red-500"
+                  aria-hidden="true"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    clearCompletedTasks();
+                  }}
+                >
+                  Clear completed
+                </button>
+              ) : null}
+            </div>
+          )}
         </div>
       </div>
     </>

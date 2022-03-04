@@ -47,7 +47,6 @@ const EntryList = memo(
             )}
           </li>
         )}
-
         {Object.values(items).map((item, index) => (
           <li
             key={index}

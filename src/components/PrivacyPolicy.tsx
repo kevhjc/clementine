@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
           Privacy Policy
         </h1>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
-          Last updated: March 02, 2022
+          Last updated: March 04, 2022
         </p>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
           This Privacy Policy describes Our policies and procedures on the
@@ -193,26 +193,6 @@ export default function PrivacyPolicy() {
               some parts of our Service. Unless you have adjusted Your browser
               setting so that it will refuse Cookies, our Service may use
               Cookies.
-            </p>
-          </li>
-          <li className="list-disc">
-            <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
-              <strong>Flash Cookies.</strong> Certain features of our Service
-              may use local stored objects (or Flash Cookies) to collect and
-              store information about Your preferences or Your activity on our
-              Service. Flash Cookies are not managed by the same browser
-              settings as those used for Browser Cookies. For more information
-              on how You can delete Flash Cookies, please read &quot;Where can I
-              change the settings for disabling, or deleting local shared
-              objects?&quot; available at{' '}
-              <a
-                href="https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_"
-                rel="external nofollow noopener noreferrer"
-                target="_blank"
-                className="break-all text-blue-600 hover:underline dark:text-blue-500"
-              >
-                https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_
-              </a>
             </p>
           </li>
           <li className="list-disc">

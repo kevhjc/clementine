@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
           Privacy Policy
         </h1>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
-          Last updated: March 04, 2022
+          Last updated: March 05, 2022
         </p>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
           This Privacy Policy describes Our policies and procedures on the
@@ -563,7 +563,7 @@ export default function PrivacyPolicy() {
         </h1>
         <p className="mx-auto mt-4 pb-24 text-xl text-neutral-600 dark:text-neutral-300">
           If you have any questions about this Privacy Policy, You can contact
-          us at hi@kevc.xyz
+          us at hello@clementine.today
         </p>
       </div>
     </div>

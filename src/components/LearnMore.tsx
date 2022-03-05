@@ -41,30 +41,30 @@ export default function LearnMore() {
           </p>
 
           <p className="mt-20 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
-            What's the stack?
+            Questions or feedback?
           </p>
-          <div className="mx-auto mt-4 max-w-2xl text-xl text-neutral-600 dark:text-neutral-300">
-            <ul className="px-6 text-center text-lg">
-              <strong>{`Language: `}</strong>
-              {`TypeScript`}
-            </ul>
-            <ul className="px-6 text-center text-lg">
-              <strong>{`Framework: `}</strong>
-              {`React`}
-            </ul>
-            <ul className="px-6 text-center text-lg">
-              <strong>{`Styling: `}</strong>
-              {`Tailwind CSS`}
-            </ul>
-            <ul className="px-6 text-center text-lg ">
-              <strong>{`Database: `}</strong>
-              {`Supabase`}
-            </ul>
-            <ul className="px-6 text-center text-lg">
-              <strong>{`Deployment: `}</strong>
-              {`Vercel`}
-            </ul>
-          </div>
+          <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-600 dark:text-neutral-300">
+            Send a tweet to{' '}
+            <a
+              href="https://twitter.com/clementine_help"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-[1px] rounded bg-neutral-200/70 p-[1px] px-2 hover:bg-neutral-300/70 dark:bg-neutral-700/70 dark:hover:bg-neutral-600/70"
+            >
+              {`@clementine_help`}
+            </a>
+            {' or '}
+            email at{' '}
+            <a
+              href="mailto:hello@clementine.today"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-[1px] rounded bg-neutral-200/70 p-[1px] px-2 hover:bg-neutral-300/70 dark:bg-neutral-700/70 dark:hover:bg-neutral-600/70"
+            >
+              {`hello@clementine.today`}
+            </a>
+          </p>
+
           <p className="mt-20 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
             Who made it?
           </p>
@@ -74,7 +74,7 @@ export default function LearnMore() {
               href="https://www.kevc.xyz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:no-underline"
+              className="underline underline-offset-1 hover:no-underline"
             >
               {`Kevin`}
             </a>

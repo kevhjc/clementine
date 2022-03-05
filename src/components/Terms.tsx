@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
           Terms and Conditions
         </h1>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
-          Last updated: March 02, 2022
+          Last updated: March 05, 2022
         </p>
         <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
           Please read these terms and conditions carefully before using Our
@@ -323,7 +323,7 @@ export default function PrivacyPolicy() {
         </h1>
         <p className="mx-auto mt-4 pb-24 text-xl text-neutral-600 dark:text-neutral-300">
           If you have any questions about these Terms and Conditions, You can
-          contact us by email at hi@kevc.xyz
+          contact us by email at hello@clementine.today
         </p>
       </div>
     </div>

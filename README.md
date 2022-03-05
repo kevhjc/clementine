@@ -2,7 +2,7 @@
 
 Clementine is a place to save your thoughts and ideas. Add notes, tasks, or bookmarks, throughout the day.
 
-![clementine-banner](https://user-images.githubusercontent.com/63880429/155400130-dfea9d54-8443-4a5e-971b-8602c0fccb05.png)
+![clementine-banner-1](https://user-images.githubusercontent.com/63880429/156859384-98dca5c3-cc21-4d9f-a051-64d7ff0eef15.png)
 
 - **Language:** TypeScript
 - **Framework:** React

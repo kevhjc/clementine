@@ -22,10 +22,10 @@ export default function SignIn() {
       const emailError = validateEmail(email);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { error } = await supabase.auth.signIn(
-        { email: email }
-        // {
-        //   redirectTo: 'https://www.clementine.today/home',
-        // }
+        { email: email },
+        {
+          redirectTo: 'https://www.clementine.today/home',
+        }
       );
       setHelperText({
         error: false,
@@ -52,10 +52,10 @@ export default function SignIn() {
     const { error } = await supabase.auth.signIn(
       {
         provider: 'google',
+      },
+      {
+        redirectTo: 'https://www.clementine.today/home',
       }
-      // {
-      //   redirectTo: 'https://www.clementine.today/home',
-      // }
     );
     if (error) {
       console.log('Error signing in with Google:', error);

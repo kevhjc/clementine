@@ -24,13 +24,16 @@ export default function LearnMore() {
         <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           How do I use shortcuts?
         </h1>
-        <p className="mx-auto mt-4 mb-14 text-xl text-neutral-600 dark:text-neutral-300">
-          Use{' '}
+        <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
+          Enter{' '}
           <span className="mx-[1px] rounded bg-yellow-200/70 p-[1px] font-mono text-yellow-700 dark:bg-yellow-500/70 dark:text-yellow-100">
             Command + K
           </span>{' '}
-          or (or Control + K on Windows) to access the command palette from any
-          page. Use global shortcuts (like{' '}
+          or (or Control + K on Windows) to access the Command Palette from any
+          page.
+        </p>
+        <p className="mx-auto mt-2 mb-14 text-xl text-neutral-600 dark:text-neutral-300">
+          Use global keyboard shortcuts (like{' '}
           <span className="mx-[1px] rounded bg-yellow-200/70 p-[1px] font-mono text-yellow-700 dark:bg-yellow-500/70 dark:text-yellow-100">
             B
           </span>{' '}

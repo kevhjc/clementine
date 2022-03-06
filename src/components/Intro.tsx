@@ -81,22 +81,9 @@ export default function Intro() {
           )}
           <div className="mb-12 mt-12 rounded-lg px-4 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight dark:text-neutral-300">
             <span>
-              <strong>Tip:</strong> Use Command + K to access the command
-              palette
+              <strong>Tip:</strong> Use Command + K to access the Command
+              Palette
             </span>
-          </div>
-          <div className="mb-24">
-            <a
-              href="https://www.producthunt.com/posts/clementine-4?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-clementine-4"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=333198&theme=dark"
-                alt="Clementine - A place to save your thoughts and ideas | Product Hunt"
-                className="h-[43px] w-[200px]"
-              />
-            </a>
           </div>
         </div>
       </div>

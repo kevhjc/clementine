@@ -12,8 +12,7 @@ module.exports = {
         dark: { raw: '(prefers-color-scheme: dark)' },
       },
       animation: {
-        bounce: 'bounce 3s ease-in-out infinite',
-        pulse: 'pulse 3s ease-in-out infinite ',
+        bounce: 'bounce 2s ease-in-out infinite',
       },
     },
   },

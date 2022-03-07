@@ -19,7 +19,7 @@ const EntryList = memo(
     return (
       <div className="rounded-md">
         {items.length === 0 && (
-          <li className="group relative z-10 rounded-md p-3 py-6">
+          <li className="relative z-10 p-3 py-6 rounded-md group">
             {location.pathname === PATHS.HOME && (
               <div className="flex flex-col justify-center text-center">
                 {'No entries'}
@@ -85,7 +85,7 @@ const EntryList = memo(
                   {item.content}
                 </span>
               ) : null}
-              <ul className="mt-3 flex flex-wrap font-mono text-xs font-normal leading-6 text-neutral-500 dark:text-neutral-400">
+              <ul className="flex flex-wrap mt-3 font-mono text-xs font-normal leading-6 text-neutral-500 dark:text-neutral-400">
                 <li
                   className={
                     item.category === 'note'

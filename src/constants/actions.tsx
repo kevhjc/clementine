@@ -17,7 +17,7 @@ export const ACTIONS = [
   {
     id: 'note',
     name: 'Note',
-    icon: FileTextIcon,
+    icon: <FileTextIcon />,
     shortcut: ['n'],
     section: Sections.Entry,
     keywords: 'note',
@@ -26,7 +26,7 @@ export const ACTIONS = [
   {
     id: 'task',
     name: 'Task',
-    icon: Pencil2Icon,
+    icon: <Pencil2Icon />,
     shortcut: ['t'],
     section: Sections.Entry,
     keywords: 'task',
@@ -35,7 +35,7 @@ export const ACTIONS = [
   {
     id: 'bookmark',
     name: 'Bookmark',
-    icon: Link2Icon,
+    icon: <Link2Icon />,
     shortcut: ['b'],
     section: Sections.Entry,
     keywords: 'bookmark',
@@ -44,7 +44,7 @@ export const ACTIONS = [
   {
     id: 'home',
     name: 'Home',
-    icon: HomeIcon,
+    icon: <HomeIcon />,
     shortcut: ['h'],
     section: Sections.Navigation,
     keywords: 'home',
@@ -53,7 +53,7 @@ export const ACTIONS = [
   {
     id: 'more',
     name: 'Learn more',
-    icon: InfoCircledIcon,
+    icon: <InfoCircledIcon />,
     shortcut: ['?'],
     section: Sections.Navigation,
     keywords: 'learn more',
@@ -62,7 +62,7 @@ export const ACTIONS = [
   {
     id: 'signin',
     name: 'Sign in',
-    icon: EnterIcon,
+    icon: <EnterIcon />,
     shortcut: [''],
     section: Sections.Account,
     keywords: 'sign in',
@@ -71,7 +71,7 @@ export const ACTIONS = [
   {
     id: 'signout',
     name: 'Sign out',
-    icon: ExitIcon,
+    icon: <ExitIcon />,
     shortcut: [''],
     section: Sections.Account,
     keywords: 'sign out',

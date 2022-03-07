@@ -85,7 +85,7 @@ export default function LearnMore() {
           </a>
           {' ✌️'}
         </p>
-        <div className="pb-24 mx-auto text-xl mt-14 text-neutral-600 dark:text-neutral-300">
+        <div className="absolute pb-24 mx-auto text-xl mt-14 w-fit text-neutral-600 dark:text-neutral-300">
           <a
             href="https://www.producthunt.com/posts/clementine-4?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-clementine&#0045;4"
             target="_blank"

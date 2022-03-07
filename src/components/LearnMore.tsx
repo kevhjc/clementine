@@ -73,7 +73,7 @@ export default function LearnMore() {
         <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Who made it?
         </h1>
-        <p className="mx-auto mt-4 pb-24 text-xl text-neutral-600 dark:text-neutral-300">
+        <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
           Built by{' '}
           <a
             href="https://www.kevc.xyz/"
@@ -85,6 +85,20 @@ export default function LearnMore() {
           </a>
           {' ✌️'}
         </p>
+        <div className="mx-auto mt-14 pb-24 text-xl text-neutral-600 dark:text-neutral-300">
+          <a
+            href="https://www.producthunt.com/posts/clementine-4?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-clementine&#0045;4"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=333198&theme=dark"
+              alt="Clementine: A place to save your thoughts and ideas | Product Hunt"
+              width="200"
+              height="43"
+            />
+          </a>
+        </div>
       </div>
     </div>
   );

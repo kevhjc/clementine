@@ -28,12 +28,12 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
   };
 
   return (
-    <div className="z-20 mb-1 flex items-start">
+    <div className="z-20 flex items-start mb-1">
       {editMode ? (
         <input
           contentEditable
           suppressContentEditableWarning={true}
-          className="absolute h-6 w-6 opacity-0"
+          className="absolute w-6 h-6 opacity-0"
           name="checkbox"
           type="checkbox"
           checked={''}
@@ -41,7 +41,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
       ) : (
         <input
           id={task.id}
-          className="absolute h-6 w-6 opacity-0"
+          className="absolute w-6 h-6 opacity-0"
           name="checkbox"
           type="checkbox"
           onChange={toggleComplete}
@@ -50,7 +50,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
       )}
       <div className="mr-2 mt-[1.5px] flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md border-[1.5px] border-neutral-500/80 bg-transparent focus-within:border-sky-400 dark:border-neutral-400">
         <svg
-          className="pointer-events-none hidden h-3 w-3 fill-current"
+          className="hidden w-3 h-3 pointer-events-none fill-current"
           version="1.1"
           viewBox="0 0 17 12"
           xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
           id="task-title"
           contentEditable
           suppressContentEditableWarning={true}
-          className="z-20 bg-white font-sans text-lg font-bold outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:outline-neutral-500"
+          className="z-20 font-sans text-lg font-bold bg-white outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:outline-neutral-500"
         >
           {task.title}
         </p>

@@ -124,9 +124,9 @@ const Home = () => {
       )}
 
       <div className="flex justify-center">
-        <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8">
-          <div className="mb-6 flex space-x-1 rounded-md bg-neutral-100 p-2 dark:bg-neutral-800">
-            <div className="flex w-full gap-x-2 rounded-md font-sans text-sm font-medium leading-5">
+        <div className="w-5/6 py-8 mt-24 mb-24 max-w-7xl">
+          <div className="flex p-2 mb-6 space-x-1 rounded-md bg-neutral-100 dark:bg-neutral-800">
+            <div className="flex w-full font-sans text-sm font-medium leading-5 rounded-md gap-x-2">
               <Link
                 to={`/home`}
                 className={
@@ -145,7 +145,7 @@ const Home = () => {
             </div>
           </div>
           <ul>
-            <div className="rounded-md bg-neutral-50/50 p-3 dark:bg-neutral-800/50">
+            <div className="p-3 rounded-md bg-neutral-50/50 dark:bg-neutral-800/50">
               <EntryList
                 items={entries}
                 updateEntryById={updateEntryById}
@@ -154,7 +154,7 @@ const Home = () => {
             </div>
           </ul>
           {location.search === PARAMS.TASK_PARAMS && (
-            <div className="flex justify-end space-x-6 px-6 pt-6">
+            <div className="flex justify-end px-6 pt-6 space-x-6">
               {hasCompletedTask ? (
                 <button
                   className="rounded border border-neutral-400 bg-white px-2 pb-0.5 font-sans transition-all duration-75 ease-in-out hover:border-red-500 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-800 dark:hover:bg-red-500"

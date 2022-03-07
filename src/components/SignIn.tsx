@@ -63,17 +63,17 @@ export default function SignIn() {
   };
 
   return (
-    <div className="mx-auto mt-40 mb-24 max-w-7xl px-10">
+    <div className="px-10 mx-auto mt-40 mb-24 max-w-7xl">
       <div className="text-center">
         <p className="mt-2 text-4xl font-bold leading-8 tracking-tight sm:text-5xl">
           Hey there 👋
         </p>
-        <p className="mx-auto mt-4 max-w-2xl font-sans text-lg text-neutral-500 dark:text-neutral-300">
+        <p className="max-w-2xl mx-auto mt-4 font-sans text-lg text-neutral-500 dark:text-neutral-300">
           Sign in with your email via Magic Link or continue with a third party
         </p>
       </div>
       <div className="flex justify-center">
-        <div className="mt-12 w-full max-w-2xl rounded-lg border border-neutral-200/70 bg-neutral-50 p-4 duration-300 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800/60">
+        <div className="w-full max-w-2xl p-4 mt-12 duration-300 border rounded-lg border-neutral-200/70 bg-neutral-50 hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800/60">
           <form className="relative my-1" action="#">
             <input
               id="email"
@@ -88,7 +88,7 @@ export default function SignIn() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <button
-              className="absolute right-1 top-1 flex h-10 w-24 items-center justify-center rounded-md bg-orange-500 px-4 font-sans font-medium text-white transition duration-150 ease-in-out hover:bg-orange-600 dark:bg-orange-700 dark:text-neutral-200"
+              className="absolute flex items-center justify-center w-24 h-10 px-4 font-sans font-medium text-white transition duration-150 ease-in-out bg-orange-500 rounded-md right-1 top-1 hover:bg-orange-600 dark:bg-orange-700 dark:text-neutral-200"
               type="submit"
               onClick={(e) => {
                 e.preventDefault();
@@ -100,7 +100,7 @@ export default function SignIn() {
             </button>
           </form>
           {!!helperText.text && (
-            <div className="mt-6 mb-2 flex justify-center">
+            <div className="flex justify-center mt-6 mb-2">
               <div
                 className={`text-center font-bold ${
                   helperText.error ? ' text-red-600' : ' text-blue-600'
@@ -112,8 +112,8 @@ export default function SignIn() {
           )}
         </div>
       </div>
-      <div className="mt-4 flex justify-center font-medium leading-8 tracking-tight">
-        <ul className="px-2 text-center leading-6">
+      <div className="flex justify-center mt-4 font-medium leading-8 tracking-tight">
+        <ul className="px-2 leading-6 text-center">
           By clicking "Send", I agree to Clementine's{' '}
           <Link
             to={PATHS.TERMS_OF_SERVICE}
@@ -131,9 +131,9 @@ export default function SignIn() {
           .
         </ul>
       </div>
-      <div className="mt-16 flex justify-center px-2 font-medium leading-8 tracking-tight">
+      <div className="flex justify-center px-2 mt-16 font-medium leading-8 tracking-tight">
         <button
-          className="right-1 top-1 flex h-12 items-center gap-x-2 rounded-md bg-red-500 px-8 font-sans font-medium text-white transition duration-150 ease-in-out hover:bg-red-600 dark:bg-red-700 dark:text-neutral-200"
+          className="flex items-center h-12 px-8 font-sans font-medium text-white transition duration-150 ease-in-out bg-red-500 rounded-md right-1 top-1 gap-x-2 hover:bg-red-600 dark:bg-red-700 dark:text-neutral-200"
           type="submit"
           onClick={(e) => {
             e.preventDefault();

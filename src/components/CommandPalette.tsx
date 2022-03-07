@@ -1,6 +1,4 @@
 import React, { useRef, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabase';
 import {
   ActionId,
   ActionImpl,
@@ -13,107 +11,24 @@ import {
   NO_GROUP,
   useMatches,
 } from 'kbar';
-import {
-  FileTextIcon,
-  EnterIcon,
-  ExitIcon,
-  InfoCircledIcon,
-  HomeIcon,
-  Link2Icon,
-  Pencil2Icon,
-  PersonIcon,
-} from '@radix-ui/react-icons';
+import { PersonIcon } from '@radix-ui/react-icons';
 
-import * as PATHS from '../constants/paths';
+import { ACTIONS } from '../constants/actions';
 
 import { ICommandPaletteProps } from '../lib/interfaces';
-import { Sections } from '../lib/enums';
 
 import { SessionContext } from '../context/SessionContext';
 
-export default function CommandPalette({ children }: ICommandPaletteProps) {
-  const navigate = useNavigate();
-
-  const handleSignOut = () => {
-    supabase.auth.signOut();
-    return navigate('/signin');
-  };
-
-  const actions = [
-    {
-      id: 'note',
-      name: 'Note',
-      icon: <FileTextIcon />,
-      shortcut: ['n'],
-      section: Sections.Entry,
-      keywords: 'note',
-      perform: () => (window.location.href = PATHS.NEW_NOTE),
-    },
-    {
-      id: 'task',
-      name: 'Task',
-      shortcut: ['t'],
-      section: Sections.Entry,
-      keywords: 'task',
-      icon: <Pencil2Icon />,
-      perform: () => (window.location.href = PATHS.NEW_TASK),
-    },
-    {
-      id: 'bookmark',
-      name: 'Bookmark',
-      shortcut: ['b'],
-      section: Sections.Entry,
-      keywords: 'bookmark',
-      icon: <Link2Icon />,
-      perform: () => (window.location.href = PATHS.NEW_BOOKMARK),
-    },
-    {
-      id: 'home',
-      name: 'Home',
-      icon: <HomeIcon />,
-      shortcut: ['h'],
-      section: Sections.Navigation,
-      keywords: 'home',
-      perform: () => (window.location.href = PATHS.HOME),
-    },
-    {
-      id: 'more',
-      name: 'Learn more',
-      icon: <InfoCircledIcon />,
-      shortcut: ['?'],
-      section: Sections.Navigation,
-      keywords: 'learn more',
-      perform: () => (window.location.href = PATHS.LEARN_MORE),
-    },
-    {
-      id: 'signin',
-      name: 'Sign in',
-      icon: <EnterIcon />,
-      shortcut: [''],
-      section: Sections.Account,
-      keywords: 'sign in',
-      perform: () => (window.location.href = PATHS.SIGN_IN),
-    },
-    {
-      id: 'signout',
-      name: 'Sign out',
-      icon: <ExitIcon />,
-      shortcut: [''],
-      section: Sections.Account,
-      keywords: 'sign out',
-      perform: () => handleSignOut(),
-    },
-  ];
-
+const CommandPalette = ({ children }: ICommandPaletteProps) => {
   return (
-    <KBarProvider actions={actions}>
+    <KBarProvider actions={ACTIONS}>
       <CommandMenu />
       {children}
     </KBarProvider>
   );
-}
+};
 
-function CommandMenu() {
+const CommandMenu = () => {
   const session = useContext(SessionContext);
 
   return (
@@ -124,16 +39,13 @@ function CommandMenu() {
       >
         {session ? (
           <>
-            <span
-              className="fixed top-20 z-20 flex cursor-pointer justify-center rounded-lg border border-neutral-200 bg-white/80 px-4 py-2 dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80
-              "
-            >
-              <PersonIcon className="mr-2 h-6 w-4 opacity-80" />
+            <span className="fixed z-20 flex justify-center px-4 py-2 border rounded-lg cursor-pointer top-20 border-neutral-200 bg-white/80 dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80 ">
+              <PersonIcon className="w-4 h-6 mr-2 opacity-80" />
               {session.user.email}
             </span>
           </>
         ) : null}
-        <KBarAnimator className="z-10 w-full max-w-2xl overflow-hidden rounded-lg border border-neutral-300 bg-white/80 shadow-2xl backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-800/80 dark:text-white">
+        <KBarAnimator className="z-10 w-full max-w-2xl overflow-hidden border rounded-lg shadow-2xl border-neutral-300 bg-white/80 backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-800/80 dark:text-white">
           <>
             <KBarSearch
               defaultPlaceholder="What would you like to do?"
@@ -147,9 +59,9 @@ function CommandMenu() {
       </KBarPositioner>
     </KBarPortal>
   );
-}
+};
 
-function Results() {
+const Results = () => {
   const { results, rootActionId } = useMatches();
   const wrapperRef = useRef(null);
   const session = useContext(SessionContext);
@@ -165,7 +77,7 @@ function Results() {
           )}
           onRender={({ item, active }) =>
             typeof item === 'string' ? (
-              <p className="pb-2 pl-3 pt-3 text-xs uppercase text-neutral-500 dark:text-neutral-100">
+              <p className="pt-3 pb-2 pl-3 text-xs uppercase text-neutral-500 dark:text-neutral-100">
                 {item}
               </p>
             ) : (
@@ -188,7 +100,7 @@ function Results() {
           )}
           onRender={({ item, active }) =>
             typeof item === 'string' ? (
-              <p className="pb-2 pl-3 pt-3 text-xs uppercase text-neutral-500 dark:text-neutral-100">
+              <p className="pt-3 pb-2 pl-3 text-xs uppercase text-neutral-500 dark:text-neutral-100">
                 {item}
               </p>
             ) : (
@@ -203,7 +115,7 @@ function Results() {
       )}
     </div>
   );
-}
+};
 
 // eslint-disable-next-line react/display-name
 const ResultItem = React.forwardRef(
@@ -256,8 +168,8 @@ const ResultItem = React.forwardRef(
 					duration-[.15s] dark:text-neutral-100/80
 				`}
       >
-        <div className="text-md flex items-center gap-3">
-          <span className="h-4 w-5 opacity-80">
+        <div className="flex items-center gap-3 text-md">
+          <span className="w-5 h-4 opacity-80">
             {action.icon && action.icon}
           </span>
 
@@ -279,11 +191,11 @@ const ResultItem = React.forwardRef(
         </div>
 
         {action.shortcut?.length ? (
-          <div aria-hidden className="grid-flow-cols grid">
+          <div aria-hidden className="grid grid-flow-cols">
             {action.shortcut.map((sc) => (
               <kbd
                 key={sc}
-                className="text-md rounded-md bg-neutral-300/70 px-2 dark:bg-neutral-600/70"
+                className="px-2 rounded-md text-md bg-neutral-300/70 dark:bg-neutral-600/70"
               >
                 {sc}
               </kbd>
@@ -294,3 +206,5 @@ const ResultItem = React.forwardRef(
     );
   }
 );
+
+export default CommandPalette;

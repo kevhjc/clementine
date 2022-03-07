@@ -5,10 +5,10 @@ import { FEATURES } from '../constants/features';
 
 import { SessionContext } from '../context/SessionContext';
 
-import Button from './Button';
-import FeatureDescription from './FeatureDescription';
+import ButtonForward from '../components/ButtonForward';
+import FeatureDescription from '../components/FeatureDescription';
 
-export default function Intro() {
+const IntroPage = () => {
   const session = useContext(SessionContext);
 
   return (
@@ -37,12 +37,12 @@ export default function Intro() {
           {!session ? (
             <div className="relative inline-flex w-fit">
               <Link to="/signin">
-                <Button text={'Get Started'} />
+                <ButtonForward text={'Get started'} />
               </Link>
             </div>
           ) : (
             <Link to="/home">
-              <Button text={'Go home'} />
+              <ButtonForward text={'Go home'} />
             </Link>
           )}
           <div className="px-4 py-2 mt-12 mb-12 font-mono text-sm font-medium leading-8 tracking-tight text-center rounded-lg dark:text-neutral-300">
@@ -55,4 +55,6 @@ export default function Intro() {
       </div>
     </div>
   );
-}
+};
+
+export default IntroPage;

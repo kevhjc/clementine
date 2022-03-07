@@ -12,8 +12,8 @@ export const FEATURES = [
     icon: Pencil2Icon,
   },
   {
-    name: 'Links',
-    description: 'Save bookmarks',
+    name: 'Bookmarks',
+    description: 'Save links',
     icon: Link2Icon,
   },
 ];

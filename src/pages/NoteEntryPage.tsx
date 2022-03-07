@@ -4,7 +4,7 @@ import { supabase } from '../lib/supabase';
 import format from 'date-fns/format';
 import classNames from 'classnames';
 
-const NoteEntryView = () => {
+const NoteEntryPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const params = useParams();
@@ -60,12 +60,12 @@ const NoteEntryView = () => {
   if (entry)
     return (
       <div className="flex justify-center">
-        <div className="mt-24 mb-24 w-5/6 max-w-7xl py-8">
-          <dl className="mb-4 grid grid-cols-2">
+        <div className="w-5/6 py-8 mt-24 mb-24 max-w-7xl">
+          <dl className="grid grid-cols-2 mb-4">
             <div className="col-start-1">
               <button
                 type="button"
-                className="mb-8 w-28 justify-center rounded border border-neutral-300 bg-white px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+                className="justify-center px-2 py-3 pb-3 mb-8 text-sm font-bold leading-tight transition duration-150 ease-in-out bg-white border rounded w-28 border-neutral-300 hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-900 dark:hover:bg-neutral-800"
                 onClick={() =>
                   (location.key !== 'default' && navigate(-1)) ||
                   navigate('/home')
@@ -78,7 +78,7 @@ const NoteEntryView = () => {
               {!editMode ? (
                 <button
                   type="button"
-                  className="mb-8 w-24 justify-center rounded border border-neutral-300 bg-white px-2 py-3 pb-3 text-sm font-bold leading-tight transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+                  className="justify-center w-24 px-2 py-3 pb-3 mb-8 text-sm font-bold leading-tight transition duration-150 ease-in-out bg-white border rounded border-neutral-300 hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:border-neutral-500 dark:bg-neutral-900 dark:hover:bg-neutral-800"
                   onClick={toggleMode}
                 >
                   {'Edit'}
@@ -87,7 +87,7 @@ const NoteEntryView = () => {
               {editMode ? (
                 <button
                   type="button"
-                  className="mb-8 w-24 justify-center rounded border border-black bg-black px-2 py-3 pb-3 text-sm font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-neutral-900 focus:outline-none focus:ring-0 dark:border-white dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-white"
+                  className="justify-center w-24 px-2 py-3 pb-3 mb-8 text-sm font-bold leading-tight text-white transition duration-150 ease-in-out bg-black border border-black rounded hover:bg-neutral-100 hover:text-neutral-900 focus:outline-none focus:ring-0 dark:border-white dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-white"
                   onClick={() =>
                     updateEntryById(
                       entry[0].id,
@@ -117,8 +117,8 @@ const NoteEntryView = () => {
           <span className="text-neutral-600 group-hover:block dark:text-neutral-300">
             {format(new Date(entry[0].inserted_at), "MMM d, yyyy '–' h:mm bb")}
           </span>
-          <div className="group relative mt-12">
-            <span className="absolute top-0 -mt-6 hidden text-xs text-neutral-400 group-hover:block">
+          <div className="relative mt-12 group">
+            <span className="absolute top-0 hidden -mt-6 text-xs text-neutral-400 group-hover:block">
               {'Title'}
             </span>
             {editMode ? (
@@ -139,10 +139,10 @@ const NoteEntryView = () => {
               </p>
             )}
           </div>
-          <div className="group relative mt-12 mb-24">
+          <div className="relative mt-12 mb-24 group">
             {editMode ? (
               <>
-                <span className="absolute top-0 -mt-6 hidden text-xs text-neutral-400 group-hover:block">
+                <span className="absolute top-0 hidden -mt-6 text-xs text-neutral-400 group-hover:block">
                   {'Body'}
                 </span>
                 <p
@@ -156,7 +156,7 @@ const NoteEntryView = () => {
               </>
             ) : (
               <>
-                <span className="absolute top-0 -mt-8 hidden text-xs text-neutral-400 group-hover:block">
+                <span className="absolute top-0 hidden -mt-8 text-xs text-neutral-400 group-hover:block">
                   {'Body'}
                 </span>
                 <p
@@ -174,4 +174,4 @@ const NoteEntryView = () => {
   return null;
 };
 
-export default NoteEntryView;
+export default NoteEntryPage;

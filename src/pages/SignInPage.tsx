@@ -6,7 +6,7 @@ import * as PATHS from '../constants/paths';
 
 import { validateEmail } from '../utils/validation';
 
-export default function SignIn() {
+const SignInPage = () => {
   const [loading, setLoading] = useState(false);
   const [helperText, setHelperText] = useState<any>({
     error: null,
@@ -52,10 +52,10 @@ export default function SignIn() {
     const { error } = await supabase.auth.signIn(
       {
         provider: 'google',
-      },
-      {
-        redirectTo: 'https://www.clementine.today/home',
       }
+      // {
+      //   redirectTo: 'https://www.clementine.today/home',
+      // }
     );
     if (error) {
       console.log('Error signing in with Google:', error);
@@ -159,4 +159,6 @@ export default function SignIn() {
       </div>
     </div>
   );
-}
+};
+
+export default SignInPage;

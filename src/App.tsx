@@ -8,14 +8,14 @@ import { SessionContext } from './context/SessionContext';
 
 import CommandPalette from './components/CommandPalette';
 import Navigation from './components/Navigation';
-import Intro from './components/Intro';
-import SignIn from './components/SignIn';
-import Home from './components/Home';
-import NoteEntryView from './components/NoteEntryView';
-import LearnMore from './components/LearnMore';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import Terms from './components/Terms';
-import NotFound from './components/NotFound';
+import IntroPage from './pages/IntroPage';
+import SignInPage from './pages/SignInPage';
+import HomePage from './pages/HomePage';
+import NoteEntryPage from './pages/NoteEntryPage';
+import LearnMorePage from './pages/LearnMorePage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsPage from './pages/TermsPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
   const [session, setSession] = useState(supabase.auth.session());
@@ -41,19 +41,22 @@ const App = () => {
       <CommandPalette>
         <Routes>
           <Route path={ROUTES.ROOT} element={<Navigation />}>
-            <Route index element={<Intro />} />
-            <Route path={ROUTES.SIGN_IN} element={<SignIn />} />
+            <Route index element={<IntroPage />} />
+            <Route path={ROUTES.SIGN_IN} element={<SignInPage />} />
             {session ? (
-              <Route path={ROUTES.HOME} element={<Home />} />
+              <Route path={ROUTES.HOME} element={<HomePage />} />
             ) : (
-              <Route path={ROUTES.HOME} element={<SignIn />} />
+              <Route path={ROUTES.HOME} element={<SignInPage />} />
             )}
-            <Route path={ROUTES.ENTRIES} element={<NoteEntryView />} />
-            <Route path={ROUTES.NEW_ENTRY} element={<Home />} />
-            <Route path={ROUTES.LEARN_MORE} element={<LearnMore />} />
-            <Route path={ROUTES.PRIVACY_POLICY} element={<PrivacyPolicy />} />
-            <Route path={ROUTES.TERMS_OF_SERVICE} element={<Terms />} />
-            <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
+            <Route path={ROUTES.ENTRIES} element={<NoteEntryPage />} />
+            <Route path={ROUTES.NEW_ENTRY} element={<HomePage />} />
+            <Route path={ROUTES.LEARN_MORE} element={<LearnMorePage />} />
+            <Route
+              path={ROUTES.PRIVACY_POLICY}
+              element={<PrivacyPolicyPage />}
+            />
+            <Route path={ROUTES.TERMS_OF_SERVICE} element={<TermsPage />} />
+            <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
           </Route>
         </Routes>
       </CommandPalette>

@@ -1,7 +1,7 @@
-export default function PrivacyPolicy() {
+const PrivacyPolicyPage = () => {
   return (
     <div className="h-screen px-4 pt-32">
-      <div className="mx-auto max-w-7xl px-10">
+      <div className="px-10 mx-auto max-w-7xl">
         <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Privacy Policy
         </h1>
@@ -561,11 +561,13 @@ export default function PrivacyPolicy() {
         <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Contact Us
         </h1>
-        <p className="mx-auto mt-4 pb-24 text-xl text-neutral-600 dark:text-neutral-300">
+        <p className="pb-24 mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
           If you have any questions about this Privacy Policy, You can contact
           us at hello@clementine.today
         </p>
       </div>
     </div>
   );
-}
+};
+
+export default PrivacyPolicyPage;

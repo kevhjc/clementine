@@ -1,6 +1,6 @@
 import { IButtonProps } from '../lib/interfaces';
 
-const Button = ({ text }: IButtonProps) => {
+const ButtonForward = ({ text }: IButtonProps) => {
   return (
     <button
       type="button"
@@ -11,4 +11,4 @@ const Button = ({ text }: IButtonProps) => {
   );
 };
 
-export default Button;
+export default ButtonForward;

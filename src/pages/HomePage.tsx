@@ -4,41 +4,21 @@ import { supabase } from '../lib/supabase';
 
 import * as PATHS from '../constants/paths';
 import * as PARAMS from '../constants/params';
+import { CATEGORIES } from '../constants/categories';
 
-import { ICategoryLinkProps } from '../lib/interfaces';
+import CategoryLink from '../components/CategoryLink';
+import AddNote from '../components/AddNote';
+import AddTask from '../components/AddTask';
+import AddBookmark from '../components/AddBookmark';
+import EntryList from '../components/EntryList';
 
-import AddNote from './AddNote';
-import AddTask from './AddTask';
-import AddBookmark from './AddBookmark';
-import EntryList from './EntryList';
-
-function CategoryLink({ category, children, ...props }: ICategoryLinkProps) {
-  const [searchParams] = useSearchParams();
-  const isActive = searchParams.get('category') === category;
-
-  return (
-    <Link
-      to={`./?category=${category}`}
-      {...props}
-      className={
-        isActive
-          ? 'flex w-full justify-center rounded-md bg-white py-3 font-sans font-medium leading-5 text-neutral-900 shadow-sm dark:bg-neutral-500 dark:text-neutral-100'
-          : 'flex w-full justify-center rounded-md py-3 font-sans font-medium leading-5 text-neutral-600 hover:bg-neutral-200/50 dark:text-neutral-100 dark:hover:bg-neutral-700/50'
-      }
-    >
-      {children}
-    </Link>
-  );
-}
-
-const Home = () => {
+const HomePage = () => {
   const location = useLocation();
   const [searchParams] = useSearchParams();
+  const category = searchParams.get('category');
 
   const [userEntries, setUserEntries] = useState<any>([]);
   const [hasCompletedTask, setHasCompletedTask] = useState(false);
-  const categories = ['note', 'task', 'bookmark'];
-  const category = searchParams.get('category');
 
   useEffect(() => {
     fetchUserEntries().catch(console.error);
@@ -137,7 +117,7 @@ const Home = () => {
               >
                 {'All'}
               </Link>
-              {categories.map((category, index) => (
+              {CATEGORIES.map((category, index) => (
                 <CategoryLink category={category} key={index}>
                   {category.charAt(0).toUpperCase() + category.slice(1) + 's'}
                 </CategoryLink>
@@ -176,4 +156,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

@@ -26,7 +26,7 @@ export default function Intro() {
   const session = useContext(SessionContext);
 
   return (
-    <div className="h-screen px-4 pt-40">
+    <div className="h-screen px-4 pt-32">
       <div className="px-10 mx-auto max-w-7xl">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 sm:text-5xl">

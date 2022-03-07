@@ -1,11 +1,11 @@
 export default function LearnMore() {
   return (
-    <div className="h-screen px-4 pt-40">
-      <div className="mx-auto max-w-7xl px-10">
+    <div className="flex h-screen px-4 pt-40">
+      <div className="px-10 mx-auto max-w-3/4">
         <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           What's Clementine?
         </h1>
-        <p className="mx-auto mb-14 mt-4 text-xl text-neutral-600 dark:text-neutral-300">
+        <p className="mx-auto mt-4 text-xl mb-14 text-neutral-600 dark:text-neutral-300">
           A place to save your thoughts and ideas. Add{' '}
           <span className="mx-[1px] rounded bg-rose-200/70 p-[1px] font-mono text-rose-800 dark:bg-rose-500/70 dark:text-rose-200">
             notes
@@ -32,7 +32,7 @@ export default function LearnMore() {
           or (or Control + K on Windows) to access the Command Palette from any
           page.
         </p>
-        <p className="mx-auto mt-2 mb-14 text-xl text-neutral-600 dark:text-neutral-300">
+        <p className="mx-auto mt-2 text-xl mb-14 text-neutral-600 dark:text-neutral-300">
           Use global keyboard shortcuts (like{' '}
           <span className="mx-[1px] rounded bg-yellow-200/70 p-[1px] font-mono text-yellow-700 dark:bg-yellow-500/70 dark:text-yellow-100">
             B
@@ -58,7 +58,7 @@ export default function LearnMore() {
             {`@clementine_help`}
           </a>
         </p>
-        <p className="mx-auto mt-2 mb-14 text-xl text-neutral-600 dark:text-neutral-300">
+        <p className="mx-auto mt-2 text-xl mb-14 text-neutral-600 dark:text-neutral-300">
           <strong>{'Email: '}</strong>
           <a
             href="mailto:hello@clementine.today"
@@ -85,7 +85,7 @@ export default function LearnMore() {
           </a>
           {' ✌️'}
         </p>
-        <div className="mx-auto mt-14 pb-24 text-xl text-neutral-600 dark:text-neutral-300">
+        <div className="pb-24 mx-auto text-xl mt-14 text-neutral-600 dark:text-neutral-300">
           <a
             href="https://www.producthunt.com/posts/clementine-4?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-clementine&#0045;4"
             target="_blank"

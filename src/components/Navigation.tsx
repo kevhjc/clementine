@@ -16,8 +16,8 @@ export default function Navigation() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 flex min-w-[360px] items-center border-b border-neutral-200/60 bg-white py-6 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900">
-        <div className="ml-6 flex basis-1/12">
+      <div className="fixed top-0 left-0 right-0 z-50 flex min-w-[360px] items-center border-b border-neutral-200/60 bg-white/80 py-6 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/80">
+        <div className="flex ml-6 basis-1/12">
           {session ? (
             <a href="/home">
               <img src={Logo} alt="Logo" width={40} height={40} />
@@ -28,10 +28,10 @@ export default function Navigation() {
             </a>
           )}
         </div>
-        <div className="flex basis-11/12 justify-end">
+        <div className="flex justify-end basis-11/12">
           <button
             title="Open command palette"
-            className="mr-6 rounded-md bg-neutral-200/40 p-2 outline-none transition-colors duration-100 ease-in-out hover:bg-neutral-200 hover:text-neutral-900 dark:bg-neutral-800/50 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
+            className="p-2 mr-6 transition-colors duration-100 ease-in-out rounded-md outline-none bg-neutral-200/40 hover:bg-neutral-200 hover:text-neutral-900 dark:bg-neutral-800/50 dark:hover:bg-neutral-700 dark:hover:text-neutral-100"
             onClick={handleMenuClick}
           >
             <svg

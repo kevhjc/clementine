@@ -27,23 +27,23 @@ export default function Intro() {
 
   return (
     <div className="h-screen px-4 pt-40">
-      <div className="mx-auto max-w-7xl px-10">
+      <div className="px-10 mx-auto max-w-7xl">
         <div className="text-center">
           <p className="mt-2 text-3xl font-medium leading-8 sm:text-5xl">
             Say 👋 to <span className="font-black">Clementine</span>
           </p>
-          <p className="mx-auto mt-4 max-w-2xl text-xl text-neutral-500 dark:text-neutral-300">
+          <p className="max-w-2xl mx-auto mt-4 text-xl text-neutral-500 dark:text-neutral-300">
             A place to save your thoughts and ideas
           </p>
         </div>
 
-        <div className="mt-14 flex justify-center">
+        <div className="flex justify-center mt-14">
           <dl className="space-y-10 md:grid md:grid-cols-3 md:gap-x-24 md:gap-y-12 md:space-y-0">
             {features.map((feature) => (
               <div key={feature.name} className="relative">
                 <dt>
-                  <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-orange-200/70 text-orange-600 dark:bg-orange-400 dark:text-orange-700">
-                    <feature.icon className="h-6 w-6" aria-hidden="true" />
+                  <div className="absolute flex items-center justify-center w-12 h-12 text-orange-600 rounded-md bg-orange-200/70 dark:bg-orange-400 dark:text-orange-700">
+                    <feature.icon className="w-6 h-6" aria-hidden="true" />
                   </div>
                   <p className="ml-16 text-lg font-black leading-6">
                     {feature.name}
@@ -57,13 +57,13 @@ export default function Intro() {
           </dl>
         </div>
 
-        <div className="mt-20 flex flex-col items-center justify-center font-medium leading-8 tracking-tight text-neutral-900">
+        <div className="flex flex-col items-center justify-center mt-20 font-medium leading-8 tracking-tight text-neutral-900">
           {!session ? (
             <div className="relative inline-flex w-fit">
               <Link to="/signin">
                 <button
                   type="button"
-                  className="mb-2 flex animate-bounce items-center justify-center rounded bg-orange-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-orange-600 focus:outline-none focus:ring-0 dark:bg-orange-700"
+                  className="flex items-center justify-center px-8 py-3 pb-3 mb-2 font-bold leading-tight text-white transition duration-150 ease-in-out bg-orange-500 rounded animate-bounce hover:bg-orange-600 focus:outline-none focus:ring-0 dark:bg-orange-700"
                 >
                   Get started &rarr;
                 </button>
@@ -73,13 +73,13 @@ export default function Intro() {
             <Link to="/home">
               <button
                 type="button"
-                className="mb-2 flex animate-bounce items-center justify-center rounded bg-orange-500 px-8 py-3 pb-3 font-bold leading-tight text-white transition duration-150 ease-in-out hover:bg-orange-600 focus:outline-none focus:ring-0 dark:bg-orange-700"
+                className="flex items-center justify-center px-8 py-3 pb-3 mb-2 font-bold leading-tight text-white transition duration-150 ease-in-out bg-orange-500 rounded animate-bounce hover:bg-orange-600 focus:outline-none focus:ring-0 dark:bg-orange-700"
               >
                 Go home &rarr;
               </button>
             </Link>
           )}
-          <div className="mb-12 mt-12 rounded-lg px-4 py-2 text-center font-mono text-sm font-medium leading-8 tracking-tight dark:text-neutral-300">
+          <div className="px-4 py-2 mt-12 mb-12 font-mono text-sm font-medium leading-8 tracking-tight text-center rounded-lg dark:text-neutral-300">
             <span>
               <strong>Tip:</strong> Use Command + K to access the Command
               Palette

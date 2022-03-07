@@ -6,3 +6,9 @@ export type Item = {
   content?: string;
   is_complete?: boolean;
 };
+
+export type Feature = {
+  name: string;
+  description: string;
+  icon: React.ComponentType<any>;
+};

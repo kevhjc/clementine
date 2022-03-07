@@ -1,10 +1,18 @@
 import { ReactNode } from 'react';
 import type { LinkProps } from 'react-router-dom';
 
-import { Item } from './types';
+import { Item, Feature } from './types';
 
 export interface ICommandPaletteProps {
   children: ReactNode;
+}
+
+export interface IButtonProps {
+  text: string;
+}
+
+export interface IFeatureProps {
+  feature: Feature;
 }
 
 export interface ICategoryLinkProps extends Omit<LinkProps, 'to'> {

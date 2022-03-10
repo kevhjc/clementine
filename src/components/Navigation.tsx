@@ -16,7 +16,7 @@ export default function Navigation() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 flex min-w-[360px] items-center border-b border-neutral-200/60 bg-white/80 py-6 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/80">
+      <div className="fixed top-0 left-0 right-0 z-50 flex items-center py-6 border-b p border-neutral-200/60 bg-white/80 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/80">
         <div className="flex ml-6 basis-1/12">
           {session ? (
             <a href="/home">

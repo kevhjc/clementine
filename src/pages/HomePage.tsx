@@ -27,7 +27,8 @@ const HomePage = () => {
     )
       ? setHasCompletedTask(true)
       : setHasCompletedTask(false);
-  }, [setUserEntries, userEntries]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const fetchUserEntries = async () => {
     let { data: entries, error } = await supabase
@@ -104,7 +105,7 @@ const HomePage = () => {
       )}
 
       <div className="flex justify-center">
-        <div className="w-5/6 py-8 mt-24 mb-24 max-w-7xl">
+        <div className="w-5/6 py-8 mb-24 mt-28 max-w-7xl">
           <div className="flex p-2 mb-6 space-x-1 rounded-md bg-neutral-100 dark:bg-neutral-800">
             <div className="flex w-full font-sans text-sm font-medium leading-5 rounded-md gap-x-2">
               <Link
@@ -125,7 +126,7 @@ const HomePage = () => {
             </div>
           </div>
           <ul>
-            <div className="p-3 rounded-md bg-neutral-50/50 dark:bg-neutral-800/50">
+            <div className="rounded-md bg-neutral-50/50 dark:bg-neutral-800/50">
               <EntryList
                 items={entries}
                 updateEntryById={updateEntryById}

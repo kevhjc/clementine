@@ -1,7 +1,7 @@
 const NoteItem = ({ note, onDelete }) => {
   return (
-    <div className="mb-2 flex items-start">
-      <span className="... truncate font-sans text-lg font-bold leading-6">
+    <div className="flex items-start mb-2">
+      <span className="font-sans text-lg font-bold leading-6 truncate">
         {note.title ? note.title : 'Untitled'}
       </span>
       <div className="absolute right-3 z-50 -mt-[1.5px] justify-center">

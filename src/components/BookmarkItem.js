@@ -19,13 +19,13 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
 
   return (
     <>
-      <div className="mb-2 flex items-start">
+      <div className="flex items-start mb-2">
         {editMode ? (
           <span
             id="bookmark-title"
             contentEditable
             suppressContentEditableWarning={true}
-            className="... z-20 truncate break-words bg-white font-sans text-lg font-bold leading-6 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:outline-neutral-500"
+            className="z-20 font-sans text-lg font-bold leading-6 break-words truncate bg-white outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:outline-neutral-500"
           >
             <a
               href={bookmark.content}
@@ -36,7 +36,7 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             </a>
           </span>
         ) : (
-          <span className="... z-30 truncate break-words font-sans text-lg font-bold leading-6 underline decoration-1 underline-offset-1 hover:no-underline">
+          <span className="z-30 font-sans text-lg font-bold leading-6 underline break-words truncate decoration-1 underline-offset-1 hover:no-underline">
             <a
               href={bookmark.content}
               target="_blank"
@@ -96,12 +96,12 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             contentEditable
             suppressContentEditableWarning={true}
             id="bookmark-url"
-            className="... mt-1 truncate bg-white leading-6 text-neutral-500 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:text-neutral-400 dark:outline-neutral-500"
+            className="mt-1 leading-6 truncate bg-white text-neutral-500 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:text-neutral-400 dark:outline-neutral-500"
           >
             {bookmark.content}
           </p>
         ) : (
-          <p className="... mt-1 truncate leading-6 text-neutral-500 dark:text-neutral-400">
+          <p className="mt-1 leading-6 truncate text-neutral-500 dark:text-neutral-400">
             {bookmark.content}
           </p>
         )}

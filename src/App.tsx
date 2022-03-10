@@ -11,7 +11,6 @@ import Navigation from './components/Navigation';
 import IntroPage from './pages/IntroPage';
 import SignInPage from './pages/SignInPage';
 import HomePage from './pages/HomePage';
-import NoteEntryPage from './pages/NoteEntryPage';
 import LearnMorePage from './pages/LearnMorePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsPage from './pages/TermsPage';
@@ -48,7 +47,6 @@ const App = () => {
             ) : (
               <Route path={ROUTES.HOME} element={<SignInPage />} />
             )}
-            <Route path={ROUTES.ENTRIES} element={<NoteEntryPage />} />
             <Route path={ROUTES.NEW_ENTRY} element={<HomePage />} />
             <Route path={ROUTES.LEARN_MORE} element={<LearnMorePage />} />
             <Route

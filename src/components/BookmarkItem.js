@@ -19,13 +19,13 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
 
   return (
     <>
-      <div className="mb-2 flex items-start">
+      <div className="flex items-start mb-2">
         {editMode ? (
           <span
             id="bookmark-title"
             contentEditable
             suppressContentEditableWarning={true}
-            className="... z-20 truncate break-words bg-white font-sans text-lg font-bold leading-6 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:outline-neutral-500"
+            className="z-20 font-sans text-xl font-bold leading-6 break-all bg-white outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:outline-neutral-500"
           >
             <a
               href={bookmark.content}
@@ -36,7 +36,7 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             </a>
           </span>
         ) : (
-          <span className="... z-30 truncate break-words font-sans text-lg font-bold leading-6 underline decoration-1 underline-offset-1 hover:no-underline">
+          <span className="z-30 font-sans text-xl font-bold leading-6 underline break-all wrap decoration-1 underline-offset-1 hover:no-underline">
             <a
               href={bookmark.content}
               target="_blank"
@@ -46,7 +46,7 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             </a>
           </span>
         )}
-        <div className="absolute right-3 z-50 -mt-[1.5px] flex justify-center gap-x-3 font-sans">
+        <div className="absolute right-[8px] z-50 -mt-[1.5px] flex justify-center gap-x-3 font-sans">
           {!editMode ? (
             <button
               className="hidden flex-shrink-0 rounded border border-neutral-300 bg-white px-2 pb-0.5 transition-all duration-75 ease-in-out hover:bg-neutral-100 group-hover:block dark:border-neutral-500 dark:bg-neutral-800 dark:hover:bg-neutral-700"
@@ -96,12 +96,12 @@ const BookmarkItem = ({ bookmark, updateEntryById, onDelete }) => {
             contentEditable
             suppressContentEditableWarning={true}
             id="bookmark-url"
-            className="... mt-1 truncate bg-white leading-6 text-neutral-500 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:text-neutral-400 dark:outline-neutral-500"
+            className="mt-1 leading-6 break-all bg-white text-md text-neutral-500 outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:text-neutral-400 dark:outline-neutral-500"
           >
             {bookmark.content}
           </p>
         ) : (
-          <p className="... mt-1 truncate leading-6 text-neutral-500 dark:text-neutral-400">
+          <p className="mt-1 leading-6 break-all text-md text-neutral-500 dark:text-neutral-400">
             {bookmark.content}
           </p>
         )}

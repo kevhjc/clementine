@@ -67,7 +67,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
           id="task-title"
           contentEditable
           suppressContentEditableWarning={true}
-          className="z-20 font-sans text-lg font-bold bg-white outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:outline-neutral-500"
+          className="z-20 font-sans text-xl font-bold bg-white outline outline-offset-1 outline-neutral-300 dark:bg-neutral-800/50 dark:outline-neutral-500"
         >
           {task.title}
         </p>
@@ -75,7 +75,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
         <p
           htmlFor={task.id}
           onClick={toggleComplete}
-          className={`z-40 select-none font-sans text-lg font-bold hover:line-through  ${
+          className={`z-40 select-none font-sans text-xl font-bold hover:line-through  ${
             isComplete
               ? 'text-neutral-400 line-through decoration-1 transition-colors duration-150 ease-in-out'
               : ''

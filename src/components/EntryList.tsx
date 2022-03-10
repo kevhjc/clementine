@@ -1,6 +1,5 @@
 import { memo } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import classNames from 'classnames';
+import { useLocation } from 'react-router-dom';
 import format from 'date-fns/format';
 
 import * as PATHS from '../constants/paths';
@@ -43,22 +42,8 @@ const EntryList = memo(
           </li>
         )}
         {Object.values(items).map((item, index) => (
-          <li
-            key={index}
-            className={classNames(
-              item.category === 'note'
-                ? 'hover:bg-neutral-100 dark:hover:bg-neutral-700/30'
-                : 'hover:none dark:hover:none',
-              'group relative z-10 rounded-md p-3'
-            )}
-          >
+          <li key={index} className="relative z-10 p-3 rounded-md group">
             <div className="flex flex-col justify-center">
-              {item.category === 'note' ? (
-                <Link
-                  className="absolute inset-0"
-                  to={`/${item.category}/${item.id}`}
-                />
-              ) : null}
               {item.category === 'task' ? (
                 <TaskItem
                   key={item.id}
@@ -77,15 +62,11 @@ const EntryList = memo(
                 <NoteItem
                   key={item.id}
                   note={item}
+                  updateEntryById={updateEntryById}
                   onDelete={() => deleteEntryById(item.id)}
                 />
               )}
-              {item.content && item.category === 'note' ? (
-                <span className="... mt-1 truncate leading-6 text-neutral-500 dark:text-neutral-400">
-                  {item.content}
-                </span>
-              ) : null}
-              <ul className="flex flex-wrap mt-3 font-mono text-xs font-normal leading-6 text-neutral-500 dark:text-neutral-400">
+              <ul className="flex flex-wrap mt-3 font-mono text-sm font-normal leading-6 text-neutral-500 dark:text-neutral-400">
                 <li
                   className={
                     item.category === 'note'

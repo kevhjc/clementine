@@ -75,7 +75,7 @@ const TaskItem = ({ task, updateEntryById, onDelete }) => {
         <p
           htmlFor={task.id}
           onClick={toggleComplete}
-          className={`z-40 select-none font-sans text-xl font-bold hover:line-through  ${
+          className={`z-40 cursor-default select-none font-sans text-xl font-bold hover:line-through  ${
             isComplete
               ? 'text-neutral-400 line-through decoration-1 transition-colors duration-150 ease-in-out'
               : ''

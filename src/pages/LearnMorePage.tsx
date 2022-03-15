@@ -61,12 +61,12 @@ const LearnMorePage = () => {
         <p className="mx-auto mt-2 text-xl mb-14 text-neutral-600 dark:text-neutral-300">
           <strong>{'Email: '}</strong>
           <a
-            href="mailto:hello@clementine.today"
+            href="mailto:hi@clementine.today"
             target="_blank"
             rel="noopener noreferrer"
             className="mx-[1px] rounded bg-neutral-200/70 p-[1px] px-2 hover:bg-neutral-300/70 dark:bg-neutral-700/70 dark:hover:bg-neutral-600/70"
           >
-            {`hello@clementine.today`}
+            {`hi@clementine.today`}
           </a>
         </p>
 

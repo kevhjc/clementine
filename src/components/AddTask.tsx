@@ -34,21 +34,21 @@ const AddTask = ({ userEntries, setUserEntries }: IAddEntryProps) => {
 
     try {
       const taskError = validateTask(newTaskInput);
-      let { data: tasks, error } = await supabase
-        .from('entries')
-        .insert({
-          title: title,
-          user_id: session.user.id,
-          category: 'task',
-        })
-        .single();
-      if (taskError || error) {
+      if (taskError) {
         setHelperText({
           error: true,
           text: taskError,
         });
-        console.log('Error adding task: ', error);
+        console.log('Error adding task: ', taskError);
       } else {
+        let { data: tasks } = await supabase
+          .from('entries')
+          .insert({
+            title: title,
+            user_id: session.user.id,
+            category: 'task',
+          })
+          .single();
         setOpen(false);
         setUserEntries([tasks, ...userEntries]);
         newTaskTitleRef.current.value = '';
@@ -72,7 +72,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddEntryProps) => {
         initialFocus={cancelButtonRef}
         onClose={handleModalClose}
       >
-        <div className="flex min-h-screen items-center justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+        <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -82,7 +82,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddEntryProps) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-neutral-100 backdrop-blur-lg transition-opacity dark:bg-neutral-900" />
+            <Dialog.Overlay className="fixed inset-0 transition-opacity bg-neutral-100 backdrop-blur-lg dark:bg-neutral-900" />
           </Transition.Child>
           <span
             className="hidden sm:inline-block sm:h-screen sm:align-middle"
@@ -100,7 +100,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddEntryProps) => {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div className="inline-block w-[420px] transform overflow-hidden rounded-md border border-neutral-200 bg-white text-left shadow-2xl transition-all sm:my-8 sm:align-middle dark:border-neutral-700/80 dark:bg-neutral-800 dark:text-neutral-100/80">
-              <div className="pl-5 pt-3 pb-2 font-black text-sky-500 dark:text-sky-400">
+              <div className="pt-3 pb-2 pl-5 font-black text-sky-500 dark:text-sky-400">
                 New task
               </div>
               <div className="px-4 pt-2 pb-4">
@@ -114,7 +114,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddEntryProps) => {
                   }
                 />
               </div>
-              <div className="grid grid-cols-1 items-center justify-between border-t bg-white px-4 py-4 dark:border-neutral-700/80 dark:bg-neutral-800/80">
+              <div className="grid items-center justify-between grid-cols-1 px-4 py-4 bg-white border-t dark:border-neutral-700/80 dark:bg-neutral-800/80">
                 <div className="col-start-1">
                   {helperText.error && (
                     <p className="pl-1 text-xs font-bold text-red-600 dark:text-red-500">
@@ -125,7 +125,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddEntryProps) => {
                 <div className="col-end-3">
                   <button
                     type="submit"
-                    className="ml-4 inline-flex w-auto justify-center rounded border border-neutral-200 bg-white px-4 py-1 text-base font-medium text-neutral-700 hover:bg-neutral-100/80 focus:outline-none dark:border-neutral-500 dark:bg-neutral-500 dark:text-white dark:hover:border-neutral-600/80 dark:hover:bg-neutral-600/80"
+                    className="inline-flex justify-center w-auto px-4 py-1 ml-4 text-base font-medium bg-white border rounded border-neutral-200 text-neutral-700 hover:bg-neutral-100/80 focus:outline-none dark:border-neutral-500 dark:bg-neutral-500 dark:text-white dark:hover:border-neutral-600/80 dark:hover:bg-neutral-600/80"
                     onClick={handleModalClose}
                     ref={cancelButtonRef}
                   >
@@ -133,7 +133,7 @@ const AddTask = ({ userEntries, setUserEntries }: IAddEntryProps) => {
                   </button>
                   <button
                     type="button"
-                    className="ml-4 inline-flex w-auto justify-center rounded border border-sky-500 bg-sky-500 px-4 py-1 text-base font-medium text-white hover:border-sky-600 hover:bg-sky-600 focus:outline-none"
+                    className="inline-flex justify-center w-auto px-4 py-1 ml-4 text-base font-medium text-white border rounded border-sky-500 bg-sky-500 hover:border-sky-600 hover:bg-sky-600 focus:outline-none"
                     onClick={addTask}
                   >
                     Add task

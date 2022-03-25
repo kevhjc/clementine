@@ -24,14 +24,16 @@ export const validateUrl = (website: string) => {
 
 export const validateTask = (task: string) => {
   if (!task) {
-    return 'Please enter a task';
+    return 'Task cannot be empty';
   }
   return false;
 };
 
 export const validateNote = (body: string) => {
   if (!body) {
-    return 'Please enter a valid note';
+    return 'Note cannot be empty';
+  } else if (body.length <= 3) {
+    return 'Note must be at longer than 3 characters';
   }
   return false;
 };

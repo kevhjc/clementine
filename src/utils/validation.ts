@@ -31,9 +31,9 @@ export const validateTask = (task: string) => {
 
 export const validateNote = (body: string) => {
   if (!body) {
-    return 'Note cannot be empty';
+    return 'Body cannot be empty';
   } else if (body.length <= 3) {
-    return 'Note must be at longer than 3 characters';
+    return 'Body must be longer than 3 characters';
   }
   return false;
 };

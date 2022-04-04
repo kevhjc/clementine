@@ -47,24 +47,13 @@ const LearnMorePage = () => {
         <h1 className="mt-4 text-3xl font-black leading-8 tracking-tight sm:text-5xl">
           Questions or feedback?
         </h1>
-        <p className="mx-auto mt-4 text-xl text-neutral-600 dark:text-neutral-300">
-          <strong>{'Twitter: '}</strong>
-          <a
-            href="https://twitter.com/clementine_hi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mx-[1px] rounded bg-neutral-200/70 p-[1px] px-2 hover:bg-neutral-300/70 dark:bg-neutral-700/70 dark:hover:bg-neutral-600/70"
-          >
-            {`@clementine_hi`}
-          </a>
-        </p>
-        <p className="mx-auto mt-2 text-xl mb-14 text-neutral-600 dark:text-neutral-300">
-          <strong>{'Email: '}</strong>
+        <p className="mx-auto mt-4 text-xl mb-14 text-neutral-600 dark:text-neutral-300">
+          Reach out via email to{' '}
           <a
             href="mailto:hi@clementine.today"
             target="_blank"
             rel="noopener noreferrer"
-            className="mx-[1px] rounded bg-neutral-200/70 p-[1px] px-2 hover:bg-neutral-300/70 dark:bg-neutral-700/70 dark:hover:bg-neutral-600/70"
+            className="mx-[1px] rounded bg-neutral-200/70 p-[1px] hover:bg-neutral-300/70 dark:bg-neutral-700/70 dark:hover:bg-neutral-600/70"
           >
             {`hi@clementine.today`}
           </a>
